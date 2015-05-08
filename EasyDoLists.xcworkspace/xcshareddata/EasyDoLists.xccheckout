@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0C5BEF4D-7825-445E-B13E-B4C6A1686C6F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EasyDoLists</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EDC5AC5A60950DBC966DCF1735C165D211EA82CC</key>
+		<string>github.com:kyawmyintthein/easy-dolists-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EasyDoLists.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EDC5AC5A60950DBC966DCF1735C165D211EA82CC</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:kyawmyintthein/easy-dolists-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EDC5AC5A60950DBC966DCF1735C165D211EA82CC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EDC5AC5A60950DBC966DCF1735C165D211EA82CC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EasyDoLists</string>
+		</dict>
+	</array>
+</dict>
+</plist>

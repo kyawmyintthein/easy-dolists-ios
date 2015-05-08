@@ -8,44 +8,80 @@
 
 #import <UIKit/UIKit.h>
 #import "ToDoViewController.h"
-#import "ASWeekSelectorView.h"
+//#import "ASWeekSelectorView.h"
 #import "BFPaperButton.h"
 #import "TaskCell.h"
 #import "SCLAlertView.h"
-
+#import "JTCalendar.h"
 static NSString * const kEDLHome = @"To Do List";
 
-@interface ToDoViewController()<ASWeekSelectorViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
+@property (strong, nonatomic) IBOutlet UIButton *changeModeButton;
 @property (strong, nonatomic) IBOutlet UITableView *tasksTableView;
-@property (strong, nonatomic) IBOutlet ASWeekSelectorView *weekSelector;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet JTCalendarMenuView *weeMenuView;
 @property (strong, nonatomic) NSMutableArray *tasks;
 @property (weak, nonatomic) UITextView *todoTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
+@property (strong, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
+@property (strong, nonatomic) JTCalendar *calendar;
 
 @end
 
 
 @implementation ToDoViewController
-@synthesize weekSelector;
-
+//@synthesize weekSelector;
+ NSMutableDictionary *eventsByDate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.tasks =[[NSMutableArray alloc]init];
-    [self.tasks addObjectsFromArray: @[@"To do exercise regulary",@"To eat regularly",@"To sleep regularly"]];
+    [self.tasks addObjectsFromArray: @[@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly"]];
     self.navigationItem.title = kEDLHome;
-    NSDate *now = [NSDate date];
-    self.weekSelector.firstWeekday = 2; // monday
-    self.weekSelector.backgroundColor = [UIColor whiteColor];
-    
-    self.weekSelector.letterTextColor = [UIColor colorWithWhite:0.5 alpha:1];
-    self.weekSelector.delegate = self;
-    self.weekSelector.selectedDate = now;
+
+    self.changeModeButton.tintColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
+    self.changeModeButton.titleLabel.text = @"Chage Calendar View";
+    self.calendar = [JTCalendar new];
+    // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
+    // Or you will have to call reloadAppearance
+    {
+        self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Sunday == 1, Saturday == 7
+        self.calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
+        self.calendar.calendarAppearance.ratioContentMenu = 2.;
+        self.calendar.calendarAppearance.focusSelectedDayChangeMode = YES;
+        self.calendar.calendarAppearance.isWeekMode = YES;
+        self.calendar.calendarAppearance.menuMonthTextColor =[UIColor whiteColor];
+        
+        // Customize the text for each month
+        self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
+            NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
+            NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
+            NSInteger currentMonthIndex = comps.month;
+            
+            static NSDateFormatter *dateFormatter;
+            if(!dateFormatter){
+                dateFormatter = [NSDateFormatter new];
+                dateFormatter.timeZone = jt_calendar.calendarAppearance.calendar.timeZone;
+            }
+            
+            while(currentMonthIndex <= 0){
+                currentMonthIndex += 12;
+            }
+            
+            NSString *monthText = [[dateFormatter standaloneMonthSymbols][currentMonthIndex - 1] capitalizedString];
+            
+            return [NSString stringWithFormat:@"%ld\n%@", comps.year, monthText];
+        };
+    }
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, self.scrollView.bounds.size.height*3)];
+
+    [self.calendar setMenuMonthsView:self.weeMenuView];
+    [self.calendar setContentView:self.calendarContentView];
+    [self.calendar setDataSource:self];
+    [self createRandomEvents];
+    [self.calendar reloadData];
     self.view.backgroundColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
-    
-//    
-//    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(editButtonPressed:)];
-//    editButton.image= [UIImage imageNamed:@"Delete Column Filled-25"];
-//    
+
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(todayButtonPressed:)];
     todayButton.image= [UIImage imageNamed:@"Today Filled-25"];
     //self.navigationItem.rightBarButtonItem = editButton;
@@ -64,6 +100,7 @@ static NSString * const kEDLHome = @"To Do List";
     addNoteButton.tapCircleDiameter = MAX(addNoteButton.frame.size.width, addNoteButton.frame.size.height) * 1.3;
     [self.view addSubview:addNoteButton];
     
+
    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tasksTableView.backgroundColor = [UIColor clearColor];
@@ -71,9 +108,25 @@ static NSString * const kEDLHome = @"To Do List";
     self.tasksTableView.delegate = self;
     self.tasksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tasksTableView.allowsMultipleSelectionDuringEditing = NO;
+    
+//    self.calendarContentViewHeight.constant = 75;
+//    [self.calendarContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView
+//                                                       attribute:NSLayoutAttributeHeight
+//                                                       relatedBy:NSLayoutRelationEqual
+//                                                          toItem:nil
+//                                                       attribute:NSLayoutAttributeNotAnAttribute
+//                                                      multiplier:1.0
+//                                                        constant:74.0]];
+//    [self.calendarContentView reloadAppearance];
+//    [self.calendarContentView setContentSize:CGSizeMake(self.scrollView.frame.size.width,75)];
+//    [self.calendarContentView addConstraint:self.calendarContentViewHeight];
+    NSLog(@"dfa %@",self.calendarContentView.constraints);
 
 }
 
+-(void) viewDidAppear:(BOOL)animated{
+   [self transitionExample];
+}
 
 - (IBAction)pressedaddNoteButton:(id)sender {
     SCLAlertView *alert = [[SCLAlertView alloc] init];
@@ -96,9 +149,8 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)todayButtonPressed:(UIBarButtonItem *)sender
 {
     NSDate *now = [NSDate date];
-    [self.weekSelector setSelectedDate:now animated:YES];
+ //   [self.weekSelector setSelectedDate:now animated:YES];
 }
-
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
@@ -199,6 +251,128 @@ static NSString * const kEDLHome = @"To Do List";
 //    return proposedDestinationIndexPath;
 //}
 
+
+- (IBAction)didGoTodayTouch
+{
+    [self.calendar setCurrentDate:[NSDate date]];
+}
+
+- (IBAction)didChangeModeTouch
+{
+    self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
+    [self transitionExample];
+}
+
+#pragma mark - JTCalendarDataSource
+
+- (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
+{
+    NSString *key = [[self dateFormatter] stringFromDate:date];
+    
+    if(eventsByDate[key] && [eventsByDate[key] count] > 0){
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
+{
+    NSString *key = [[self dateFormatter] stringFromDate:date];
+    NSArray *events = eventsByDate[key];
+    
+    NSLog(@"Date: %@ - %ld events", date, [events count]);
+}
+
+- (void)calendarDidLoadPreviousPage
+{
+    NSLog(@"Previous page loaded");
+}
+
+- (void)calendarDidLoadNextPage
+{
+    NSLog(@"Next page loaded");
+}
+
+#pragma mark - Transition examples
+
+- (void)transitionExample
+{
+    [self.calendarContentView removeConstraints:self.calendarContentView.constraints];
+    CGFloat newHeight = 300;
+    if(self.calendar.calendarAppearance.isWeekMode){
+        newHeight = 75;
+    }
+    
+    [UIView animateWithDuration:.5
+                     animations:^{
+//                         self.calendarContentViewHeight.constant = newHeight;
+                         [self.calendarContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView
+                                                                                              attribute:NSLayoutAttributeHeight
+                                                                                              relatedBy:NSLayoutRelationEqual
+                                                                                                 toItem:nil
+                                                                                              attribute:NSLayoutAttributeNotAnAttribute
+                                                                                             multiplier:1.0
+                                                                                               constant:newHeight]];
+                            [self.view layoutIfNeeded];
+                         
+//                         [self.tasksTableView addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView
+//                                                                                              attribute:NSLayoutAttributeTop
+//                                                                                              relatedBy:NSLayoutRelationEqual
+//                                                                                                 toItem:self.calendarContentView
+//                                                                                              attribute:NSLayoutAttributeNotAnAttribute
+//                                                                                             multiplier:1.0
+//                                                                                               constant:10]];
+                         [self.view layoutIfNeeded];
+                        
+                     }];
+    
+    [UIView animateWithDuration:.25
+                     animations:^{
+                         self.calendarContentView.layer.opacity = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         [self.calendar reloadAppearance];
+                         
+                         [UIView animateWithDuration:.25
+                                          animations:^{
+                                              self.calendarContentView.layer.opacity = 1;
+                                          }];
+                     }];
+     NSLog(@"dfa %@",self.calendarContentView.constraints);
+}
+
+#pragma mark - Fake data
+
+- (NSDateFormatter *)dateFormatter
+{
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"dd-MM-yyyy";
+    }
+    
+    return dateFormatter;
+}
+
+- (void)createRandomEvents
+{
+    eventsByDate = [NSMutableDictionary new];
+    
+    for(int i = 0; i < 30; ++i){
+        // Generate 30 random dates between now and 60 days later
+        NSDate *randomDate = [NSDate dateWithTimeInterval:(rand() % (3600 * 24 * 60)) sinceDate:[NSDate date]];
+        
+        // Use the date as key for eventsByDate
+        NSString *key = [[self dateFormatter] stringFromDate:randomDate];
+        
+        if(!eventsByDate[key]){
+            eventsByDate[key] = [NSMutableArray new];
+        }
+        
+        [eventsByDate[key] addObject:randomDate];
+    }
+}
 
 
 @end
