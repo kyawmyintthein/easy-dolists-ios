@@ -1,0 +1,1843 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02A2DD6D8A2620D47963C72A /* POPAnimationExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = FBB814BE978B9D8DD642406A /* POPAnimationExtras.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0381BDCE336D096F6361B323 /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9621624CBE590768E9711FD /* POPAnimatableProperty.mm */; };
+		05E940A37B28947BD65CF827 /* JTCalendarAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CE7A520A36710A5E94220F8 /* JTCalendarAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06077F7AF56DF6A0EBE9933A /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D925781E9FC3EDDBB7D654 /* TransformationMatrix.cpp */; };
+		06B05A502FFC3FBD0574B4E3 /* POPBasicAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D88E249781283D42B226CC1 /* POPBasicAnimationInternal.h */; };
+		105DF85485FB0203E9C16420 /* FloatConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = F640017019D9605EA56113D4 /* FloatConversion.h */; };
+		1112461B27CC0A9E8DA80736 /* JTCalendarDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2999587CDA2B51D1EE4C69 /* JTCalendarDataCache.m */; };
+		112D92FBCC6BCDFDDEBC225E /* Pods-EasyDoLists-VBFPopFlatButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AFFD0EC69164ACA7050A20 /* Pods-EasyDoLists-VBFPopFlatButton-dummy.m */; };
+		13483E0817160A1DCF830C64 /* JTCircleView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3CE29ED6089B570496D1019 /* JTCircleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		135C1CAF169E7E351A8E7FEC /* POPCGUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00CA6544BE3B664440B58FA9 /* POPCGUtils.mm */; };
+		147F83DA12E6936ACD1D3768 /* POPPropertyAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = CB18A7C2584647A2519BDFC8 /* POPPropertyAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16B67D962C28CE9D28B38C4D /* POPMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD385746A890BD09D2B83EFF /* POPMath.mm */; };
+		17BC23D91C6CA017BC66E86B /* POPDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 92619C6CAF164F8171A0F611 /* POPDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18809211418515E15B8C401D /* Pods-EasyDoLists-pop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F72665BEF35E93A43A253652 /* Pods-EasyDoLists-pop-dummy.m */; };
+		1A531EC76ED420FE00B4404B /* POPSpringAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3216A4DF89F686347151ACB7 /* POPSpringAnimationInternal.h */; };
+		1DDFB336FC90F720349AF607 /* POPAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 79AAAC975B4E4A44461FA9A7 /* POPAction.h */; };
+		1EEF51F56A19A0E027562664 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CC11BEA124BD0CAEEDE76B /* SCLAlertView.m */; };
+		270515A85DBCCDD031E4DBD2 /* VBFDoubleSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CE3C7915748786DC287E /* VBFDoubleSegment.m */; };
+		272DDED91D93901771716FA3 /* Pods-EasyDoLists-UIColor+BFPaperColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF98D11B2FDC8FA8F20FC4E /* Pods-EasyDoLists-UIColor+BFPaperColors-dummy.m */; };
+		274AF5E8D632D4042D58CAE7 /* POPAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 07197AA7491469851B2660DB /* POPAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2781658750BA3480C74CFFCE /* POPVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C685C4B04CF0214BA9A6BF4 /* POPVector.h */; };
+		280916EA07BCD3DB83286BA9 /* JTCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6A7C1A6E46FB6E634D8ED1 /* JTCalendarMonthView.m */; };
+		280FBF04896492F85D56B3EB /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E43CF27C69576F99DEE2A2 /* JTCalendarDayView.m */; };
+		2A797C900CB3FC5A8162B6BE /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F422C4AE6E11E2A2D1C316 /* JTCircleView.m */; };
+		2B321206009E7D4E5EB92F07 /* POPSpringAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = C2FC65898587F5205972D734 /* POPSpringAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B49A5BECE6A09F599CB972B /* JTCalendarMonthWeekDaysView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6BBA96CE837CE2CE80AB55 /* JTCalendarMonthWeekDaysView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32E1B8A2EC2225D1CFF29267 /* JTCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CBDCD0FCCB76F780FF292B /* JTCalendarMonthWeekDaysView.m */; };
+		344CDD08884DF4B62A91F672 /* JTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = BF80969130D29B3765407351 /* JTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		352DFF78A11B9F58807C9C42 /* POPAnimatorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = FBC54D95E18606874D552F40 /* POPAnimatorPrivate.h */; };
+		378CEBFB96D93B42D8684CDA /* POP.h in Headers */ = {isa = PBXBuildFile; fileRef = C8476FEDAA2B9663C3B0FBF7 /* POP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A619A311C865E3C10C0D54A /* UIColor+BFPaperColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 49601F359E32FC0F845876C9 /* UIColor+BFPaperColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4153D8B6DC2284144354EE2C /* POPGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = B47AD09897C42C77156B6696 /* POPGeometry.mm */; };
+		428D940767BB468782D24AAB /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4D3226BAEE4AD3F2AAA66B /* JTCalendarContentView.m */; };
+		46D6D50C84ABD9322987DAA1 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7EF22E208608631BA7B63 /* JTCalendar.m */; };
+		481C4B0129438704D2C773AB /* UIColor+BFPaperColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 26DCE29382A35976B6E3C7DA /* UIColor+BFPaperColors.m */; };
+		48B8D4C885ACC2A598BAFC10 /* POPAnimationRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 8682E5B972297ABEE318A690 /* POPAnimationRuntime.h */; };
+		4B6E6982F02A6A2ABB6636F6 /* POPAnimationTracerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 982D18EE5CAFB6109282A123 /* POPAnimationTracerInternal.h */; };
+		4BA50CDC89DE9C968DE6923E /* POPSpringAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98121A1A28198857500C6DDF /* POPSpringAnimation.mm */; };
+		4C875C262A784FA4193761FD /* POPAnimationTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DB2859202D149B17EEB43AD /* POPAnimationTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D910A19C287969D51D3D22A /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA5C3C5913D103F198DD3E2 /* JTCalendarAppearance.m */; };
+		4DA9B6A2D376284E1705B99C /* POPMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1474AED83DD31227DB57EDE2 /* POPMath.h */; };
+		4EF0EF06B13BB63DCE17109B /* POPAnimationEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28731FAF9457118552D83EE3 /* POPAnimationEvent.mm */; };
+		518D7698D23E405BBC5C0858 /* Pods-EasyDoLists-BFPaperButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A10402B8C60E65B2075B933B /* Pods-EasyDoLists-BFPaperButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		564F9BCFB5778E1B51E3DE0B /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3C342724D1C796805847E0 /* SCLAlertViewResponder.m */; };
+		574A4DB3CEBF8D0A27986911 /* SCLButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 56100F7D84DD9B185F98CCCC /* SCLButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5824729E9F868C9FDDF2CEE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		586EED01095CA8713C49BD9F /* Pods-EasyDoLists-BFPaperButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE723E9FBA7A396A065BAA /* Pods-EasyDoLists-BFPaperButton-dummy.m */; };
+		675D113522896E99A3B728C1 /* POPAnimationTracer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D38701072CED34B6FFDE7386 /* POPAnimationTracer.mm */; };
+		69C88039668C94D043465973 /* JTCalendarDataCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BCA16496D085E727D6A35662 /* JTCalendarDataCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69F7AF608D4B86E447948BD7 /* POPCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 67EB345A40E17399972C6F83 /* POPCGUtils.h */; };
+		6B2C4CC9C78C9902A7C2E92E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEAA0F6CC16DC469E9ED1A4 /* UIImage+ImageEffects.m */; };
+		6D3AC0C9BB88F3BA72F8E1CE /* POPLayerExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = FF2D3534C503B250A60B0504 /* POPLayerExtras.mm */; };
+		6DA906827A34C56125B144DF /* TransformationMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = E4E509EC3B9C3F9DEDF92FCF /* TransformationMatrix.h */; };
+		7524AFBECDA4C45B7233850A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		7596B5C03F8AFF6C20B8A8A2 /* UnitBezier.h in Headers */ = {isa = PBXBuildFile; fileRef = 83F504A5AD66691715BA38F0 /* UnitBezier.h */; };
+		7735C37600AD5BCC2FE09ACE /* JTCalendarMenuMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = C351AFBA7E771D6879B5E368 /* JTCalendarMenuMonthView.m */; };
+		7890391B3B4CA3651F3FCBA7 /* POPAnimationRuntime.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8B0FCE47B8E79553BBFAF08 /* POPAnimationRuntime.mm */; };
+		7960FC256248BDCDEA10F878 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		7EA30819FD0C4791BDD120A6 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CAFA90DBCD23309102F3D /* JTCalendarWeekView.m */; };
+		84B61B9DB59CB7F3F97073DB /* JTCalendarWeekView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9400B82C0CCB96CD7B0C4787 /* JTCalendarWeekView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8517FD9C2697E3B6857DB09D /* SCLAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F654AF68D409A161250AD78 /* SCLAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8593587131F158F1E86D7F9F /* BFPaperButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 672AA72F7E5DDB211A27640F /* BFPaperButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86A5828A241372FB7D31658D /* POPAnimationEventInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 595C1C7FD8719FEC35A0B752 /* POPAnimationEventInternal.h */; };
+		8989D041CE8BD0B284ED6875 /* SCLAlertViewResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = FE940B2CE018098576276191 /* SCLAlertViewResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A2238B3877EF96D1F51ECCF /* POPAnimationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 08764F7635DDC9C61F00A08A /* POPAnimationEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B166CFC20EFCE1293A66CAC /* Pods-EasyDoLists-UIColor+FlatColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 092D8FA512C1BC60B530D4C1 /* Pods-EasyDoLists-UIColor+FlatColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BA90A90A5B1BF6E94EB42B7 /* UIColor+FlatColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 39B6E87ED2C1C62FC272B6C8 /* UIColor+FlatColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C93A7DCEA77A651821EC01D /* Pods-EasyDoLists-JTCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A15B934222E1007F4AFEC87 /* Pods-EasyDoLists-JTCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91F7BFE3CC8273DF8A6BBFEA /* SCLAlertViewStyleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FC874ECD14537E6F5DECA572 /* SCLAlertViewStyleKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96A6F96AE38A0748746F9DCA /* POPAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1EED35DCEC3377AA8C6E2E41 /* POPAnimation.mm */; };
+		96E964F2CD3D1991736ADF10 /* POPDecayAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EE94D096E8C0FC20ECE9A2A /* POPDecayAnimationInternal.h */; };
+		9793097B2791F2F05AD342FB /* POPAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9F1EF8F645195FB72AB6C7F /* POPAnimator.mm */; };
+		9C4919EC3E51DA49C3A6F3CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		9E639B86023CACACF6E17EC8 /* POPCustomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2C80578495CCA787A961AB /* POPCustomAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FDC1D2FB7463C8270E95A38 /* POPGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 20C4B4DABA290A39457E8849 /* POPGeometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2E1FD9CD5249C7FA538A0F8 /* Pods-EasyDoLists-JTCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1509050BE5B6F001508894E7 /* Pods-EasyDoLists-JTCalendar-dummy.m */; };
+		A4FAA258FD15292E0FD41487 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADECCB5590F5AE8E2D20D36 /* SCLButton.m */; };
+		A7B1F781A49C7897D3B610BD /* Pods-EasyDoLists-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD48697B14321999579B372 /* Pods-EasyDoLists-dummy.m */; };
+		A9C3C901B8CB2EF94045C47E /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 581920D0B3B238397DE8F8A8 /* JTCalendarMenuView.m */; };
+		AA1A4C2240D170778CCF7025 /* VBFPopFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5031CAACA3FC852244B6E5E6 /* VBFPopFlatButton.m */; };
+		AC38456D041BDAE4E9258960 /* VBFPopFlatButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 25EBBCB3CBC71B30CEDFA6C3 /* VBFPopFlatButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACD9FB1EA5CAA7E05AB7615E /* JTCalendarMonthView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E10A0E44553915FC6DF2276 /* JTCalendarMonthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD7F2BCDF886E17F29946720 /* POPBasicAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1EE3B7251AC8D5DC5E843098 /* POPBasicAnimation.mm */; };
+		AEE273B83B6AE910162E7A11 /* SCLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0725511CDBE674B4019701C8 /* SCLMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF7833A6DB56C3BC395C5EC6 /* JTCalendarDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = E2DE9B2D498120E6CC1F8CF1 /* JTCalendarDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B081F0AF733A2D6459DD021C /* POPAnimationExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6DEC16CA36B543E04ACDB /* POPAnimationExtras.mm */; };
+		B0E2FB8B00953A3D1D8C0DF0 /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 608563D84F71772DEBEB381D /* POPCustomAnimation.mm */; };
+		B4FA111D9B8A6C18D2FF8D7E /* Pods-EasyDoLists-VBFPopFlatButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6880DF3BEBBA91DF11F065 /* Pods-EasyDoLists-VBFPopFlatButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B711CFE9CF1FA9A3FB813BDF /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDE14EBFF6E3334AF969C9C /* pop.framework */; };
+		B92C79B56CF808234BDB3574 /* POPBasicAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = F668B872AB9C595544642461 /* POPBasicAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9E47128CECD7FCBD6AFAB60 /* Pods-EasyDoLists-SCLAlertView-Objective-C-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D9EEEBD869931D25C2300C /* Pods-EasyDoLists-SCLAlertView-Objective-C-dummy.m */; };
+		BC5BC40E04A64323F39AD163 /* POPLayerExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A26AEC16DA2A1068C3794EF /* POPLayerExtras.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C17BF60588CE30470182EC51 /* Pods-EasyDoLists-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F653C186AEDB5E9F62C36B7 /* Pods-EasyDoLists-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C18EA12A898AB8CCC07D6FF9 /* POPAnimationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1B0BA7584A7E64BDA5B3A3 /* POPAnimationPrivate.h */; };
+		C334BD5007C0E64E5F0534B9 /* POPAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A7AA52657C4EA44EADA4AC5B /* POPAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C77B7C78CB7BDA6B4CAE74D5 /* POPSpringSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = B57D5B6E722947CC2A199EFD /* POPSpringSolver.h */; };
+		C8F2C77AE035BD0AB8262D45 /* VBFDoubleSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = AE48E4F7B7AB0265ECB5B307 /* VBFDoubleSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEB2F782075C12CB64EBB29D /* Pods-EasyDoLists-UIColor+BFPaperColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 98306100960B4AA1905170E9 /* Pods-EasyDoLists-UIColor+BFPaperColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0FFB00CF496578C5E0A2031 /* POPAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A49C3DA6D027F21BB76A5B1 /* POPAnimationInternal.h */; };
+		D10962541C3230EEF94F4480 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		D151489B6F6283C06F799008 /* JTCalendarMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66FD1141B22CDDE7632D6DCF /* JTCalendarMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1FB5233C16BBD107C030BF9 /* POPPropertyAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7CB059B1A9760D5F38BBEDB9 /* POPPropertyAnimation.mm */; };
+		D37E264528B3A417EA47F483 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A327E78B410C2B1B936A030 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5D82DEC1271A513D1CB06E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		D82F568734E5246C8627B557 /* Pods-EasyDoLists-UIColor+FlatColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5767DDD47F229440F202B84F /* Pods-EasyDoLists-UIColor+FlatColors-dummy.m */; };
+		DF2CA01700F7B075D76639E6 /* UIColor_BFPaperColors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EBBD00F7BE12B303FF6A92 /* UIColor_BFPaperColors.framework */; };
+		DFB5DF0B28C84A9C3E22E189 /* Pods-EasyDoLists-pop-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C4EDF7EBE8CEA5AB5376EEC /* Pods-EasyDoLists-pop-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFF9333D1E69362974D60EBC /* JTCalendarViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC788F085C7208DC9CF5B4A /* JTCalendarViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6342B5E4C49596676E8802D /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C81734EA532558FF8F2AD9 /* UIColor+FlatColors.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EA5C363245518124FDF679A8 /* POPDecayAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FBCEB50B4BF70DEE1A255D99 /* POPDecayAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EAF183E61280ADAE35113135 /* JTCalendarMenuMonthView.h in Headers */ = {isa = PBXBuildFile; fileRef = B62BFFA378586A56F1291DFF /* JTCalendarMenuMonthView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EED3D8D5BDFAC935AEA07E9F /* Pods-EasyDoLists-SCLAlertView-Objective-C-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41670E3D78537E40585AE1AE /* Pods-EasyDoLists-SCLAlertView-Objective-C-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1385543A4B88C916B6E918F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		F38DFAE00FD7462EF5F8F4C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */; };
+		F703DD79131700CA2E9FECEE /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C85BB09E54513050656E7E /* SCLAlertViewStyleKit.m */; };
+		F81AF394F632EB4233B5F103 /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2473F6B339B88D5A18F0FB0A /* POPVector.mm */; };
+		FA2A9414048DE96AAB46668A /* POPPropertyAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CCDD4F1484C23DDB090746 /* POPPropertyAnimationInternal.h */; };
+		FCBCDCC22123941CB2E2CE73 /* JTCalendarContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A0F974FC6BE4BC1E2A83B5A /* JTCalendarContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD6740B8FB7BA6328A16CB09 /* POPDecayAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 538220FFD90CEC93C276B5EB /* POPDecayAnimation.mm */; };
+		FF5F25DF22F6BC80B5E478F7 /* BFPaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6BEE3B7D2EE90DDBE219F /* BFPaperButton.m */; };
+		FFF7D337EF82B72873813879 /* POPAnimatableProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 2726A663412305EC1D4FA9D4 /* POPAnimatableProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20F73CAFC97129862A78C660 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 300EA505CE5653DB2E32D8FE;
+			remoteInfo = "Pods-EasyDoLists-UIColor+BFPaperColors";
+		};
+		220D4A2BBA29EDFF8CBA1979 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 300EA505CE5653DB2E32D8FE;
+			remoteInfo = "Pods-EasyDoLists-UIColor+BFPaperColors";
+		};
+		3F42F51E19E60A9FB3F84AA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53172BD3EEAF8A95307D06F4;
+			remoteInfo = "Pods-EasyDoLists-SCLAlertView-Objective-C";
+		};
+		539BDABBD9F3150054498AE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C89EE042CF2F8422FD6A2D1;
+			remoteInfo = "Pods-EasyDoLists-pop";
+		};
+		65A8335A211DA131CF2FBDEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20C9C81D91D525FBA0FFEF6D;
+			remoteInfo = "Pods-EasyDoLists-JTCalendar";
+		};
+		934AD215F67B7F5F4863C3B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2D67C12BE86A87DB4346A00;
+			remoteInfo = "Pods-EasyDoLists-BFPaperButton";
+		};
+		B253593C5C5B756466D5696E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF7A8BFF87FDE96517C90B25;
+			remoteInfo = "Pods-EasyDoLists-UIColor+FlatColors";
+		};
+		E750932E535539675754B3D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C89EE042CF2F8422FD6A2D1;
+			remoteInfo = "Pods-EasyDoLists-pop";
+		};
+		FD8CC7CFB36F33686E581D73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D624161A2E064160C5F7B878;
+			remoteInfo = "Pods-EasyDoLists-VBFPopFlatButton";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00CA6544BE3B664440B58FA9 /* POPCGUtils.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCGUtils.mm; path = pop/POPCGUtils.mm; sourceTree = "<group>"; };
+		00ED6C5D847E3B7B16EE86A0 /* Pods-EasyDoLists-SCLAlertView-Objective-C.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-SCLAlertView-Objective-C.xcconfig"; sourceTree = "<group>"; };
+		07197AA7491469851B2660DB /* POPAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimator.h; path = pop/POPAnimator.h; sourceTree = "<group>"; };
+		0722B83EC0375B002C2828ED /* Pods-EasyDoLists-JTCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-JTCalendar-prefix.pch"; sourceTree = "<group>"; };
+		0725511CDBE674B4019701C8 /* SCLMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLMacros.h; path = SCLAlertView/SCLMacros.h; sourceTree = "<group>"; };
+		08764F7635DDC9C61F00A08A /* POPAnimationEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationEvent.h; path = pop/POPAnimationEvent.h; sourceTree = "<group>"; };
+		092D8FA512C1BC60B530D4C1 /* Pods-EasyDoLists-UIColor+FlatColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-UIColor+FlatColors-umbrella.h"; sourceTree = "<group>"; };
+		0A6BBA96CE837CE2CE80AB55 /* JTCalendarMonthWeekDaysView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMonthWeekDaysView.h; path = JTCalendar/JTCalendarMonthWeekDaysView.h; sourceTree = "<group>"; };
+		0AC7EF22E208608631BA7B63 /* JTCalendar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendar.m; path = JTCalendar/JTCalendar.m; sourceTree = "<group>"; };
+		0D4D3226BAEE4AD3F2AAA66B /* JTCalendarContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarContentView.m; path = JTCalendar/JTCalendarContentView.m; sourceTree = "<group>"; };
+		0FD48697B14321999579B372 /* Pods-EasyDoLists-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-dummy.m"; sourceTree = "<group>"; };
+		118DF14ADDAD02BE528902D5 /* Pods-EasyDoLists-SCLAlertView-Objective-C-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-SCLAlertView-Objective-C-prefix.pch"; sourceTree = "<group>"; };
+		13E31E515404D22240928F81 /* Pods-EasyDoLists-VBFPopFlatButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-VBFPopFlatButton.xcconfig"; sourceTree = "<group>"; };
+		1474AED83DD31227DB57EDE2 /* POPMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPMath.h; path = pop/POPMath.h; sourceTree = "<group>"; };
+		1509050BE5B6F001508894E7 /* Pods-EasyDoLists-JTCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-JTCalendar-dummy.m"; sourceTree = "<group>"; };
+		1840C53226C3CFBB645A0EBA /* Pods-EasyDoLists-pop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-pop.modulemap"; sourceTree = "<group>"; };
+		1B2999587CDA2B51D1EE4C69 /* JTCalendarDataCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDataCache.m; path = JTCalendar/JTCalendarDataCache.m; sourceTree = "<group>"; };
+		1B2C80578495CCA787A961AB /* POPCustomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPCustomAnimation.h; path = pop/POPCustomAnimation.h; sourceTree = "<group>"; };
+		1BC6DEC16CA36B543E04ACDB /* POPAnimationExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationExtras.mm; path = pop/POPAnimationExtras.mm; sourceTree = "<group>"; };
+		1C685C4B04CF0214BA9A6BF4 /* POPVector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPVector.h; path = pop/POPVector.h; sourceTree = "<group>"; };
+		1DA373CADC2703FAF513FDD6 /* Pods-EasyDoLists-UIColor+BFPaperColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-UIColor+BFPaperColors.xcconfig"; sourceTree = "<group>"; };
+		1EE3B7251AC8D5DC5E843098 /* POPBasicAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPBasicAnimation.mm; path = pop/POPBasicAnimation.mm; sourceTree = "<group>"; };
+		1EED35DCEC3377AA8C6E2E41 /* POPAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimation.mm; path = pop/POPAnimation.mm; sourceTree = "<group>"; };
+		20C4B4DABA290A39457E8849 /* POPGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPGeometry.h; path = pop/POPGeometry.h; sourceTree = "<group>"; };
+		24701977D7A0D9CB564F9108 /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2473F6B339B88D5A18F0FB0A /* POPVector.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPVector.mm; path = pop/POPVector.mm; sourceTree = "<group>"; };
+		25EBBCB3CBC71B30CEDFA6C3 /* VBFPopFlatButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VBFPopFlatButton.h; path = VBFPopFlatButton/VBFPopFlatButtonClasses/VBFPopFlatButton.h; sourceTree = "<group>"; };
+		26DCE29382A35976B6E3C7DA /* UIColor+BFPaperColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+BFPaperColors.m"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.m"; sourceTree = "<group>"; };
+		2726A663412305EC1D4FA9D4 /* POPAnimatableProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatableProperty.h; path = pop/POPAnimatableProperty.h; sourceTree = "<group>"; };
+		28731FAF9457118552D83EE3 /* POPAnimationEvent.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationEvent.mm; path = pop/POPAnimationEvent.mm; sourceTree = "<group>"; };
+		2C4EDF7EBE8CEA5AB5376EEC /* Pods-EasyDoLists-pop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-pop-umbrella.h"; sourceTree = "<group>"; };
+		2E10A0E44553915FC6DF2276 /* JTCalendarMonthView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMonthView.h; path = JTCalendar/JTCalendarMonthView.h; sourceTree = "<group>"; };
+		3216A4DF89F686347151ACB7 /* POPSpringAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringAnimationInternal.h; path = pop/POPSpringAnimationInternal.h; sourceTree = "<group>"; };
+		327ECD714995BD2EA2850CC1 /* UIColor_FlatColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIColor_FlatColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E18D4AB1DE8B78DE4963CB /* Pods-EasyDoLists-BFPaperButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-BFPaperButton-prefix.pch"; sourceTree = "<group>"; };
+		36BF34669DA534E36267B22D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39B6E87ED2C1C62FC272B6C8 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatColors.h"; path = "UIColor+FlatColors/UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		39CC11BEA124BD0CAEEDE76B /* SCLAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertView.m; path = SCLAlertView/SCLAlertView.m; sourceTree = "<group>"; };
+		3A15B934222E1007F4AFEC87 /* Pods-EasyDoLists-JTCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-JTCalendar-umbrella.h"; sourceTree = "<group>"; };
+		3A327E78B410C2B1B936A030 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "SCLAlertView/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		3B633F1C071BC01EC9F9243D /* Pods-EasyDoLists-pop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-pop-prefix.pch"; sourceTree = "<group>"; };
+		3DF0242853EDF6C226319AFC /* VBFPopFlatButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VBFPopFlatButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E4808B4FB63FBCA8EF5F5D0 /* SCLAlertView_Objective_C.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCLAlertView_Objective_C.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F653C186AEDB5E9F62C36B7 /* Pods-EasyDoLists-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-umbrella.h"; sourceTree = "<group>"; };
+		3F946942D89B1D961B655F30 /* Pods-EasyDoLists-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EasyDoLists-resources.sh"; sourceTree = "<group>"; };
+		41670E3D78537E40585AE1AE /* Pods-EasyDoLists-SCLAlertView-Objective-C-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-SCLAlertView-Objective-C-umbrella.h"; sourceTree = "<group>"; };
+		49601F359E32FC0F845876C9 /* UIColor+BFPaperColors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+BFPaperColors.h"; path = "UIColor+BFPaperColors/UIColor+BFPaperColors.h"; sourceTree = "<group>"; };
+		49C85BB09E54513050656E7E /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewStyleKit.m; path = SCLAlertView/SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		4C68B2A3BC8B6457295F5A9F /* Pods-EasyDoLists-BFPaperButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-BFPaperButton.modulemap"; sourceTree = "<group>"; };
+		4C9678AEC3A855EA9EB2B290 /* Pods-EasyDoLists-SCLAlertView-Objective-C-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-SCLAlertView-Objective-C-Private.xcconfig"; sourceTree = "<group>"; };
+		4F654AF68D409A161250AD78 /* SCLAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertView.h; path = SCLAlertView/SCLAlertView.h; sourceTree = "<group>"; };
+		4F8E133CA6337C77E6FD9B95 /* Pods-EasyDoLists-BFPaperButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-BFPaperButton.xcconfig"; sourceTree = "<group>"; };
+		5031CAACA3FC852244B6E5E6 /* VBFPopFlatButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VBFPopFlatButton.m; path = VBFPopFlatButton/VBFPopFlatButtonClasses/VBFPopFlatButton.m; sourceTree = "<group>"; };
+		509732CD0EC6999A71C3D319 /* Pods-EasyDoLists-VBFPopFlatButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-VBFPopFlatButton-Private.xcconfig"; sourceTree = "<group>"; };
+		526078E45B7CD94F767D908F /* UIColor_BFPaperColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIColor_BFPaperColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		538220FFD90CEC93C276B5EB /* POPDecayAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPDecayAnimation.mm; path = pop/POPDecayAnimation.mm; sourceTree = "<group>"; };
+		56100F7D84DD9B185F98CCCC /* SCLButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLButton.h; path = SCLAlertView/SCLButton.h; sourceTree = "<group>"; };
+		569CAFA90DBCD23309102F3D /* JTCalendarWeekView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekView.m; path = JTCalendar/JTCalendarWeekView.m; sourceTree = "<group>"; };
+		5767DDD47F229440F202B84F /* Pods-EasyDoLists-UIColor+FlatColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-UIColor+FlatColors-dummy.m"; sourceTree = "<group>"; };
+		581920D0B3B238397DE8F8A8 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMenuView.m; path = JTCalendar/JTCalendarMenuView.m; sourceTree = "<group>"; };
+		595C1C7FD8719FEC35A0B752 /* POPAnimationEventInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationEventInternal.h; path = pop/POPAnimationEventInternal.h; sourceTree = "<group>"; };
+		5A49C3DA6D027F21BB76A5B1 /* POPAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationInternal.h; path = pop/POPAnimationInternal.h; sourceTree = "<group>"; };
+		5A70F072666CAD69E596B23A /* Pods-EasyDoLists-UIColor+BFPaperColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-UIColor+BFPaperColors.modulemap"; sourceTree = "<group>"; };
+		5AEAA0F6CC16DC469E9ED1A4 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "SCLAlertView/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		5CA6BEE3B7D2EE90DDBE219F /* BFPaperButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFPaperButton.m; path = Classes/BFPaperButton.m; sourceTree = "<group>"; };
+		608563D84F71772DEBEB381D /* POPCustomAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCustomAnimation.mm; path = pop/POPCustomAnimation.mm; sourceTree = "<group>"; };
+		623CE8B2785968149332ED4F /* Pods-EasyDoLists-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EasyDoLists-acknowledgements.markdown"; sourceTree = "<group>"; };
+		66AFFD0EC69164ACA7050A20 /* Pods-EasyDoLists-VBFPopFlatButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-VBFPopFlatButton-dummy.m"; sourceTree = "<group>"; };
+		66FD1141B22CDDE7632D6DCF /* JTCalendarMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMenuView.h; path = JTCalendar/JTCalendarMenuView.h; sourceTree = "<group>"; };
+		672AA72F7E5DDB211A27640F /* BFPaperButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFPaperButton.h; path = Classes/BFPaperButton.h; sourceTree = "<group>"; };
+		67EB345A40E17399972C6F83 /* POPCGUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPCGUtils.h; path = pop/POPCGUtils.h; sourceTree = "<group>"; };
+		6A0F974FC6BE4BC1E2A83B5A /* JTCalendarContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarContentView.h; path = JTCalendar/JTCalendarContentView.h; sourceTree = "<group>"; };
+		6A6A7C1A6E46FB6E634D8ED1 /* JTCalendarMonthView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMonthView.m; path = JTCalendar/JTCalendarMonthView.m; sourceTree = "<group>"; };
+		6B186AE4D4B5BE574CD1B689 /* Pods-EasyDoLists-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-environment.h"; sourceTree = "<group>"; };
+		6DB2859202D149B17EEB43AD /* POPAnimationTracer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationTracer.h; path = pop/POPAnimationTracer.h; sourceTree = "<group>"; };
+		6DDE14EBFF6E3334AF969C9C /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = pop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70075B440F3D6338726B726B /* Pods_EasyDoLists.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDoLists.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		703D1747887F9B2AE0DC1C53 /* Pods-EasyDoLists-VBFPopFlatButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-VBFPopFlatButton-prefix.pch"; sourceTree = "<group>"; };
+		76BEC4A0E1FE1F2FC407C6B7 /* Pods-EasyDoLists-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EasyDoLists-frameworks.sh"; sourceTree = "<group>"; };
+		78CF8A02E8E73BF47A793C0E /* Pods-EasyDoLists-UIColor+FlatColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-UIColor+FlatColors-Private.xcconfig"; sourceTree = "<group>"; };
+		79AAAC975B4E4A44461FA9A7 /* POPAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAction.h; path = pop/POPAction.h; sourceTree = "<group>"; };
+		7A26AEC16DA2A1068C3794EF /* POPLayerExtras.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPLayerExtras.h; path = pop/POPLayerExtras.h; sourceTree = "<group>"; };
+		7A540014388B16667350EA95 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB059B1A9760D5F38BBEDB9 /* POPPropertyAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPPropertyAnimation.mm; path = pop/POPPropertyAnimation.mm; sourceTree = "<group>"; };
+		7D88E249781283D42B226CC1 /* POPBasicAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimationInternal.h; path = pop/POPBasicAnimationInternal.h; sourceTree = "<group>"; };
+		7FCE723E9FBA7A396A065BAA /* Pods-EasyDoLists-BFPaperButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-BFPaperButton-dummy.m"; sourceTree = "<group>"; };
+		83F504A5AD66691715BA38F0 /* UnitBezier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UnitBezier.h; path = pop/WebCore/UnitBezier.h; sourceTree = "<group>"; };
+		849A42AFF59BDF552A4D8DE3 /* Pods-EasyDoLists-UIColor+FlatColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-UIColor+FlatColors.xcconfig"; sourceTree = "<group>"; };
+		8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8682E5B972297ABEE318A690 /* POPAnimationRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationRuntime.h; path = pop/POPAnimationRuntime.h; sourceTree = "<group>"; };
+		87B495548926C02AB30D24AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87C7AEF5897ABCF1998FC87D /* JTCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JTCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C81734EA532558FF8F2AD9 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatColors.m"; path = "UIColor+FlatColors/UIColor+FlatColors.m"; sourceTree = "<group>"; };
+		8A1B0BA7584A7E64BDA5B3A3 /* POPAnimationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationPrivate.h; path = pop/POPAnimationPrivate.h; sourceTree = "<group>"; };
+		8ADECCB5590F5AE8E2D20D36 /* SCLButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLButton.m; path = SCLAlertView/SCLButton.m; sourceTree = "<group>"; };
+		8ED4DE8D5DD37E92C48C52C8 /* Pods-EasyDoLists-SCLAlertView-Objective-C.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-SCLAlertView-Objective-C.modulemap"; sourceTree = "<group>"; };
+		8EE94D096E8C0FC20ECE9A2A /* POPDecayAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimationInternal.h; path = pop/POPDecayAnimationInternal.h; sourceTree = "<group>"; };
+		92619C6CAF164F8171A0F611 /* POPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDefines.h; path = pop/POPDefines.h; sourceTree = "<group>"; };
+		93CBDCD0FCCB76F780FF292B /* JTCalendarMonthWeekDaysView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMonthWeekDaysView.m; path = JTCalendar/JTCalendarMonthWeekDaysView.m; sourceTree = "<group>"; };
+		9400B82C0CCB96CD7B0C4787 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekView.h; path = JTCalendar/JTCalendarWeekView.h; sourceTree = "<group>"; };
+		96D925781E9FC3EDDBB7D654 /* TransformationMatrix.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = TransformationMatrix.cpp; path = pop/WebCore/TransformationMatrix.cpp; sourceTree = "<group>"; };
+		98121A1A28198857500C6DDF /* POPSpringAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPSpringAnimation.mm; path = pop/POPSpringAnimation.mm; sourceTree = "<group>"; };
+		982D18EE5CAFB6109282A123 /* POPAnimationTracerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationTracerInternal.h; path = pop/POPAnimationTracerInternal.h; sourceTree = "<group>"; };
+		98306100960B4AA1905170E9 /* Pods-EasyDoLists-UIColor+BFPaperColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-UIColor+BFPaperColors-umbrella.h"; sourceTree = "<group>"; };
+		9CA5C3C5913D103F198DD3E2 /* JTCalendarAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarAppearance.m; path = JTCalendar/JTCalendarAppearance.m; sourceTree = "<group>"; };
+		9CE7A520A36710A5E94220F8 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarAppearance.h; path = JTCalendar/JTCalendarAppearance.h; sourceTree = "<group>"; };
+		9E3C342724D1C796805847E0 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewResponder.m; path = SCLAlertView/SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		9E5AFEDC32DF26719C5966CE /* Pods-EasyDoLists-UIColor+BFPaperColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-UIColor+BFPaperColors-prefix.pch"; sourceTree = "<group>"; };
+		9FC9C55377D911028020AB56 /* Pods-EasyDoLists-JTCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-JTCalendar.modulemap"; sourceTree = "<group>"; };
+		A10402B8C60E65B2075B933B /* Pods-EasyDoLists-BFPaperButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-BFPaperButton-umbrella.h"; sourceTree = "<group>"; };
+		A370BF95DB79F320295720D0 /* Pods-EasyDoLists-VBFPopFlatButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-VBFPopFlatButton.modulemap"; sourceTree = "<group>"; };
+		A3CE29ED6089B570496D1019 /* JTCircleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCircleView.h; path = JTCalendar/JTCircleView.h; sourceTree = "<group>"; };
+		A7AA52657C4EA44EADA4AC5B /* POPAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimation.h; path = pop/POPAnimation.h; sourceTree = "<group>"; };
+		AACA53D6F49227BB3660643C /* Pods-EasyDoLists.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists.release.xcconfig"; sourceTree = "<group>"; };
+		AB809D496381E58CBCDE7371 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACFAA290F2608BA19A6827C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE48E4F7B7AB0265ECB5B307 /* VBFDoubleSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VBFDoubleSegment.h; path = VBFPopFlatButton/VBFPopFlatButtonClasses/VBFDoubleSegment.h; sourceTree = "<group>"; };
+		B0AF17035E3F2469166C9442 /* Pods-EasyDoLists-pop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-pop-Private.xcconfig"; sourceTree = "<group>"; };
+		B47AD09897C42C77156B6696 /* POPGeometry.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPGeometry.mm; path = pop/POPGeometry.mm; sourceTree = "<group>"; };
+		B57D5B6E722947CC2A199EFD /* POPSpringSolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringSolver.h; path = pop/POPSpringSolver.h; sourceTree = "<group>"; };
+		B62BFFA378586A56F1291DFF /* JTCalendarMenuMonthView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMenuMonthView.h; path = JTCalendar/JTCalendarMenuMonthView.h; sourceTree = "<group>"; };
+		B8BA5B839B769AF6CD748CDE /* Pods-EasyDoLists-UIColor+FlatColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists-UIColor+FlatColors.modulemap"; sourceTree = "<group>"; };
+		BCA16496D085E727D6A35662 /* JTCalendarDataCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDataCache.h; path = JTCalendar/JTCalendarDataCache.h; sourceTree = "<group>"; };
+		BD2BB4B84347FA9233EB7B1C /* Pods-EasyDoLists-JTCalendar-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-JTCalendar-Private.xcconfig"; sourceTree = "<group>"; };
+		BF80969130D29B3765407351 /* JTCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = JTCalendar/JTCalendar.h; sourceTree = "<group>"; };
+		C178E817DC4755CE23DF23E3 /* Pods-EasyDoLists-pop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-pop.xcconfig"; sourceTree = "<group>"; };
+		C2FC65898587F5205972D734 /* POPSpringAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringAnimation.h; path = pop/POPSpringAnimation.h; sourceTree = "<group>"; };
+		C351AFBA7E771D6879B5E368 /* JTCalendarMenuMonthView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMenuMonthView.m; path = JTCalendar/JTCalendarMenuMonthView.m; sourceTree = "<group>"; };
+		C3E43CF27C69576F99DEE2A2 /* JTCalendarDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDayView.m; path = JTCalendar/JTCalendarDayView.m; sourceTree = "<group>"; };
+		C4F422C4AE6E11E2A2D1C316 /* JTCircleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCircleView.m; path = JTCalendar/JTCircleView.m; sourceTree = "<group>"; };
+		C8476FEDAA2B9663C3B0FBF7 /* POP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POP.h; path = pop/POP.h; sourceTree = "<group>"; };
+		C8CCDD4F1484C23DDB090746 /* POPPropertyAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimationInternal.h; path = pop/POPPropertyAnimationInternal.h; sourceTree = "<group>"; };
+		CB18A7C2584647A2519BDFC8 /* POPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimation.h; path = pop/POPPropertyAnimation.h; sourceTree = "<group>"; };
+		CE26F0120002014AFB183304 /* Pods-EasyDoLists-UIColor+FlatColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-UIColor+FlatColors-prefix.pch"; sourceTree = "<group>"; };
+		CEF98D11B2FDC8FA8F20FC4E /* Pods-EasyDoLists-UIColor+BFPaperColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-UIColor+BFPaperColors-dummy.m"; sourceTree = "<group>"; };
+		CF41598B1FC30F781EA1D7E9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D282190DA78F2B8416896EF8 /* Pods-EasyDoLists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists.debug.xcconfig"; sourceTree = "<group>"; };
+		D38701072CED34B6FFDE7386 /* POPAnimationTracer.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationTracer.mm; path = pop/POPAnimationTracer.mm; sourceTree = "<group>"; };
+		D4EBBD00F7BE12B303FF6A92 /* UIColor_BFPaperColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIColor_BFPaperColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D91E839775AF9221582969FB /* Pods-EasyDoLists-BFPaperButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-BFPaperButton-Private.xcconfig"; sourceTree = "<group>"; };
+		D9621624CBE590768E9711FD /* POPAnimatableProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimatableProperty.mm; path = pop/POPAnimatableProperty.mm; sourceTree = "<group>"; };
+		D9F1EF8F645195FB72AB6C7F /* POPAnimator.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimator.mm; path = pop/POPAnimator.mm; sourceTree = "<group>"; };
+		DCC788F085C7208DC9CF5B4A /* JTCalendarViewDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarViewDataSource.h; path = JTCalendar/JTCalendarViewDataSource.h; sourceTree = "<group>"; };
+		DD11D8DB5DD1A54CB8F5076E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DECB79546C9FFC45FF81209F /* Pods-EasyDoLists.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EasyDoLists.modulemap"; sourceTree = "<group>"; };
+		E010DCD2E9363EE607EABE57 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E2DE9B2D498120E6CC1F8CF1 /* JTCalendarDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDayView.h; path = JTCalendar/JTCalendarDayView.h; sourceTree = "<group>"; };
+		E4E509EC3B9C3F9DEDF92FCF /* TransformationMatrix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransformationMatrix.h; path = pop/WebCore/TransformationMatrix.h; sourceTree = "<group>"; };
+		E8B0FCE47B8E79553BBFAF08 /* POPAnimationRuntime.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationRuntime.mm; path = pop/POPAnimationRuntime.mm; sourceTree = "<group>"; };
+		EB2B241F92967960F4F8F94C /* Pods-EasyDoLists-JTCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-JTCalendar.xcconfig"; sourceTree = "<group>"; };
+		EE5B9EC1E52E0894AF5D4CDB /* Pods-EasyDoLists-UIColor+BFPaperColors-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyDoLists-UIColor+BFPaperColors-Private.xcconfig"; sourceTree = "<group>"; };
+		F0B5CE3C7915748786DC287E /* VBFDoubleSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = VBFDoubleSegment.m; path = VBFPopFlatButton/VBFPopFlatButtonClasses/VBFDoubleSegment.m; sourceTree = "<group>"; };
+		F3D9EEEBD869931D25C2300C /* Pods-EasyDoLists-SCLAlertView-Objective-C-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-SCLAlertView-Objective-C-dummy.m"; sourceTree = "<group>"; };
+		F640017019D9605EA56113D4 /* FloatConversion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FloatConversion.h; path = pop/WebCore/FloatConversion.h; sourceTree = "<group>"; };
+		F668B872AB9C595544642461 /* POPBasicAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimation.h; path = pop/POPBasicAnimation.h; sourceTree = "<group>"; };
+		F69E0F1127DE18999EE0D0AD /* Pods-EasyDoLists-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EasyDoLists-acknowledgements.plist"; sourceTree = "<group>"; };
+		F72665BEF35E93A43A253652 /* Pods-EasyDoLists-pop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EasyDoLists-pop-dummy.m"; sourceTree = "<group>"; };
+		FB5F2968A19A0D2AAF610B7C /* BFPaperButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFPaperButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB814BE978B9D8DD642406A /* POPAnimationExtras.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationExtras.h; path = pop/POPAnimationExtras.h; sourceTree = "<group>"; };
+		FBC54D95E18606874D552F40 /* POPAnimatorPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatorPrivate.h; path = pop/POPAnimatorPrivate.h; sourceTree = "<group>"; };
+		FBCEB50B4BF70DEE1A255D99 /* POPDecayAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimation.h; path = pop/POPDecayAnimation.h; sourceTree = "<group>"; };
+		FC6880DF3BEBBA91DF11F065 /* Pods-EasyDoLists-VBFPopFlatButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EasyDoLists-VBFPopFlatButton-umbrella.h"; sourceTree = "<group>"; };
+		FC874ECD14537E6F5DECA572 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewStyleKit.h; path = SCLAlertView/SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		FD385746A890BD09D2B83EFF /* POPMath.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPMath.mm; path = pop/POPMath.mm; sourceTree = "<group>"; };
+		FE940B2CE018098576276191 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewResponder.h; path = SCLAlertView/SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		FEB82293F6A7AB743A3BB4BC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF2D3534C503B250A60B0504 /* POPLayerExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPLayerExtras.mm; path = pop/POPLayerExtras.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1BE3B1C55BC473090203E320 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7960FC256248BDCDEA10F878 /* Foundation.framework in Frameworks */,
+				DF2CA01700F7B075D76639E6 /* UIColor_BFPaperColors.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4084017081A423AAAEF596AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7524AFBECDA4C45B7233850A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		747CE7CF1F9AB66AAD616037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5824729E9F868C9FDDF2CEE6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B482DBEE1B21133C4141298 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1385543A4B88C916B6E918F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC243775A8BFEACC07FB032 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C4919EC3E51DA49C3A6F3CE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3419B1B4F076D731F273CDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D82DEC1271A513D1CB06E1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7AB67D8AE8252D956EF941E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38DFAE00FD7462EF5F8F4C3 /* Foundation.framework in Frameworks */,
+				B711CFE9CF1FA9A3FB813BDF /* pop.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7D85386D01316237773B86B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D10962541C3230EEF94F4480 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		153DAF1518579E759DBEE6B1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A540014388B16667350EA95 /* Info.plist */,
+				B8BA5B839B769AF6CD748CDE /* Pods-EasyDoLists-UIColor+FlatColors.modulemap */,
+				849A42AFF59BDF552A4D8DE3 /* Pods-EasyDoLists-UIColor+FlatColors.xcconfig */,
+				78CF8A02E8E73BF47A793C0E /* Pods-EasyDoLists-UIColor+FlatColors-Private.xcconfig */,
+				5767DDD47F229440F202B84F /* Pods-EasyDoLists-UIColor+FlatColors-dummy.m */,
+				CE26F0120002014AFB183304 /* Pods-EasyDoLists-UIColor+FlatColors-prefix.pch */,
+				092D8FA512C1BC60B530D4C1 /* Pods-EasyDoLists-UIColor+FlatColors-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-UIColor+FlatColors";
+			sourceTree = "<group>";
+		};
+		161D67C606F14E3CD85B23C6 = {
+			isa = PBXGroup;
+			children = (
+				E010DCD2E9363EE607EABE57 /* Podfile */,
+				DD533E4D47B12748D00A5BFE /* Frameworks */,
+				335DA73ECADF8A0053BCB351 /* Pods */,
+				D2E34548CBE6CB1999DF6551 /* Products */,
+				540BE30C09CBA1FFE0E3EA79 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		1CCE1E6EE5C433AD494ECE80 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				36BF34669DA534E36267B22D /* Info.plist */,
+				5A70F072666CAD69E596B23A /* Pods-EasyDoLists-UIColor+BFPaperColors.modulemap */,
+				1DA373CADC2703FAF513FDD6 /* Pods-EasyDoLists-UIColor+BFPaperColors.xcconfig */,
+				EE5B9EC1E52E0894AF5D4CDB /* Pods-EasyDoLists-UIColor+BFPaperColors-Private.xcconfig */,
+				CEF98D11B2FDC8FA8F20FC4E /* Pods-EasyDoLists-UIColor+BFPaperColors-dummy.m */,
+				9E5AFEDC32DF26719C5966CE /* Pods-EasyDoLists-UIColor+BFPaperColors-prefix.pch */,
+				98306100960B4AA1905170E9 /* Pods-EasyDoLists-UIColor+BFPaperColors-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors";
+			sourceTree = "<group>";
+		};
+		1D659B2B92D82000E67912DB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB809D496381E58CBCDE7371 /* Info.plist */,
+				1840C53226C3CFBB645A0EBA /* Pods-EasyDoLists-pop.modulemap */,
+				C178E817DC4755CE23DF23E3 /* Pods-EasyDoLists-pop.xcconfig */,
+				B0AF17035E3F2469166C9442 /* Pods-EasyDoLists-pop-Private.xcconfig */,
+				F72665BEF35E93A43A253652 /* Pods-EasyDoLists-pop-dummy.m */,
+				3B633F1C071BC01EC9F9243D /* Pods-EasyDoLists-pop-prefix.pch */,
+				2C4EDF7EBE8CEA5AB5376EEC /* Pods-EasyDoLists-pop-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-pop";
+			sourceTree = "<group>";
+		};
+		21B6332E0AB907FE6CB79455 /* UIColor+BFPaperColors */ = {
+			isa = PBXGroup;
+			children = (
+				49601F359E32FC0F845876C9 /* UIColor+BFPaperColors.h */,
+				26DCE29382A35976B6E3C7DA /* UIColor+BFPaperColors.m */,
+				1CCE1E6EE5C433AD494ECE80 /* Support Files */,
+			);
+			path = "UIColor+BFPaperColors";
+			sourceTree = "<group>";
+		};
+		335DA73ECADF8A0053BCB351 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46B98DD15A345CF39A4FA229 /* BFPaperButton */,
+				E64D062EF92061F92D4B7F9E /* JTCalendar */,
+				98A2884D3E184807E86D6C31 /* SCLAlertView-Objective-C */,
+				21B6332E0AB907FE6CB79455 /* UIColor+BFPaperColors */,
+				668CCC05C09A376CCAFA7CE8 /* UIColor+FlatColors */,
+				C516A91204CDC8059E91B938 /* VBFPopFlatButton */,
+				A46132D196D53A45043D9A70 /* pop */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		46B98DD15A345CF39A4FA229 /* BFPaperButton */ = {
+			isa = PBXGroup;
+			children = (
+				672AA72F7E5DDB211A27640F /* BFPaperButton.h */,
+				5CA6BEE3B7D2EE90DDBE219F /* BFPaperButton.m */,
+				FA66BD3AF7D76D6225669590 /* Support Files */,
+			);
+			path = BFPaperButton;
+			sourceTree = "<group>";
+		};
+		540BE30C09CBA1FFE0E3EA79 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F1B68910039718475029B5F /* Pods-EasyDoLists */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		668CCC05C09A376CCAFA7CE8 /* UIColor+FlatColors */ = {
+			isa = PBXGroup;
+			children = (
+				39B6E87ED2C1C62FC272B6C8 /* UIColor+FlatColors.h */,
+				88C81734EA532558FF8F2AD9 /* UIColor+FlatColors.m */,
+				153DAF1518579E759DBEE6B1 /* Support Files */,
+			);
+			path = "UIColor+FlatColors";
+			sourceTree = "<group>";
+		};
+		7FFB54EA52748A2493D78CE6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				87B495548926C02AB30D24AF /* Info.plist */,
+				8ED4DE8D5DD37E92C48C52C8 /* Pods-EasyDoLists-SCLAlertView-Objective-C.modulemap */,
+				00ED6C5D847E3B7B16EE86A0 /* Pods-EasyDoLists-SCLAlertView-Objective-C.xcconfig */,
+				4C9678AEC3A855EA9EB2B290 /* Pods-EasyDoLists-SCLAlertView-Objective-C-Private.xcconfig */,
+				F3D9EEEBD869931D25C2300C /* Pods-EasyDoLists-SCLAlertView-Objective-C-dummy.m */,
+				118DF14ADDAD02BE528902D5 /* Pods-EasyDoLists-SCLAlertView-Objective-C-prefix.pch */,
+				41670E3D78537E40585AE1AE /* Pods-EasyDoLists-SCLAlertView-Objective-C-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C";
+			sourceTree = "<group>";
+		};
+		8F1B68910039718475029B5F /* Pods-EasyDoLists */ = {
+			isa = PBXGroup;
+			children = (
+				CF41598B1FC30F781EA1D7E9 /* Info.plist */,
+				DECB79546C9FFC45FF81209F /* Pods-EasyDoLists.modulemap */,
+				623CE8B2785968149332ED4F /* Pods-EasyDoLists-acknowledgements.markdown */,
+				F69E0F1127DE18999EE0D0AD /* Pods-EasyDoLists-acknowledgements.plist */,
+				0FD48697B14321999579B372 /* Pods-EasyDoLists-dummy.m */,
+				6B186AE4D4B5BE574CD1B689 /* Pods-EasyDoLists-environment.h */,
+				76BEC4A0E1FE1F2FC407C6B7 /* Pods-EasyDoLists-frameworks.sh */,
+				3F946942D89B1D961B655F30 /* Pods-EasyDoLists-resources.sh */,
+				3F653C186AEDB5E9F62C36B7 /* Pods-EasyDoLists-umbrella.h */,
+				D282190DA78F2B8416896EF8 /* Pods-EasyDoLists.debug.xcconfig */,
+				AACA53D6F49227BB3660643C /* Pods-EasyDoLists.release.xcconfig */,
+			);
+			name = "Pods-EasyDoLists";
+			path = "Target Support Files/Pods-EasyDoLists";
+			sourceTree = "<group>";
+		};
+		98A2884D3E184807E86D6C31 /* SCLAlertView-Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				4F654AF68D409A161250AD78 /* SCLAlertView.h */,
+				39CC11BEA124BD0CAEEDE76B /* SCLAlertView.m */,
+				FE940B2CE018098576276191 /* SCLAlertViewResponder.h */,
+				9E3C342724D1C796805847E0 /* SCLAlertViewResponder.m */,
+				FC874ECD14537E6F5DECA572 /* SCLAlertViewStyleKit.h */,
+				49C85BB09E54513050656E7E /* SCLAlertViewStyleKit.m */,
+				56100F7D84DD9B185F98CCCC /* SCLButton.h */,
+				8ADECCB5590F5AE8E2D20D36 /* SCLButton.m */,
+				0725511CDBE674B4019701C8 /* SCLMacros.h */,
+				3A327E78B410C2B1B936A030 /* UIImage+ImageEffects.h */,
+				5AEAA0F6CC16DC469E9ED1A4 /* UIImage+ImageEffects.m */,
+				7FFB54EA52748A2493D78CE6 /* Support Files */,
+			);
+			path = "SCLAlertView-Objective-C";
+			sourceTree = "<group>";
+		};
+		9EB2D6BE232797BE4FBAE673 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACFAA290F2608BA19A6827C6 /* Info.plist */,
+				A370BF95DB79F320295720D0 /* Pods-EasyDoLists-VBFPopFlatButton.modulemap */,
+				13E31E515404D22240928F81 /* Pods-EasyDoLists-VBFPopFlatButton.xcconfig */,
+				509732CD0EC6999A71C3D319 /* Pods-EasyDoLists-VBFPopFlatButton-Private.xcconfig */,
+				66AFFD0EC69164ACA7050A20 /* Pods-EasyDoLists-VBFPopFlatButton-dummy.m */,
+				703D1747887F9B2AE0DC1C53 /* Pods-EasyDoLists-VBFPopFlatButton-prefix.pch */,
+				FC6880DF3BEBBA91DF11F065 /* Pods-EasyDoLists-VBFPopFlatButton-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-VBFPopFlatButton";
+			sourceTree = "<group>";
+		};
+		A46132D196D53A45043D9A70 /* pop */ = {
+			isa = PBXGroup;
+			children = (
+				F640017019D9605EA56113D4 /* FloatConversion.h */,
+				C8476FEDAA2B9663C3B0FBF7 /* POP.h */,
+				79AAAC975B4E4A44461FA9A7 /* POPAction.h */,
+				2726A663412305EC1D4FA9D4 /* POPAnimatableProperty.h */,
+				D9621624CBE590768E9711FD /* POPAnimatableProperty.mm */,
+				A7AA52657C4EA44EADA4AC5B /* POPAnimation.h */,
+				1EED35DCEC3377AA8C6E2E41 /* POPAnimation.mm */,
+				08764F7635DDC9C61F00A08A /* POPAnimationEvent.h */,
+				28731FAF9457118552D83EE3 /* POPAnimationEvent.mm */,
+				595C1C7FD8719FEC35A0B752 /* POPAnimationEventInternal.h */,
+				FBB814BE978B9D8DD642406A /* POPAnimationExtras.h */,
+				1BC6DEC16CA36B543E04ACDB /* POPAnimationExtras.mm */,
+				5A49C3DA6D027F21BB76A5B1 /* POPAnimationInternal.h */,
+				8A1B0BA7584A7E64BDA5B3A3 /* POPAnimationPrivate.h */,
+				8682E5B972297ABEE318A690 /* POPAnimationRuntime.h */,
+				E8B0FCE47B8E79553BBFAF08 /* POPAnimationRuntime.mm */,
+				6DB2859202D149B17EEB43AD /* POPAnimationTracer.h */,
+				D38701072CED34B6FFDE7386 /* POPAnimationTracer.mm */,
+				982D18EE5CAFB6109282A123 /* POPAnimationTracerInternal.h */,
+				07197AA7491469851B2660DB /* POPAnimator.h */,
+				D9F1EF8F645195FB72AB6C7F /* POPAnimator.mm */,
+				FBC54D95E18606874D552F40 /* POPAnimatorPrivate.h */,
+				F668B872AB9C595544642461 /* POPBasicAnimation.h */,
+				1EE3B7251AC8D5DC5E843098 /* POPBasicAnimation.mm */,
+				7D88E249781283D42B226CC1 /* POPBasicAnimationInternal.h */,
+				67EB345A40E17399972C6F83 /* POPCGUtils.h */,
+				00CA6544BE3B664440B58FA9 /* POPCGUtils.mm */,
+				1B2C80578495CCA787A961AB /* POPCustomAnimation.h */,
+				608563D84F71772DEBEB381D /* POPCustomAnimation.mm */,
+				FBCEB50B4BF70DEE1A255D99 /* POPDecayAnimation.h */,
+				538220FFD90CEC93C276B5EB /* POPDecayAnimation.mm */,
+				8EE94D096E8C0FC20ECE9A2A /* POPDecayAnimationInternal.h */,
+				92619C6CAF164F8171A0F611 /* POPDefines.h */,
+				20C4B4DABA290A39457E8849 /* POPGeometry.h */,
+				B47AD09897C42C77156B6696 /* POPGeometry.mm */,
+				7A26AEC16DA2A1068C3794EF /* POPLayerExtras.h */,
+				FF2D3534C503B250A60B0504 /* POPLayerExtras.mm */,
+				1474AED83DD31227DB57EDE2 /* POPMath.h */,
+				FD385746A890BD09D2B83EFF /* POPMath.mm */,
+				CB18A7C2584647A2519BDFC8 /* POPPropertyAnimation.h */,
+				7CB059B1A9760D5F38BBEDB9 /* POPPropertyAnimation.mm */,
+				C8CCDD4F1484C23DDB090746 /* POPPropertyAnimationInternal.h */,
+				C2FC65898587F5205972D734 /* POPSpringAnimation.h */,
+				98121A1A28198857500C6DDF /* POPSpringAnimation.mm */,
+				3216A4DF89F686347151ACB7 /* POPSpringAnimationInternal.h */,
+				B57D5B6E722947CC2A199EFD /* POPSpringSolver.h */,
+				1C685C4B04CF0214BA9A6BF4 /* POPVector.h */,
+				2473F6B339B88D5A18F0FB0A /* POPVector.mm */,
+				96D925781E9FC3EDDBB7D654 /* TransformationMatrix.cpp */,
+				E4E509EC3B9C3F9DEDF92FCF /* TransformationMatrix.h */,
+				83F504A5AD66691715BA38F0 /* UnitBezier.h */,
+				1D659B2B92D82000E67912DB /* Support Files */,
+			);
+			path = pop;
+			sourceTree = "<group>";
+		};
+		B0CBF147F54816C35F05C795 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8576CE30C7E69CE8EDD7F4A0 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C516A91204CDC8059E91B938 /* VBFPopFlatButton */ = {
+			isa = PBXGroup;
+			children = (
+				AE48E4F7B7AB0265ECB5B307 /* VBFDoubleSegment.h */,
+				F0B5CE3C7915748786DC287E /* VBFDoubleSegment.m */,
+				25EBBCB3CBC71B30CEDFA6C3 /* VBFPopFlatButton.h */,
+				5031CAACA3FC852244B6E5E6 /* VBFPopFlatButton.m */,
+				9EB2D6BE232797BE4FBAE673 /* Support Files */,
+			);
+			path = VBFPopFlatButton;
+			sourceTree = "<group>";
+		};
+		D2E34548CBE6CB1999DF6551 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB5F2968A19A0D2AAF610B7C /* BFPaperButton.framework */,
+				87C7AEF5897ABCF1998FC87D /* JTCalendar.framework */,
+				70075B440F3D6338726B726B /* Pods_EasyDoLists.framework */,
+				3E4808B4FB63FBCA8EF5F5D0 /* SCLAlertView_Objective_C.framework */,
+				526078E45B7CD94F767D908F /* UIColor_BFPaperColors.framework */,
+				327ECD714995BD2EA2850CC1 /* UIColor_FlatColors.framework */,
+				3DF0242853EDF6C226319AFC /* VBFPopFlatButton.framework */,
+				24701977D7A0D9CB564F9108 /* pop.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD533E4D47B12748D00A5BFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4EBBD00F7BE12B303FF6A92 /* UIColor_BFPaperColors.framework */,
+				6DDE14EBFF6E3334AF969C9C /* pop.framework */,
+				B0CBF147F54816C35F05C795 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E64D062EF92061F92D4B7F9E /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				BF80969130D29B3765407351 /* JTCalendar.h */,
+				0AC7EF22E208608631BA7B63 /* JTCalendar.m */,
+				9CE7A520A36710A5E94220F8 /* JTCalendarAppearance.h */,
+				9CA5C3C5913D103F198DD3E2 /* JTCalendarAppearance.m */,
+				6A0F974FC6BE4BC1E2A83B5A /* JTCalendarContentView.h */,
+				0D4D3226BAEE4AD3F2AAA66B /* JTCalendarContentView.m */,
+				BCA16496D085E727D6A35662 /* JTCalendarDataCache.h */,
+				1B2999587CDA2B51D1EE4C69 /* JTCalendarDataCache.m */,
+				E2DE9B2D498120E6CC1F8CF1 /* JTCalendarDayView.h */,
+				C3E43CF27C69576F99DEE2A2 /* JTCalendarDayView.m */,
+				B62BFFA378586A56F1291DFF /* JTCalendarMenuMonthView.h */,
+				C351AFBA7E771D6879B5E368 /* JTCalendarMenuMonthView.m */,
+				66FD1141B22CDDE7632D6DCF /* JTCalendarMenuView.h */,
+				581920D0B3B238397DE8F8A8 /* JTCalendarMenuView.m */,
+				2E10A0E44553915FC6DF2276 /* JTCalendarMonthView.h */,
+				6A6A7C1A6E46FB6E634D8ED1 /* JTCalendarMonthView.m */,
+				0A6BBA96CE837CE2CE80AB55 /* JTCalendarMonthWeekDaysView.h */,
+				93CBDCD0FCCB76F780FF292B /* JTCalendarMonthWeekDaysView.m */,
+				DCC788F085C7208DC9CF5B4A /* JTCalendarViewDataSource.h */,
+				9400B82C0CCB96CD7B0C4787 /* JTCalendarWeekView.h */,
+				569CAFA90DBCD23309102F3D /* JTCalendarWeekView.m */,
+				A3CE29ED6089B570496D1019 /* JTCircleView.h */,
+				C4F422C4AE6E11E2A2D1C316 /* JTCircleView.m */,
+				F83C5EDD51A87EC7D56405EE /* Support Files */,
+			);
+			path = JTCalendar;
+			sourceTree = "<group>";
+		};
+		F83C5EDD51A87EC7D56405EE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEB82293F6A7AB743A3BB4BC /* Info.plist */,
+				9FC9C55377D911028020AB56 /* Pods-EasyDoLists-JTCalendar.modulemap */,
+				EB2B241F92967960F4F8F94C /* Pods-EasyDoLists-JTCalendar.xcconfig */,
+				BD2BB4B84347FA9233EB7B1C /* Pods-EasyDoLists-JTCalendar-Private.xcconfig */,
+				1509050BE5B6F001508894E7 /* Pods-EasyDoLists-JTCalendar-dummy.m */,
+				0722B83EC0375B002C2828ED /* Pods-EasyDoLists-JTCalendar-prefix.pch */,
+				3A15B934222E1007F4AFEC87 /* Pods-EasyDoLists-JTCalendar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-JTCalendar";
+			sourceTree = "<group>";
+		};
+		FA66BD3AF7D76D6225669590 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD11D8DB5DD1A54CB8F5076E /* Info.plist */,
+				4C68B2A3BC8B6457295F5A9F /* Pods-EasyDoLists-BFPaperButton.modulemap */,
+				4F8E133CA6337C77E6FD9B95 /* Pods-EasyDoLists-BFPaperButton.xcconfig */,
+				D91E839775AF9221582969FB /* Pods-EasyDoLists-BFPaperButton-Private.xcconfig */,
+				7FCE723E9FBA7A396A065BAA /* Pods-EasyDoLists-BFPaperButton-dummy.m */,
+				33E18D4AB1DE8B78DE4963CB /* Pods-EasyDoLists-BFPaperButton-prefix.pch */,
+				A10402B8C60E65B2075B933B /* Pods-EasyDoLists-BFPaperButton-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-EasyDoLists-BFPaperButton";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		12E86B610BAD769199F649D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4FA111D9B8A6C18D2FF8D7E /* Pods-EasyDoLists-VBFPopFlatButton-umbrella.h in Headers */,
+				C8F2C77AE035BD0AB8262D45 /* VBFDoubleSegment.h in Headers */,
+				AC38456D041BDAE4E9258960 /* VBFPopFlatButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		264BE20428E6A78F0628072C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				344CDD08884DF4B62A91F672 /* JTCalendar.h in Headers */,
+				05E940A37B28947BD65CF827 /* JTCalendarAppearance.h in Headers */,
+				FCBCDCC22123941CB2E2CE73 /* JTCalendarContentView.h in Headers */,
+				69C88039668C94D043465973 /* JTCalendarDataCache.h in Headers */,
+				AF7833A6DB56C3BC395C5EC6 /* JTCalendarDayView.h in Headers */,
+				EAF183E61280ADAE35113135 /* JTCalendarMenuMonthView.h in Headers */,
+				D151489B6F6283C06F799008 /* JTCalendarMenuView.h in Headers */,
+				ACD9FB1EA5CAA7E05AB7615E /* JTCalendarMonthView.h in Headers */,
+				2B49A5BECE6A09F599CB972B /* JTCalendarMonthWeekDaysView.h in Headers */,
+				DFF9333D1E69362974D60EBC /* JTCalendarViewDataSource.h in Headers */,
+				84B61B9DB59CB7F3F97073DB /* JTCalendarWeekView.h in Headers */,
+				13483E0817160A1DCF830C64 /* JTCircleView.h in Headers */,
+				8C93A7DCEA77A651821EC01D /* Pods-EasyDoLists-JTCalendar-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		331C36B4CA9F6AB5361FDFC2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB2F782075C12CB64EBB29D /* Pods-EasyDoLists-UIColor+BFPaperColors-umbrella.h in Headers */,
+				3A619A311C865E3C10C0D54A /* UIColor+BFPaperColors.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AE63B5E4CD502BB4CDD21D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B166CFC20EFCE1293A66CAC /* Pods-EasyDoLists-UIColor+FlatColors-umbrella.h in Headers */,
+				8BA90A90A5B1BF6E94EB42B7 /* UIColor+FlatColors.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DBED16097B59740ADAC5D6E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				105DF85485FB0203E9C16420 /* FloatConversion.h in Headers */,
+				378CEBFB96D93B42D8684CDA /* POP.h in Headers */,
+				1DDFB336FC90F720349AF607 /* POPAction.h in Headers */,
+				FFF7D337EF82B72873813879 /* POPAnimatableProperty.h in Headers */,
+				C334BD5007C0E64E5F0534B9 /* POPAnimation.h in Headers */,
+				8A2238B3877EF96D1F51ECCF /* POPAnimationEvent.h in Headers */,
+				86A5828A241372FB7D31658D /* POPAnimationEventInternal.h in Headers */,
+				02A2DD6D8A2620D47963C72A /* POPAnimationExtras.h in Headers */,
+				D0FFB00CF496578C5E0A2031 /* POPAnimationInternal.h in Headers */,
+				C18EA12A898AB8CCC07D6FF9 /* POPAnimationPrivate.h in Headers */,
+				48B8D4C885ACC2A598BAFC10 /* POPAnimationRuntime.h in Headers */,
+				4C875C262A784FA4193761FD /* POPAnimationTracer.h in Headers */,
+				4B6E6982F02A6A2ABB6636F6 /* POPAnimationTracerInternal.h in Headers */,
+				274AF5E8D632D4042D58CAE7 /* POPAnimator.h in Headers */,
+				352DFF78A11B9F58807C9C42 /* POPAnimatorPrivate.h in Headers */,
+				B92C79B56CF808234BDB3574 /* POPBasicAnimation.h in Headers */,
+				06B05A502FFC3FBD0574B4E3 /* POPBasicAnimationInternal.h in Headers */,
+				69F7AF608D4B86E447948BD7 /* POPCGUtils.h in Headers */,
+				9E639B86023CACACF6E17EC8 /* POPCustomAnimation.h in Headers */,
+				EA5C363245518124FDF679A8 /* POPDecayAnimation.h in Headers */,
+				96E964F2CD3D1991736ADF10 /* POPDecayAnimationInternal.h in Headers */,
+				17BC23D91C6CA017BC66E86B /* POPDefines.h in Headers */,
+				9FDC1D2FB7463C8270E95A38 /* POPGeometry.h in Headers */,
+				BC5BC40E04A64323F39AD163 /* POPLayerExtras.h in Headers */,
+				4DA9B6A2D376284E1705B99C /* POPMath.h in Headers */,
+				147F83DA12E6936ACD1D3768 /* POPPropertyAnimation.h in Headers */,
+				FA2A9414048DE96AAB46668A /* POPPropertyAnimationInternal.h in Headers */,
+				2B321206009E7D4E5EB92F07 /* POPSpringAnimation.h in Headers */,
+				1A531EC76ED420FE00B4404B /* POPSpringAnimationInternal.h in Headers */,
+				C77B7C78CB7BDA6B4CAE74D5 /* POPSpringSolver.h in Headers */,
+				2781658750BA3480C74CFFCE /* POPVector.h in Headers */,
+				DFB5DF0B28C84A9C3E22E189 /* Pods-EasyDoLists-pop-umbrella.h in Headers */,
+				6DA906827A34C56125B144DF /* TransformationMatrix.h in Headers */,
+				7596B5C03F8AFF6C20B8A8A2 /* UnitBezier.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A78E448C6542E2183CE650 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EED3D8D5BDFAC935AEA07E9F /* Pods-EasyDoLists-SCLAlertView-Objective-C-umbrella.h in Headers */,
+				8517FD9C2697E3B6857DB09D /* SCLAlertView.h in Headers */,
+				8989D041CE8BD0B284ED6875 /* SCLAlertViewResponder.h in Headers */,
+				91F7BFE3CC8273DF8A6BBFEA /* SCLAlertViewStyleKit.h in Headers */,
+				574A4DB3CEBF8D0A27986911 /* SCLButton.h in Headers */,
+				AEE273B83B6AE910162E7A11 /* SCLMacros.h in Headers */,
+				D37E264528B3A417EA47F483 /* UIImage+ImageEffects.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65A8E6313226FBA0F4DB13C9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C17BF60588CE30470182EC51 /* Pods-EasyDoLists-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B23361780C640198862ED74A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8593587131F158F1E86D7F9F /* BFPaperButton.h in Headers */,
+				518D7698D23E405BBC5C0858 /* Pods-EasyDoLists-BFPaperButton-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0C89EE042CF2F8422FD6A2D1 /* Pods-EasyDoLists-pop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 075558D84BC1093FAFE61267 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-pop" */;
+			buildPhases = (
+				A5AB08253957E13A2871C3A9 /* Sources */,
+				4084017081A423AAAEF596AB /* Frameworks */,
+				3DBED16097B59740ADAC5D6E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-EasyDoLists-pop";
+			productName = "Pods-EasyDoLists-pop";
+			productReference = 24701977D7A0D9CB564F9108 /* pop.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		20C9C81D91D525FBA0FFEF6D /* Pods-EasyDoLists-JTCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFB4DC0FED14BCB522A45802 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-JTCalendar" */;
+			buildPhases = (
+				F625191B54826B950FDB2B62 /* Sources */,
+				BBC243775A8BFEACC07FB032 /* Frameworks */,
+				264BE20428E6A78F0628072C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-EasyDoLists-JTCalendar";
+			productName = "Pods-EasyDoLists-JTCalendar";
+			productReference = 87C7AEF5897ABCF1998FC87D /* JTCalendar.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		300EA505CE5653DB2E32D8FE /* Pods-EasyDoLists-UIColor+BFPaperColors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22CD685F57AA33CC52E0AFA3 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-UIColor+BFPaperColors" */;
+			buildPhases = (
+				3B2DFC873E6EEE9421A4D80E /* Sources */,
+				C3419B1B4F076D731F273CDD /* Frameworks */,
+				331C36B4CA9F6AB5361FDFC2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-EasyDoLists-UIColor+BFPaperColors";
+			productName = "Pods-EasyDoLists-UIColor+BFPaperColors";
+			productReference = 526078E45B7CD94F767D908F /* UIColor_BFPaperColors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		53172BD3EEAF8A95307D06F4 /* Pods-EasyDoLists-SCLAlertView-Objective-C */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0459D233C9A07AAE402DB992 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-SCLAlertView-Objective-C" */;
+			buildPhases = (
+				BD5FF1D7CF1285A46339EC1F /* Sources */,
+				9B482DBEE1B21133C4141298 /* Frameworks */,
+				61A78E448C6542E2183CE650 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-EasyDoLists-SCLAlertView-Objective-C";
+			productName = "Pods-EasyDoLists-SCLAlertView-Objective-C";
+			productReference = 3E4808B4FB63FBCA8EF5F5D0 /* SCLAlertView_Objective_C.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD6FF5ECF7299F49DF2AE45D /* Pods-EasyDoLists */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 021187A4DA5D3AA0CD5DCA12 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists" */;
+			buildPhases = (
+				98CCE4A179A6D839FE536CEF /* Sources */,
+				F7D85386D01316237773B86B /* Frameworks */,
+				65A8E6313226FBA0F4DB13C9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B87D6076D9ACFD3B963FAF1 /* PBXTargetDependency */,
+				7DFB63FF5F1F621967DDD990 /* PBXTargetDependency */,
+				40D6E096E7F07163A4CA7A72 /* PBXTargetDependency */,
+				69003167C1779FAD33A8DEC8 /* PBXTargetDependency */,
+				05212CC6A00F43760DEA8879 /* PBXTargetDependency */,
+				9435E3691EE9E502DE18675A /* PBXTargetDependency */,
+				30DC65FFB6FFA08365DE1E05 /* PBXTargetDependency */,
+			);
+			name = "Pods-EasyDoLists";
+			productName = "Pods-EasyDoLists";
+			productReference = 70075B440F3D6338726B726B /* Pods_EasyDoLists.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D624161A2E064160C5F7B878 /* Pods-EasyDoLists-VBFPopFlatButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA95AC6FD9D06946C0248619 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-VBFPopFlatButton" */;
+			buildPhases = (
+				AE196EF6EF108F00E7C5F28F /* Sources */,
+				C7AB67D8AE8252D956EF941E /* Frameworks */,
+				12E86B610BAD769199F649D9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CC7CF9B8A8AB37C3A2713BC /* PBXTargetDependency */,
+			);
+			name = "Pods-EasyDoLists-VBFPopFlatButton";
+			productName = "Pods-EasyDoLists-VBFPopFlatButton";
+			productReference = 3DF0242853EDF6C226319AFC /* VBFPopFlatButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DF7A8BFF87FDE96517C90B25 /* Pods-EasyDoLists-UIColor+FlatColors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73291506729291F476EEB460 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-UIColor+FlatColors" */;
+			buildPhases = (
+				8CC4ED9CFB67B123B40EA701 /* Sources */,
+				747CE7CF1F9AB66AAD616037 /* Frameworks */,
+				35AE63B5E4CD502BB4CDD21D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-EasyDoLists-UIColor+FlatColors";
+			productName = "Pods-EasyDoLists-UIColor+FlatColors";
+			productReference = 327ECD714995BD2EA2850CC1 /* UIColor_FlatColors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F2D67C12BE86A87DB4346A00 /* Pods-EasyDoLists-BFPaperButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36E6CCA4A891F2F025DB9CD2 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-BFPaperButton" */;
+			buildPhases = (
+				503D74F6147033DCBEEA1AFF /* Sources */,
+				1BE3B1C55BC473090203E320 /* Frameworks */,
+				B23361780C640198862ED74A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EC25D7CF2ED369711E50D39 /* PBXTargetDependency */,
+			);
+			name = "Pods-EasyDoLists-BFPaperButton";
+			productName = "Pods-EasyDoLists-BFPaperButton";
+			productReference = FB5F2968A19A0D2AAF610B7C /* BFPaperButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3DDCE4B16AFA5CAC5A51900 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 779893284D077C97013FC942 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 161D67C606F14E3CD85B23C6;
+			productRefGroup = D2E34548CBE6CB1999DF6551 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD6FF5ECF7299F49DF2AE45D /* Pods-EasyDoLists */,
+				F2D67C12BE86A87DB4346A00 /* Pods-EasyDoLists-BFPaperButton */,
+				20C9C81D91D525FBA0FFEF6D /* Pods-EasyDoLists-JTCalendar */,
+				53172BD3EEAF8A95307D06F4 /* Pods-EasyDoLists-SCLAlertView-Objective-C */,
+				300EA505CE5653DB2E32D8FE /* Pods-EasyDoLists-UIColor+BFPaperColors */,
+				DF7A8BFF87FDE96517C90B25 /* Pods-EasyDoLists-UIColor+FlatColors */,
+				D624161A2E064160C5F7B878 /* Pods-EasyDoLists-VBFPopFlatButton */,
+				0C89EE042CF2F8422FD6A2D1 /* Pods-EasyDoLists-pop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B2DFC873E6EEE9421A4D80E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272DDED91D93901771716FA3 /* Pods-EasyDoLists-UIColor+BFPaperColors-dummy.m in Sources */,
+				481C4B0129438704D2C773AB /* UIColor+BFPaperColors.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		503D74F6147033DCBEEA1AFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5F25DF22F6BC80B5E478F7 /* BFPaperButton.m in Sources */,
+				586EED01095CA8713C49BD9F /* Pods-EasyDoLists-BFPaperButton-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CC4ED9CFB67B123B40EA701 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D82F568734E5246C8627B557 /* Pods-EasyDoLists-UIColor+FlatColors-dummy.m in Sources */,
+				E6342B5E4C49596676E8802D /* UIColor+FlatColors.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98CCE4A179A6D839FE536CEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7B1F781A49C7897D3B610BD /* Pods-EasyDoLists-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5AB08253957E13A2871C3A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0381BDCE336D096F6361B323 /* POPAnimatableProperty.mm in Sources */,
+				96A6F96AE38A0748746F9DCA /* POPAnimation.mm in Sources */,
+				4EF0EF06B13BB63DCE17109B /* POPAnimationEvent.mm in Sources */,
+				B081F0AF733A2D6459DD021C /* POPAnimationExtras.mm in Sources */,
+				7890391B3B4CA3651F3FCBA7 /* POPAnimationRuntime.mm in Sources */,
+				675D113522896E99A3B728C1 /* POPAnimationTracer.mm in Sources */,
+				9793097B2791F2F05AD342FB /* POPAnimator.mm in Sources */,
+				AD7F2BCDF886E17F29946720 /* POPBasicAnimation.mm in Sources */,
+				135C1CAF169E7E351A8E7FEC /* POPCGUtils.mm in Sources */,
+				B0E2FB8B00953A3D1D8C0DF0 /* POPCustomAnimation.mm in Sources */,
+				FD6740B8FB7BA6328A16CB09 /* POPDecayAnimation.mm in Sources */,
+				4153D8B6DC2284144354EE2C /* POPGeometry.mm in Sources */,
+				6D3AC0C9BB88F3BA72F8E1CE /* POPLayerExtras.mm in Sources */,
+				16B67D962C28CE9D28B38C4D /* POPMath.mm in Sources */,
+				D1FB5233C16BBD107C030BF9 /* POPPropertyAnimation.mm in Sources */,
+				4BA50CDC89DE9C968DE6923E /* POPSpringAnimation.mm in Sources */,
+				F81AF394F632EB4233B5F103 /* POPVector.mm in Sources */,
+				18809211418515E15B8C401D /* Pods-EasyDoLists-pop-dummy.m in Sources */,
+				06077F7AF56DF6A0EBE9933A /* TransformationMatrix.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE196EF6EF108F00E7C5F28F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112D92FBCC6BCDFDDEBC225E /* Pods-EasyDoLists-VBFPopFlatButton-dummy.m in Sources */,
+				270515A85DBCCDD031E4DBD2 /* VBFDoubleSegment.m in Sources */,
+				AA1A4C2240D170778CCF7025 /* VBFPopFlatButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD5FF1D7CF1285A46339EC1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E47128CECD7FCBD6AFAB60 /* Pods-EasyDoLists-SCLAlertView-Objective-C-dummy.m in Sources */,
+				1EEF51F56A19A0E027562664 /* SCLAlertView.m in Sources */,
+				564F9BCFB5778E1B51E3DE0B /* SCLAlertViewResponder.m in Sources */,
+				F703DD79131700CA2E9FECEE /* SCLAlertViewStyleKit.m in Sources */,
+				A4FAA258FD15292E0FD41487 /* SCLButton.m in Sources */,
+				6B2C4CC9C78C9902A7C2E92E /* UIImage+ImageEffects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F625191B54826B950FDB2B62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46D6D50C84ABD9322987DAA1 /* JTCalendar.m in Sources */,
+				4D910A19C287969D51D3D22A /* JTCalendarAppearance.m in Sources */,
+				428D940767BB468782D24AAB /* JTCalendarContentView.m in Sources */,
+				1112461B27CC0A9E8DA80736 /* JTCalendarDataCache.m in Sources */,
+				280FBF04896492F85D56B3EB /* JTCalendarDayView.m in Sources */,
+				7735C37600AD5BCC2FE09ACE /* JTCalendarMenuMonthView.m in Sources */,
+				A9C3C901B8CB2EF94045C47E /* JTCalendarMenuView.m in Sources */,
+				280916EA07BCD3DB83286BA9 /* JTCalendarMonthView.m in Sources */,
+				32E1B8A2EC2225D1CFF29267 /* JTCalendarMonthWeekDaysView.m in Sources */,
+				7EA30819FD0C4791BDD120A6 /* JTCalendarWeekView.m in Sources */,
+				2A797C900CB3FC5A8162B6BE /* JTCircleView.m in Sources */,
+				A2E1FD9CD5249C7FA538A0F8 /* Pods-EasyDoLists-JTCalendar-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05212CC6A00F43760DEA8879 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-UIColor+FlatColors";
+			target = DF7A8BFF87FDE96517C90B25 /* Pods-EasyDoLists-UIColor+FlatColors */;
+			targetProxy = B253593C5C5B756466D5696E /* PBXContainerItemProxy */;
+		};
+		30DC65FFB6FFA08365DE1E05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-pop";
+			target = 0C89EE042CF2F8422FD6A2D1 /* Pods-EasyDoLists-pop */;
+			targetProxy = 539BDABBD9F3150054498AE6 /* PBXContainerItemProxy */;
+		};
+		3B87D6076D9ACFD3B963FAF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-BFPaperButton";
+			target = F2D67C12BE86A87DB4346A00 /* Pods-EasyDoLists-BFPaperButton */;
+			targetProxy = 934AD215F67B7F5F4863C3B0 /* PBXContainerItemProxy */;
+		};
+		40D6E096E7F07163A4CA7A72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-SCLAlertView-Objective-C";
+			target = 53172BD3EEAF8A95307D06F4 /* Pods-EasyDoLists-SCLAlertView-Objective-C */;
+			targetProxy = 3F42F51E19E60A9FB3F84AA7 /* PBXContainerItemProxy */;
+		};
+		5CC7CF9B8A8AB37C3A2713BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-pop";
+			target = 0C89EE042CF2F8422FD6A2D1 /* Pods-EasyDoLists-pop */;
+			targetProxy = E750932E535539675754B3D8 /* PBXContainerItemProxy */;
+		};
+		5EC25D7CF2ED369711E50D39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-UIColor+BFPaperColors";
+			target = 300EA505CE5653DB2E32D8FE /* Pods-EasyDoLists-UIColor+BFPaperColors */;
+			targetProxy = 220D4A2BBA29EDFF8CBA1979 /* PBXContainerItemProxy */;
+		};
+		69003167C1779FAD33A8DEC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-UIColor+BFPaperColors";
+			target = 300EA505CE5653DB2E32D8FE /* Pods-EasyDoLists-UIColor+BFPaperColors */;
+			targetProxy = 20F73CAFC97129862A78C660 /* PBXContainerItemProxy */;
+		};
+		7DFB63FF5F1F621967DDD990 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-JTCalendar";
+			target = 20C9C81D91D525FBA0FFEF6D /* Pods-EasyDoLists-JTCalendar */;
+			targetProxy = 65A8335A211DA131CF2FBDEF /* PBXContainerItemProxy */;
+		};
+		9435E3691EE9E502DE18675A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EasyDoLists-VBFPopFlatButton";
+			target = D624161A2E064160C5F7B878 /* Pods-EasyDoLists-VBFPopFlatButton */;
+			targetProxy = FD8CC7CFB36F33686E581D73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		12D4F3D5503237B2DBBB0486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0AF17035E3F2469166C9442 /* Pods-EasyDoLists-pop-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-pop/Pods-EasyDoLists-pop-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-pop/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-pop/Pods-EasyDoLists-pop.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = pop;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		15C6FAEB17147417E7265145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD2BB4B84347FA9233EB7B1C /* Pods-EasyDoLists-JTCalendar-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-JTCalendar/Pods-EasyDoLists-JTCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-JTCalendar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-JTCalendar/Pods-EasyDoLists-JTCalendar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = JTCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		18E710C72FC6ED8B946321EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		3BB349ED3BF58F0125B93785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78CF8A02E8E73BF47A793C0E /* Pods-EasyDoLists-UIColor+FlatColors-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-UIColor+FlatColors/Pods-EasyDoLists-UIColor+FlatColors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+FlatColors/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+FlatColors/Pods-EasyDoLists-UIColor+FlatColors.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UIColor_FlatColors;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4A6B4B4383E48241DC3DD69E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C9678AEC3A855EA9EB2B290 /* Pods-EasyDoLists-SCLAlertView-Objective-C-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C/Pods-EasyDoLists-SCLAlertView-Objective-C-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C/Pods-EasyDoLists-SCLAlertView-Objective-C.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SCLAlertView_Objective_C;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4C66A5434AF264A7CD5DE323 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D91E839775AF9221582969FB /* Pods-EasyDoLists-BFPaperButton-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-BFPaperButton/Pods-EasyDoLists-BFPaperButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-BFPaperButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-BFPaperButton/Pods-EasyDoLists-BFPaperButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BFPaperButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		504AEC638EB7867AE1C4F1C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AACA53D6F49227BB3660643C /* Pods-EasyDoLists.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_EasyDoLists;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5514D9F016ED6C8E08691031 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0AF17035E3F2469166C9442 /* Pods-EasyDoLists-pop-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-pop/Pods-EasyDoLists-pop-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-pop/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-pop/Pods-EasyDoLists-pop.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = pop;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		64E7159FFBD8398A3817E7BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C9678AEC3A855EA9EB2B290 /* Pods-EasyDoLists-SCLAlertView-Objective-C-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C/Pods-EasyDoLists-SCLAlertView-Objective-C-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-SCLAlertView-Objective-C/Pods-EasyDoLists-SCLAlertView-Objective-C.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SCLAlertView_Objective_C;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8D04097093667F4A6CAB4A16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD2BB4B84347FA9233EB7B1C /* Pods-EasyDoLists-JTCalendar-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-JTCalendar/Pods-EasyDoLists-JTCalendar-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-JTCalendar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-JTCalendar/Pods-EasyDoLists-JTCalendar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = JTCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9AF506FD86D427B36319B8F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D91E839775AF9221582969FB /* Pods-EasyDoLists-BFPaperButton-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-BFPaperButton/Pods-EasyDoLists-BFPaperButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-BFPaperButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-BFPaperButton/Pods-EasyDoLists-BFPaperButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BFPaperButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B5AFA7A0D68B10550CE92971 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 509732CD0EC6999A71C3D319 /* Pods-EasyDoLists-VBFPopFlatButton-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-VBFPopFlatButton/Pods-EasyDoLists-VBFPopFlatButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-VBFPopFlatButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-VBFPopFlatButton/Pods-EasyDoLists-VBFPopFlatButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = VBFPopFlatButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BFD5153BAF04E7F10EAF0B68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78CF8A02E8E73BF47A793C0E /* Pods-EasyDoLists-UIColor+FlatColors-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-UIColor+FlatColors/Pods-EasyDoLists-UIColor+FlatColors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+FlatColors/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+FlatColors/Pods-EasyDoLists-UIColor+FlatColors.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UIColor_FlatColors;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C0FCBC8306322A9648F521B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5B9EC1E52E0894AF5D4CDB /* Pods-EasyDoLists-UIColor+BFPaperColors-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors/Pods-EasyDoLists-UIColor+BFPaperColors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors/Pods-EasyDoLists-UIColor+BFPaperColors.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UIColor_BFPaperColors;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CD33F9DA7B9194048D620DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D282190DA78F2B8416896EF8 /* Pods-EasyDoLists.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_EasyDoLists;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F83310FA3836065E0672318F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5B9EC1E52E0894AF5D4CDB /* Pods-EasyDoLists-UIColor+BFPaperColors-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors/Pods-EasyDoLists-UIColor+BFPaperColors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-UIColor+BFPaperColors/Pods-EasyDoLists-UIColor+BFPaperColors.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UIColor_BFPaperColors;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FA66B1DE906894BB7D722418 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB042BE99162AC2E1011959E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 509732CD0EC6999A71C3D319 /* Pods-EasyDoLists-VBFPopFlatButton-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-EasyDoLists-VBFPopFlatButton/Pods-EasyDoLists-VBFPopFlatButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-EasyDoLists-VBFPopFlatButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-EasyDoLists-VBFPopFlatButton/Pods-EasyDoLists-VBFPopFlatButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = VBFPopFlatButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		021187A4DA5D3AA0CD5DCA12 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD33F9DA7B9194048D620DA3 /* Debug */,
+				504AEC638EB7867AE1C4F1C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0459D233C9A07AAE402DB992 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-SCLAlertView-Objective-C" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A6B4B4383E48241DC3DD69E /* Debug */,
+				64E7159FFBD8398A3817E7BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		075558D84BC1093FAFE61267 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-pop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5514D9F016ED6C8E08691031 /* Debug */,
+				12D4F3D5503237B2DBBB0486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22CD685F57AA33CC52E0AFA3 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-UIColor+BFPaperColors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0FCBC8306322A9648F521B1 /* Debug */,
+				F83310FA3836065E0672318F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36E6CCA4A891F2F025DB9CD2 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-BFPaperButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AF506FD86D427B36319B8F3 /* Debug */,
+				4C66A5434AF264A7CD5DE323 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73291506729291F476EEB460 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-UIColor+FlatColors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFD5153BAF04E7F10EAF0B68 /* Debug */,
+				3BB349ED3BF58F0125B93785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		779893284D077C97013FC942 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18E710C72FC6ED8B946321EC /* Debug */,
+				FA66B1DE906894BB7D722418 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA95AC6FD9D06946C0248619 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-VBFPopFlatButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5AFA7A0D68B10550CE92971 /* Debug */,
+				FB042BE99162AC2E1011959E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFB4DC0FED14BCB522A45802 /* Build configuration list for PBXNativeTarget "Pods-EasyDoLists-JTCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D04097093667F4A6CAB4A16 /* Debug */,
+				15C6FAEB17147417E7265145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3DDCE4B16AFA5CAC5A51900 /* Project object */;
+}

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ToDoViewController.h
 //  EasyDoLists
 //
 //  Created by Kyaw Myint Thein on 5/7/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ToDoViewController : UIViewController
 
 @end
-

@@ -1,0 +1,29 @@
+PODS:
+  - BFPaperButton (2.0.17):
+    - UIColor+BFPaperColors
+  - JTCalendar (1.2.3)
+  - pop (1.0.7)
+  - SCLAlertView-Objective-C (0.7.1)
+  - UIColor+BFPaperColors (1.7.1)
+  - UIColor+FlatColors (0.0.2)
+  - VBFPopFlatButton (0.0.6):
+    - pop
+
+DEPENDENCIES:
+  - BFPaperButton (~> 2.0.17)
+  - JTCalendar (~> 1.1)
+  - pop (~> 1.0.6)
+  - SCLAlertView-Objective-C
+  - UIColor+FlatColors (~> 0.0.2)
+  - VBFPopFlatButton
+
+SPEC CHECKSUMS:
+  BFPaperButton: e00250c55dff6cc29d236231f8dd6a91f0f21862
+  JTCalendar: 246ea3e338fb97624846ec77cdcde448242c4d5c
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  SCLAlertView-Objective-C: 19edce0d6f9de55316d8b9fe49a9953173a457f7
+  UIColor+BFPaperColors: b1efa4320e2f56c4b14f73232faf967ba0e5b4a2
+  UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
+  VBFPopFlatButton: 782344da63f104c279a857d806e065117a7e1196
+
+COCOAPODS: 0.36.3

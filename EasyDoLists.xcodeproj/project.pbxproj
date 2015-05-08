@@ -10,11 +10,41 @@
 		6D41096D1AFB8C0B007F402D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D41096C1AFB8C0B007F402D /* main.m */; };
 		6D4109701AFB8C0B007F402D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D41096F1AFB8C0B007F402D /* AppDelegate.m */; };
 		6D4109731AFB8C0B007F402D /* EasyDoLists.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109711AFB8C0B007F402D /* EasyDoLists.xcdatamodeld */; };
-		6D4109761AFB8C0B007F402D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109751AFB8C0B007F402D /* ViewController.m */; };
 		6D4109791AFB8C0B007F402D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109771AFB8C0B007F402D /* Main.storyboard */; };
 		6D41097B1AFB8C0B007F402D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D41097A1AFB8C0B007F402D /* Images.xcassets */; };
 		6D41097E1AFB8C0B007F402D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D41097C1AFB8C0B007F402D /* LaunchScreen.xib */; };
 		6D41098A1AFB8C0B007F402D /* EasyDoListsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109891AFB8C0B007F402D /* EasyDoListsTests.m */; };
+		6D4109991AFB91B0007F402D /* ToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109981AFB91B0007F402D /* ToDoViewController.m */; };
+		6D4109A11AFB91EA007F402D /* ASDaySelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D41099C1AFB91EA007F402D /* ASDaySelectionView.m */; };
+		6D4109A21AFB91EA007F402D /* ASSingleWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D41099E1AFB91EA007F402D /* ASSingleWeekView.m */; };
+		6D4109A61AFB9649007F402D /* Delete Column Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109A51AFB9649007F402D /* Delete Column Filled-25.png */; };
+		6D4109A81AFB964F007F402D /* Today Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109A71AFB964F007F402D /* Today Filled-25.png */; };
+		6D4109AE1AFB989C007F402D /* ASWeekSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109AD1AFB989C007F402D /* ASWeekSelectorView.m */; };
+		6D4109B21AFB9B73007F402D /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109B11AFB9B73007F402D /* TaskCell.m */; };
+		6D4109C31AFBB822007F402D /* Aileron-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B31AFBB6DB007F402D /* Aileron-Black.otf */; };
+		6D4109C41AFBB822007F402D /* Aileron-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B41AFBB6DB007F402D /* Aileron-BlackItalic.otf */; };
+		6D4109C51AFBB822007F402D /* Aileron-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B51AFBB6DB007F402D /* Aileron-Bold.otf */; };
+		6D4109C61AFBB822007F402D /* Aileron-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B61AFBB6DB007F402D /* Aileron-BoldItalic.otf */; };
+		6D4109C71AFBB822007F402D /* Aileron-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B71AFBB6DB007F402D /* Aileron-Heavy.otf */; };
+		6D4109C81AFBB822007F402D /* Aileron-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B81AFBB6DB007F402D /* Aileron-HeavyItalic.otf */; };
+		6D4109C91AFBB822007F402D /* Aileron-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109B91AFBB6DB007F402D /* Aileron-Italic.otf */; };
+		6D4109CA1AFBB822007F402D /* Aileron-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109BA1AFBB6DB007F402D /* Aileron-Light.otf */; };
+		6D4109CB1AFBB822007F402D /* Aileron-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109BB1AFBB6DB007F402D /* Aileron-LightItalic.otf */; };
+		6D4109CC1AFBB822007F402D /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109BC1AFBB6DB007F402D /* Aileron-Regular.otf */; };
+		6D4109CD1AFBB822007F402D /* Aileron-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109BD1AFBB6DB007F402D /* Aileron-SemiBold.otf */; };
+		6D4109CE1AFBB822007F402D /* Aileron-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109BE1AFBB6DB007F402D /* Aileron-SemiBoldItalic.otf */; };
+		6D4109CF1AFBB822007F402D /* Aileron-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109BF1AFBB6DB007F402D /* Aileron-Thin.otf */; };
+		6D4109D01AFBB822007F402D /* Aileron-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C01AFBB6DB007F402D /* Aileron-ThinItalic.otf */; };
+		6D4109D11AFBB822007F402D /* Aileron-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C11AFBB6DB007F402D /* Aileron-UltraLight.otf */; };
+		6D4109D21AFBB822007F402D /* Aileron-UltraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */; };
+		6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */; };
+		6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */; };
+		6D7B54B01AFBCDBD006729D1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */; };
+		6D7B54B11AFBCDBD006729D1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A81AFBCDBD006729D1 /* SCLAlertViewResponder.m */; };
+		6D7B54B21AFBCDBD006729D1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AA1AFBCDBD006729D1 /* SCLAlertViewStyleKit.m */; };
+		6D7B54B31AFBCDBD006729D1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AC1AFBCDBD006729D1 /* SCLButton.m */; };
+		6D7B54B41AFBCDBD006729D1 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AF1AFBCDBD006729D1 /* UIImage+ImageEffects.m */; };
+		D65F39748C25052501EC0C8F /* Pods_EasyDoLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BD60F43BD692DCA03EAE34 /* Pods_EasyDoLists.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +58,62 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.debug.xcconfig"; sourceTree = "<group>"; };
 		6D4109671AFB8C0B007F402D /* EasyDoLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyDoLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D41096B1AFB8C0B007F402D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D41096C1AFB8C0B007F402D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D41096E1AFB8C0B007F402D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D41096F1AFB8C0B007F402D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6D4109721AFB8C0B007F402D /* EasyDoLists.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyDoLists.xcdatamodel; sourceTree = "<group>"; };
-		6D4109741AFB8C0B007F402D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6D4109751AFB8C0B007F402D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D4109781AFB8C0B007F402D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D41097A1AFB8C0B007F402D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D41097D1AFB8C0B007F402D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6D4109831AFB8C0B007F402D /* EasyDoListsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyDoListsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4109881AFB8C0B007F402D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D4109891AFB8C0B007F402D /* EasyDoListsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyDoListsTests.m; sourceTree = "<group>"; };
+		6D4109971AFB91B0007F402D /* ToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoViewController.h; sourceTree = "<group>"; };
+		6D4109981AFB91B0007F402D /* ToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoViewController.m; sourceTree = "<group>"; };
+		6D41099B1AFB91EA007F402D /* ASDaySelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDaySelectionView.h; sourceTree = "<group>"; };
+		6D41099C1AFB91EA007F402D /* ASDaySelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASDaySelectionView.m; sourceTree = "<group>"; };
+		6D41099D1AFB91EA007F402D /* ASSingleWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSingleWeekView.h; sourceTree = "<group>"; };
+		6D41099E1AFB91EA007F402D /* ASSingleWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSingleWeekView.m; sourceTree = "<group>"; };
+		6D4109A51AFB9649007F402D /* Delete Column Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete Column Filled-25.png"; sourceTree = "<group>"; };
+		6D4109A71AFB964F007F402D /* Today Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Today Filled-25.png"; sourceTree = "<group>"; };
+		6D4109AC1AFB989C007F402D /* ASWeekSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASWeekSelectorView.h; sourceTree = "<group>"; };
+		6D4109AD1AFB989C007F402D /* ASWeekSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASWeekSelectorView.m; sourceTree = "<group>"; };
+		6D4109B01AFB9B73007F402D /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		6D4109B11AFB9B73007F402D /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
+		6D4109B31AFBB6DB007F402D /* Aileron-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Black.otf"; sourceTree = "<group>"; };
+		6D4109B41AFBB6DB007F402D /* Aileron-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-BlackItalic.otf"; sourceTree = "<group>"; };
+		6D4109B51AFBB6DB007F402D /* Aileron-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Bold.otf"; sourceTree = "<group>"; };
+		6D4109B61AFBB6DB007F402D /* Aileron-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-BoldItalic.otf"; sourceTree = "<group>"; };
+		6D4109B71AFBB6DB007F402D /* Aileron-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Heavy.otf"; sourceTree = "<group>"; };
+		6D4109B81AFBB6DB007F402D /* Aileron-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-HeavyItalic.otf"; sourceTree = "<group>"; };
+		6D4109B91AFBB6DB007F402D /* Aileron-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Italic.otf"; sourceTree = "<group>"; };
+		6D4109BA1AFBB6DB007F402D /* Aileron-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Light.otf"; sourceTree = "<group>"; };
+		6D4109BB1AFBB6DB007F402D /* Aileron-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-LightItalic.otf"; sourceTree = "<group>"; };
+		6D4109BC1AFBB6DB007F402D /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
+		6D4109BD1AFBB6DB007F402D /* Aileron-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-SemiBold.otf"; sourceTree = "<group>"; };
+		6D4109BE1AFBB6DB007F402D /* Aileron-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		6D4109BF1AFBB6DB007F402D /* Aileron-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Thin.otf"; sourceTree = "<group>"; };
+		6D4109C01AFBB6DB007F402D /* Aileron-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-ThinItalic.otf"; sourceTree = "<group>"; };
+		6D4109C11AFBB6DB007F402D /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
+		6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLightItalic.otf"; sourceTree = "<group>"; };
+		6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock Filled-25.png"; sourceTree = "<group>"; };
+		6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock-25.png"; sourceTree = "<group>"; };
+		6D7B54A51AFBCDBD006729D1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
+		6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
+		6D7B54A71AFBCDBD006729D1 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		6D7B54A81AFBCDBD006729D1 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		6D7B54A91AFBCDBD006729D1 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		6D7B54AA1AFBCDBD006729D1 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		6D7B54AB1AFBCDBD006729D1 /* SCLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLButton.h; sourceTree = "<group>"; };
+		6D7B54AC1AFBCDBD006729D1 /* SCLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLButton.m; sourceTree = "<group>"; };
+		6D7B54AD1AFBCDBD006729D1 /* SCLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLMacros.h; sourceTree = "<group>"; };
+		6D7B54AE1AFBCDBD006729D1 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		6D7B54AF1AFBCDBD006729D1 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		BAC040FAEF24ACB0CBCF0229 /* Pods-EasyDoLists.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.release.xcconfig"; sourceTree = "<group>"; };
+		C9BD60F43BD692DCA03EAE34 /* Pods_EasyDoLists.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDoLists.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65F39748C25052501EC0C8F /* Pods_EasyDoLists.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +141,8 @@
 				6D4109691AFB8C0B007F402D /* EasyDoLists */,
 				6D4109861AFB8C0B007F402D /* EasyDoListsTests */,
 				6D4109681AFB8C0B007F402D /* Products */,
+				73007AC1D05AEBB69886F858 /* Pods */,
+				FADE6873982DD952593B3FB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,13 +158,14 @@
 		6D4109691AFB8C0B007F402D /* EasyDoLists */ = {
 			isa = PBXGroup;
 			children = (
+				6D4109A41AFB9639007F402D /* Resource */,
+				6D4109961AFB9199007F402D /* View */,
+				6D4109951AFB9194007F402D /* Lib */,
+				6D4109941AFB9190007F402D /* Model */,
+				6D4109931AFB918B007F402D /* Controller */,
 				6D41096E1AFB8C0B007F402D /* AppDelegate.h */,
 				6D41096F1AFB8C0B007F402D /* AppDelegate.m */,
-				6D4109741AFB8C0B007F402D /* ViewController.h */,
-				6D4109751AFB8C0B007F402D /* ViewController.m */,
-				6D4109771AFB8C0B007F402D /* Main.storyboard */,
 				6D41097A1AFB8C0B007F402D /* Images.xcassets */,
-				6D41097C1AFB8C0B007F402D /* LaunchScreen.xib */,
 				6D4109711AFB8C0B007F402D /* EasyDoLists.xcdatamodeld */,
 				6D41096A1AFB8C0B007F402D /* Supporting Files */,
 			);
@@ -99,6 +175,8 @@
 		6D41096A1AFB8C0B007F402D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D4109771AFB8C0B007F402D /* Main.storyboard */,
+				6D41097C1AFB8C0B007F402D /* LaunchScreen.xib */,
 				6D41096B1AFB8C0B007F402D /* Info.plist */,
 				6D41096C1AFB8C0B007F402D /* main.m */,
 			);
@@ -122,6 +200,123 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6D4109931AFB918B007F402D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6D4109971AFB91B0007F402D /* ToDoViewController.h */,
+				6D4109981AFB91B0007F402D /* ToDoViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6D4109941AFB9190007F402D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6D4109951AFB9194007F402D /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				6D41099A1AFB91D5007F402D /* ASWeekSelectorView */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		6D4109961AFB9199007F402D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6D7B54A41AFBCDBD006729D1 /* SCLAlertView */,
+				6D4109AF1AFB9B56007F402D /* Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6D41099A1AFB91D5007F402D /* ASWeekSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				6D4109AC1AFB989C007F402D /* ASWeekSelectorView.h */,
+				6D4109AD1AFB989C007F402D /* ASWeekSelectorView.m */,
+				6D41099B1AFB91EA007F402D /* ASDaySelectionView.h */,
+				6D41099C1AFB91EA007F402D /* ASDaySelectionView.m */,
+				6D41099D1AFB91EA007F402D /* ASSingleWeekView.h */,
+				6D41099E1AFB91EA007F402D /* ASSingleWeekView.m */,
+			);
+			name = ASWeekSelectorView;
+			sourceTree = "<group>";
+		};
+		6D4109A41AFB9639007F402D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */,
+				6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */,
+				6D4109B31AFBB6DB007F402D /* Aileron-Black.otf */,
+				6D4109B41AFBB6DB007F402D /* Aileron-BlackItalic.otf */,
+				6D4109B51AFBB6DB007F402D /* Aileron-Bold.otf */,
+				6D4109B61AFBB6DB007F402D /* Aileron-BoldItalic.otf */,
+				6D4109B71AFBB6DB007F402D /* Aileron-Heavy.otf */,
+				6D4109B81AFBB6DB007F402D /* Aileron-HeavyItalic.otf */,
+				6D4109B91AFBB6DB007F402D /* Aileron-Italic.otf */,
+				6D4109BA1AFBB6DB007F402D /* Aileron-Light.otf */,
+				6D4109BB1AFBB6DB007F402D /* Aileron-LightItalic.otf */,
+				6D4109BC1AFBB6DB007F402D /* Aileron-Regular.otf */,
+				6D4109BD1AFBB6DB007F402D /* Aileron-SemiBold.otf */,
+				6D4109BE1AFBB6DB007F402D /* Aileron-SemiBoldItalic.otf */,
+				6D4109BF1AFBB6DB007F402D /* Aileron-Thin.otf */,
+				6D4109C01AFBB6DB007F402D /* Aileron-ThinItalic.otf */,
+				6D4109C11AFBB6DB007F402D /* Aileron-UltraLight.otf */,
+				6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */,
+				6D4109A71AFB964F007F402D /* Today Filled-25.png */,
+				6D4109A51AFB9649007F402D /* Delete Column Filled-25.png */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		6D4109AF1AFB9B56007F402D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6D4109B01AFB9B73007F402D /* TaskCell.h */,
+				6D4109B11AFB9B73007F402D /* TaskCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		6D7B54A41AFBCDBD006729D1 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				6D7B54A51AFBCDBD006729D1 /* SCLAlertView.h */,
+				6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */,
+				6D7B54A71AFBCDBD006729D1 /* SCLAlertViewResponder.h */,
+				6D7B54A81AFBCDBD006729D1 /* SCLAlertViewResponder.m */,
+				6D7B54A91AFBCDBD006729D1 /* SCLAlertViewStyleKit.h */,
+				6D7B54AA1AFBCDBD006729D1 /* SCLAlertViewStyleKit.m */,
+				6D7B54AB1AFBCDBD006729D1 /* SCLButton.h */,
+				6D7B54AC1AFBCDBD006729D1 /* SCLButton.m */,
+				6D7B54AD1AFBCDBD006729D1 /* SCLMacros.h */,
+				6D7B54AE1AFBCDBD006729D1 /* UIImage+ImageEffects.h */,
+				6D7B54AF1AFBCDBD006729D1 /* UIImage+ImageEffects.m */,
+			);
+			path = SCLAlertView;
+			sourceTree = "<group>";
+		};
+		73007AC1D05AEBB69886F858 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */,
+				BAC040FAEF24ACB0CBCF0229 /* Pods-EasyDoLists.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FADE6873982DD952593B3FB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9BD60F43BD692DCA03EAE34 /* Pods_EasyDoLists.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D41098D1AFB8C0B007F402D /* Build configuration list for PBXNativeTarget "EasyDoLists" */;
 			buildPhases = (
+				47F1EC0F36D229E89974AC30 /* Check Pods Manifest.lock */,
 				6D4109631AFB8C0B007F402D /* Sources */,
 				6D4109641AFB8C0B007F402D /* Frameworks */,
 				6D4109651AFB8C0B007F402D /* Resources */,
+				C95C4C0DBFC821A23B8199D9 /* Copy Pods Resources */,
+				4349CA186A14687685D148E8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,9 +400,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4109C31AFBB822007F402D /* Aileron-Black.otf in Resources */,
+				6D4109C41AFBB822007F402D /* Aileron-BlackItalic.otf in Resources */,
+				6D4109C51AFBB822007F402D /* Aileron-Bold.otf in Resources */,
+				6D4109C61AFBB822007F402D /* Aileron-BoldItalic.otf in Resources */,
+				6D4109C71AFBB822007F402D /* Aileron-Heavy.otf in Resources */,
+				6D4109C81AFBB822007F402D /* Aileron-HeavyItalic.otf in Resources */,
+				6D4109C91AFBB822007F402D /* Aileron-Italic.otf in Resources */,
+				6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */,
+				6D4109CA1AFBB822007F402D /* Aileron-Light.otf in Resources */,
+				6D4109CB1AFBB822007F402D /* Aileron-LightItalic.otf in Resources */,
+				6D4109CC1AFBB822007F402D /* Aileron-Regular.otf in Resources */,
+				6D4109CD1AFBB822007F402D /* Aileron-SemiBold.otf in Resources */,
+				6D4109CE1AFBB822007F402D /* Aileron-SemiBoldItalic.otf in Resources */,
+				6D4109CF1AFBB822007F402D /* Aileron-Thin.otf in Resources */,
+				6D4109D01AFBB822007F402D /* Aileron-ThinItalic.otf in Resources */,
+				6D4109D11AFBB822007F402D /* Aileron-UltraLight.otf in Resources */,
+				6D4109D21AFBB822007F402D /* Aileron-UltraLightItalic.otf in Resources */,
+				6D4109A81AFB964F007F402D /* Today Filled-25.png in Resources */,
 				6D4109791AFB8C0B007F402D /* Main.storyboard in Resources */,
 				6D41097E1AFB8C0B007F402D /* LaunchScreen.xib in Resources */,
+				6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */,
 				6D41097B1AFB8C0B007F402D /* Images.xcassets in Resources */,
+				6D4109A61AFB9649007F402D /* Delete Column Filled-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,14 +435,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4349CA186A14687685D148E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47F1EC0F36D229E89974AC30 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C95C4C0DBFC821A23B8199D9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6D4109631AFB8C0B007F402D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4109B21AFB9B73007F402D /* TaskCell.m in Sources */,
+				6D7B54B41AFBCDBD006729D1 /* UIImage+ImageEffects.m in Sources */,
+				6D4109991AFB91B0007F402D /* ToDoViewController.m in Sources */,
 				6D4109701AFB8C0B007F402D /* AppDelegate.m in Sources */,
+				6D4109A21AFB91EA007F402D /* ASSingleWeekView.m in Sources */,
+				6D7B54B31AFBCDBD006729D1 /* SCLButton.m in Sources */,
+				6D7B54B21AFBCDBD006729D1 /* SCLAlertViewStyleKit.m in Sources */,
 				6D41096D1AFB8C0B007F402D /* main.m in Sources */,
-				6D4109761AFB8C0B007F402D /* ViewController.m in Sources */,
+				6D7B54B01AFBCDBD006729D1 /* SCLAlertView.m in Sources */,
+				6D4109A11AFB91EA007F402D /* ASDaySelectionView.m in Sources */,
+				6D7B54B11AFBCDBD006729D1 /* SCLAlertViewResponder.m in Sources */,
+				6D4109AE1AFB989C007F402D /* ASWeekSelectorView.m in Sources */,
 				6D4109731AFB8C0B007F402D /* EasyDoLists.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +626,7 @@
 		};
 		6D41098E1AFB8C0B007F402D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyDoLists/Info.plist;
@@ -361,6 +637,7 @@
 		};
 		6D41098F1AFB8C0B007F402D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAC040FAEF24ACB0CBCF0229 /* Pods-EasyDoLists.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EasyDoLists/Info.plist;
@@ -422,6 +699,7 @@
 				6D41098F1AFB8C0B007F402D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D4109901AFB8C0B007F402D /* Build configuration list for PBXNativeTarget "EasyDoListsTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +708,7 @@
 				6D4109921AFB8C0B007F402D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
