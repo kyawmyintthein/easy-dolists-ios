@@ -48,8 +48,13 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'ActionSheetPicker_3_0.framework'
   install_framework 'BFPaperButton.framework'
+  install_framework 'DateTools.framework'
   install_framework 'JTCalendar.framework'
+  install_framework 'MBProgressHUD.framework'
+  install_framework 'PullToRefreshCoreText.framework'
+  install_framework 'Realm.framework'
   install_framework 'SCLAlertView_Objective_C.framework'
   install_framework 'UIColor_BFPaperColors.framework'
   install_framework 'UIColor_FlatColors.framework'
@@ -57,8 +62,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'pop.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'ActionSheetPicker_3_0.framework'
   install_framework 'BFPaperButton.framework'
+  install_framework 'DateTools.framework'
   install_framework 'JTCalendar.framework'
+  install_framework 'MBProgressHUD.framework'
+  install_framework 'PullToRefreshCoreText.framework'
+  install_framework 'Realm.framework'
   install_framework 'SCLAlertView_Objective_C.framework'
   install_framework 'UIColor_BFPaperColors.framework'
   install_framework 'UIColor_FlatColors.framework'

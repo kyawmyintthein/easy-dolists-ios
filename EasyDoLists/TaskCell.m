@@ -18,7 +18,7 @@
         self.contentView.backgroundColor = [UIColor clearColor];
 
 
-        self.doneButton = [[VBFPopFlatButton alloc]initWithFrame:CGRectMake(0,0, 25, 25)
+        self.doneButton = [[VBFPopFlatButton alloc]initWithFrame:CGRectMake(0,0, 35, 35)
                                                              buttonType:buttonSquareType
                                                             buttonStyle:buttonPlainStyle
                                                   animateToInitialState:YES];
@@ -32,7 +32,7 @@
                   forControlEvents:UIControlEventTouchUpInside];
                self.accessoryView = self.doneButton;
         
-        self.alertButton = [[UIButton alloc]initWithFrame:CGRectMake(15,14, 25, 25)];
+        self.alertButton = [[UIButton alloc]initWithFrame:CGRectMake(15,14, 35, 35)];
         [self.alertButton setImage: [UIImage imageNamed:@"Alarm Clock Filled-25"] forState:UIControlStateNormal];
         //[self.alertButton addTarget:self action:@selector(todayButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 

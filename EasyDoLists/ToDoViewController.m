@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ToDoViewController.h"
-//#import "ASWeekSelectorView.h"
 #import "BFPaperButton.h"
 #import "TaskCell.h"
 #import "SCLAlertView.h"
 #import "JTCalendar.h"
+#import <Realm/Realm.h>
+#import "Task.h"
+#import "UIScrollView+UzysCircularProgressPullToRefresh.h"
+#import "DateTools.h"
+#import "ActionSheetDatePicker.h"
 static NSString * const kEDLHome = @"To Do List";
 
 @interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
@@ -20,11 +24,12 @@ static NSString * const kEDLHome = @"To Do List";
 @property (strong, nonatomic) IBOutlet UITableView *tasksTableView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet JTCalendarMenuView *weeMenuView;
-@property (strong, nonatomic) NSMutableArray *tasks;
+@property (strong, nonatomic) RLMArray *tasks;
 @property (weak, nonatomic) UITextView *todoTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
 @property (strong, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (strong, nonatomic) JTCalendar *calendar;
+@property (nonatomic, strong) RLMNotificationToken *notification;
 
 @end
 
@@ -35,8 +40,6 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tasks =[[NSMutableArray alloc]init];
-    [self.tasks addObjectsFromArray: @[@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly",@"To do exercise regulary",@"To eat regularly",@"To sleep regularly"]];
     self.navigationItem.title = kEDLHome;
 
     self.changeModeButton.tintColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
@@ -47,14 +50,17 @@ static NSString * const kEDLHome = @"To Do List";
     {
         self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Sunday == 1, Saturday == 7
         self.calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
-        self.calendar.calendarAppearance.ratioContentMenu = 2.;
+        self.calendar.calendarAppearance.ratioContentMenu = 1.;
         self.calendar.calendarAppearance.focusSelectedDayChangeMode = YES;
         self.calendar.calendarAppearance.isWeekMode = YES;
+        self.calendar.currentDateSelected = [NSDate date];
         self.calendar.calendarAppearance.menuMonthTextColor =[UIColor whiteColor];
+    
         
         // Customize the text for each month
         self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
+//            [jt_calendar.calendarAppearance.calendar setTimeZone:[NSTimeZone systemTimeZone]];
             NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
             NSInteger currentMonthIndex = comps.month;
             
@@ -73,12 +79,11 @@ static NSString * const kEDLHome = @"To Do List";
             return [NSString stringWithFormat:@"%ld\n%@", comps.year, monthText];
         };
     }
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, self.scrollView.bounds.size.height*3)];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, self.scrollView.bounds.size.height*1.5)];
 
     [self.calendar setMenuMonthsView:self.weeMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
-    [self createRandomEvents];
     [self.calendar reloadData];
     self.view.backgroundColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
 
@@ -99,34 +104,130 @@ static NSString * const kEDLHome = @"To Do List";
     addNoteButton.rippleBeyondBounds = YES;
     addNoteButton.tapCircleDiameter = MAX(addNoteButton.frame.size.width, addNoteButton.frame.size.height) * 1.3;
     [self.view addSubview:addNoteButton];
-    
 
-   
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tasksTableView.backgroundColor = [UIColor clearColor];
     self.tasksTableView.dataSource = self;
     self.tasksTableView.delegate = self;
     self.tasksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tasksTableView.allowsMultipleSelectionDuringEditing = NO;
+
     
-//    self.calendarContentViewHeight.constant = 75;
-//    [self.calendarContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView
-//                                                       attribute:NSLayoutAttributeHeight
-//                                                       relatedBy:NSLayoutRelationEqual
-//                                                          toItem:nil
-//                                                       attribute:NSLayoutAttributeNotAnAttribute
-//                                                      multiplier:1.0
-//                                                        constant:74.0]];
-//    [self.calendarContentView reloadAppearance];
-//    [self.calendarContentView setContentSize:CGSizeMake(self.scrollView.frame.size.width,75)];
-//    [self.calendarContentView addConstraint:self.calendarContentViewHeight];
-    NSLog(@"dfa %@",self.calendarContentView.constraints);
+    __weak typeof(self) weakSelf = self;
+    
+    self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
+        [weakSelf loadTasks];
+    }];
+    
+    [self.tasksTableView addPullToRefreshActionHandler:^{
+        [weakSelf loadTasks];
+    }];
+    [self loadTasks];
+    [self.tasksTableView reloadData];
+    
+
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self transitionMode];
+    [self.tasksTableView becomeFirstResponder];
+    [self loadTasks];
+    [self.tasksTableView reloadData];
+    
+    [super viewDidAppear:animated];
 
 }
 
--(void) viewDidAppear:(BOOL)animated{
-   [self transitionExample];
+- (void)loadTasks{
+    int daysToAdd = 1;
+    NSDate *yesterday = [NSDate dateWithTimeIntervalSinceNow: -(60.0f*60.0f*24.0f)];
+    NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
+    DTTimePeriod *timePeriod = [[DTTimePeriod alloc] initWithStartDate:self.calendar.currentDateSelected endDate:newDate1];
+
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"createdAt BETWEEN  %@",
+                         @[yesterday,self.calendar.currentDateSelected]];
+    
+    self.tasks = [Task objectsWithPredicate:pred];
+    [self.tasksTableView reloadData];
+
 }
+
+- (void)reloadTasks{
+    int daysToAdd = 1;
+    NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
+    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"note" ascending:YES];
+    NSLog(@"order %@",self.tasks);
+    [self.tasksTableView reloadData];
+}
+
+- (BOOL*)reloadTasksByDate:(NSDate*)selectedDate{
+    int daysToAdd = 1;
+    NSDate *newDate1 = [selectedDate dateByAddingTimeInterval:60*60*24*daysToAdd];
+    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, selectedDate,newDate1];
+    if ([Task objectsWithPredicate:filterPredicate].count > 0) {
+        return true;
+    }
+    return false;
+}
+
+- (void)addTask:(NSString *)note createdFor:(NSDate*) createdFor{
+    RLMRealm *realm = RLMRealm.defaultRealm;
+    [realm beginWriteTransaction];
+    Task *task = [[Task alloc] init];
+    RLMArray *tasks = [[Task allObjects]  sortedResultsUsingProperty:@"id" ascending:YES] ;
+    Task *lastTask = nil;
+    NSLog(@"task coutn %@",tasks);
+    if (tasks.count  >= 1) {
+        lastTask = tasks[(tasks.count -1)];
+       
+        int *lastId = [lastTask.id intValue];
+        int *newId =(int)lastId + [@1 intValue];
+        task.id =  [NSString stringWithFormat:@"%i",(int)newId];
+    }else{
+        task.id = @"1";
+
+    }
+    NSLog(@"value %@",task.id);
+   
+    task.note = note;
+    task.createdAt = [NSDate date];
+    task.createdFor = createdFor;
+    task.isDone = false;
+    task.isAlert = false;
+    NSLog(@" assign task id %@",task.id);
+    [realm addObject:task];
+    [realm commitWriteTransaction];
+}
+
+-(void)updateTask:(Task *)task isDone:(BOOL*)isDone{
+
+        RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+
+    Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
+
+        
+        [realm addOrUpdateObject:updateTask];
+        
+        [realm commitWriteTransaction];
+
+}
+
+
+-(void)deleteTask:(Task *)task{
+    RLMRealm *realm = RLMRealm.defaultRealm;
+    // Updating book with id = 1
+    [realm beginWriteTransaction];
+    [realm deleteObject:task];
+    [realm commitWriteTransaction];
+}
+
+
+
 
 - (IBAction)pressedaddNoteButton:(id)sender {
     SCLAlertView *alert = [[SCLAlertView alloc] init];
@@ -137,19 +238,50 @@ static NSString * const kEDLHome = @"To Do List";
    
 //    [self.todoTextView becomeFirstResponder];
     [alert addButton:@"Done" actionBlock:^(void) {
-//        [self saveNote];
+        if (self.calendar.currentDateSelected) {
+            [self addTask:self.todoTextView.text createdFor:self.calendar.currentDateSelected];
+        }else{
+            [self addTask:self.todoTextView.text createdFor:self.calendar.currentDate];
+        }
+        
     }];
-    
-    
-    [alert showEdit:self title:@"Add Note" subTitle:@"" closeButtonTitle:@"Close" duration:0.0f];
-    
+    [alert showEdit:self title:@"Add Task" subTitle:@"" closeButtonTitle:@"Close" duration:0.0f];
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
 //    [self.todoTextView becomeFirstResponder];   
 }
 
 - (void)todayButtonPressed:(UIBarButtonItem *)sender
 {
-    NSDate *now = [NSDate date];
- //   [self.weekSelector setSelectedDate:now animated:YES];
+
+    [self.calendar setCurrentDate:[NSDate date]];
+    [self.calendar setCurrentDateSelected:[NSDate date]];
+    [self loadTasks];
+    [self.tasksTableView reloadData];
+    
+}
+
+- (void)pressedDoneButton:(UIBarButtonItem *)sender
+{
+    Task *task = [self.tasks objectAtIndex:sender.tag];
+   NSLog(task.isDone ? @"Yes" : @"No");
+   [self updateTask:task isDone:task.isDone];
+     [self reloadTasks];    
+    
+}
+
+- (void)pressedAlertButton:(UIBarButtonItem *)sender
+{
+    Task *task = [self.tasks objectAtIndex:sender.tag];
+    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Set Time for Reminder" datePickerMode:UIDatePickerModeTime selectedDate:[NSDate date] target:self action:@selector(pressedDoneButton:) origin:sender];
+    [datePicker setTimeZone:[NSTimeZone systemTimeZone]];
+    UIView *bgView = [[UIView alloc]init];
+    bgView.backgroundColor = [UIColor redColor];
+    
+    datePicker.minuteInterval = 5;
+    [datePicker setPickerView:bgView];
+    [datePicker showActionSheetPicker];
+    
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -167,6 +299,7 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tasks.count;
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -181,18 +314,35 @@ static NSString * const kEDLHome = @"To Do List";
     static NSString *cellIdentifier = @"TaskCell";
 
     taskCell = (TaskCell *)[self.tasksTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    taskCell.taskName.text = self.tasks[indexPath.row];
+    Task *task = [self.tasks objectAtIndex:indexPath.row];
+    taskCell.taskName.text = task.note;
     taskCell.backgroundColor = [UIColor clearColor];
     taskCell.taskName.numberOfLines = 0;
     taskCell.taskName.textColor = [UIColor whiteColor];
     taskCell.textLabel.font=[UIFont fontWithName:@"Aileron-Bold" size:18.0];
     taskCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    taskCell.doneButton.tag = indexPath.row;
+    taskCell.alertButton.tag = indexPath.row;
+    taskCell.showsReorderControl = YES;
+    if (task.isDone) {
+        [taskCell.doneButton animateToType:buttonOkType];
+    }
+    
+    if (task.isAlert) {
+        UIImage *image =[UIImage imageNamed:@"Alarm Clock Filled-25"];
+        [taskCell.alertButton setImage:image forState:UIControlStateNormal];
+    }
+    
+    [taskCell.doneButton addTarget:self action:@selector(pressedDoneButton:) forControlEvents:UIControlEventTouchUpInside];
+    [taskCell.alertButton addTarget:self action:@selector(pressedAlertButton:) forControlEvents:UIControlEventTouchUpInside];
     return taskCell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 55;
 }
+
+
 
 
 // Override to support conditional editing of the table view.
@@ -205,28 +355,65 @@ static NSString * const kEDLHome = @"To Do List";
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"delete");
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.tasks removeObjectAtIndex:indexPath.row];
+        //[self.tasks removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        Task *task = (Task*) [self.tasks objectAtIndex:indexPath.row];
+        NSLog(@"task %@",task.id);
+        [self deleteTask:task];
+      //  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView reloadData];
     }
+  
 }
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Value Selected by user
-//    TaskCell *selectedCell=(TaskCell*)[tableView cellForRowAtIndexPath:indexPath];
-//    [selectedCell flatRoundedButtonPressed];
-//
-    
+
+    Task *task =(Task*) self.tasks[indexPath.row];
+    TaskCell *taskCell = (TaskCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [self updateTask:task isDone:taskCell.isDone];
+    [self reloadTasks];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     NSString *stringToMove = [self.tasks objectAtIndex:sourceIndexPath.row];
-    [self.tasks removeObjectAtIndex:sourceIndexPath.row];
-    [self.tasks insertObject:stringToMove atIndex:destinationIndexPath.row];
+    Task *oldTask = (Task*)[self.tasks objectAtIndex:sourceIndexPath.row];
+    Task *newTask = (Task*)[self.tasks objectAtIndex:destinationIndexPath.row];
+    [self moveTask:oldTask newTask:newTask];
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
+}
+
+
+-(void)moveTask:(Task *)oldTask newTask:(Task*)newTask{
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+
+
+    Task *oldTemp = oldTask;
+    Task *newTemp = newTask;
+    
+    Task *updateOldTask = [self preparedTask:newTemp replaceTask:oldTask];
+    Task *updateNewTask  =  [self preparedTask:oldTemp replaceTask:newTask];;
+    
+    [realm addOrUpdateObject:updateOldTask];
+    [realm addOrUpdateObject:updateNewTask];
+    [realm commitWriteTransaction];
+    
+}
+
+-(Task*)preparedTask:(Task *)moveTask replaceTask:(Task*)replaceTask{
+    replaceTask.note = moveTask.note;
+    replaceTask.isDone = moveTask.isDone;
+    replaceTask.isAlert = moveTask.isAlert;
+    replaceTask.createdFor = moveTask.createdFor;
+    replaceTask.createdAt = moveTask.createdAt;
+    
+    return replaceTask;
 }
 
 
@@ -255,33 +442,35 @@ static NSString * const kEDLHome = @"To Do List";
 - (IBAction)didGoTodayTouch
 {
     [self.calendar setCurrentDate:[NSDate date]];
+
 }
 
 - (IBAction)didChangeModeTouch
 {
     self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
-    [self transitionExample];
+    [self transitionMode];
 }
 
 #pragma mark - JTCalendarDataSource
 
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    NSString *key = [[self dateFormatter] stringFromDate:date];
-    
-    if(eventsByDate[key] && [eventsByDate[key] count] > 0){
+    if ([self reloadTasksByDate:date]) {
         return YES;
     }
+    NSLog(@"have");
     
     return NO;
 }
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
-    NSString *key = [[self dateFormatter] stringFromDate:date];
-    NSArray *events = eventsByDate[key];
-    
-    NSLog(@"Date: %@ - %ld events", date, [events count]);
+ 
+    [self reloadTasks];
+    if(!self.calendar.calendarAppearance.isWeekMode) {
+        self.calendar.calendarAppearance.isWeekMode = true;
+        [self transitionMode];
+    }
 }
 
 - (void)calendarDidLoadPreviousPage
@@ -296,7 +485,7 @@ static NSString * const kEDLHome = @"To Do List";
 
 #pragma mark - Transition examples
 
-- (void)transitionExample
+- (void)transitionMode
 {
     [self.calendarContentView removeConstraints:self.calendarContentView.constraints];
     CGFloat newHeight = 300;
@@ -315,15 +504,7 @@ static NSString * const kEDLHome = @"To Do List";
                                                                                              multiplier:1.0
                                                                                                constant:newHeight]];
                             [self.view layoutIfNeeded];
-                         
-//                         [self.tasksTableView addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView
-//                                                                                              attribute:NSLayoutAttributeTop
-//                                                                                              relatedBy:NSLayoutRelationEqual
-//                                                                                                 toItem:self.calendarContentView
-//                                                                                              attribute:NSLayoutAttributeNotAnAttribute
-//                                                                                             multiplier:1.0
-//                                                                                               constant:10]];
-                         [self.view layoutIfNeeded];
+
                         
                      }];
     
@@ -339,8 +520,7 @@ static NSString * const kEDLHome = @"To Do List";
                                               self.calendarContentView.layer.opacity = 1;
                                           }];
                      }];
-     NSLog(@"dfa %@",self.calendarContentView.constraints);
-}
+    }
 
 #pragma mark - Fake data
 
@@ -355,24 +535,6 @@ static NSString * const kEDLHome = @"To Do List";
     return dateFormatter;
 }
 
-- (void)createRandomEvents
-{
-    eventsByDate = [NSMutableDictionary new];
-    
-    for(int i = 0; i < 30; ++i){
-        // Generate 30 random dates between now and 60 days later
-        NSDate *randomDate = [NSDate dateWithTimeInterval:(rand() % (3600 * 24 * 60)) sinceDate:[NSDate date]];
-        
-        // Use the date as key for eventsByDate
-        NSString *key = [[self dateFormatter] stringFromDate:randomDate];
-        
-        if(!eventsByDate[key]){
-            eventsByDate[key] = [NSMutableArray new];
-        }
-        
-        [eventsByDate[key] addObject:randomDate];
-    }
-}
 
 
 @end

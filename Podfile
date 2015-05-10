@@ -8,6 +8,11 @@ target 'EasyDoLists' do
  pod 'pop','~>1.0.6'
  pod 'SCLAlertView-Objective-C'
  pod 'JTCalendar', '~> 1.1'
+ pod 'Realm'
+ pod 'PullToRefreshCoreText', '~> 0.2'
+ pod 'MBProgressHUD'
+ pod 'DateTools'
+ pod 'ActionSheetPicker-3.0'
 end
 
 target 'EasyDoListsTests' do

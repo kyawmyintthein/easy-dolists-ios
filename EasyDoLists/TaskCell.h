@@ -12,7 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *taskName;
 @property (strong, nonatomic) VBFPopFlatButton *doneButton;
 @property (strong, nonatomic) UIButton *alertButton;
-@property(assign) bool isDone;
-@property(assign) bool isAlert;
+@property (nonatomic, assign) BOOL isDone;
+@property (nonatomic, assign) BOOL isAlert;
 -(void) flatRoundedButtonPressed;
 @end

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D3B63E01AFCFDC400615953 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B63DB1AFCFDC400615953 /* centerIcon@2x.png */; };
+		6D3B63E11AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B63DD1AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.m */; };
+		6D3B63E21AFCFDC400615953 /* UzysRadialProgressActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B63DF1AFCFDC400615953 /* UzysRadialProgressActivityIndicator.m */; };
 		6D41096D1AFB8C0B007F402D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D41096C1AFB8C0B007F402D /* main.m */; };
 		6D4109701AFB8C0B007F402D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D41096F1AFB8C0B007F402D /* AppDelegate.m */; };
-		6D4109731AFB8C0B007F402D /* EasyDoLists.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D4109711AFB8C0B007F402D /* EasyDoLists.xcdatamodeld */; };
 		6D4109791AFB8C0B007F402D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109771AFB8C0B007F402D /* Main.storyboard */; };
 		6D41097B1AFB8C0B007F402D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D41097A1AFB8C0B007F402D /* Images.xcassets */; };
 		6D41097E1AFB8C0B007F402D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D41097C1AFB8C0B007F402D /* LaunchScreen.xib */; };
@@ -39,6 +41,7 @@
 		6D4109D21AFBB822007F402D /* Aileron-UltraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */; };
 		6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */; };
 		6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */; };
+		6D53CE561AFF6D8500CC341A /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CE551AFF6D8500CC341A /* Task.m */; };
 		6D7B54B01AFBCDBD006729D1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */; };
 		6D7B54B11AFBCDBD006729D1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A81AFBCDBD006729D1 /* SCLAlertViewResponder.m */; };
 		6D7B54B21AFBCDBD006729D1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AA1AFBCDBD006729D1 /* SCLAlertViewStyleKit.m */; };
@@ -59,12 +62,16 @@
 
 /* Begin PBXFileReference section */
 		40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.debug.xcconfig"; sourceTree = "<group>"; };
+		6D3B63DB1AFCFDC400615953 /* centerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerIcon@2x.png"; sourceTree = "<group>"; };
+		6D3B63DC1AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UzysCircularProgressPullToRefresh.h"; sourceTree = "<group>"; };
+		6D3B63DD1AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UzysCircularProgressPullToRefresh.m"; sourceTree = "<group>"; };
+		6D3B63DE1AFCFDC400615953 /* UzysRadialProgressActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysRadialProgressActivityIndicator.h; sourceTree = "<group>"; };
+		6D3B63DF1AFCFDC400615953 /* UzysRadialProgressActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UzysRadialProgressActivityIndicator.m; sourceTree = "<group>"; };
 		6D4109671AFB8C0B007F402D /* EasyDoLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyDoLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D41096B1AFB8C0B007F402D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D41096C1AFB8C0B007F402D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D41096E1AFB8C0B007F402D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D41096F1AFB8C0B007F402D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6D4109721AFB8C0B007F402D /* EasyDoLists.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EasyDoLists.xcdatamodel; sourceTree = "<group>"; };
 		6D4109781AFB8C0B007F402D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D41097A1AFB8C0B007F402D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D41097D1AFB8C0B007F402D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -101,6 +108,8 @@
 		6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLightItalic.otf"; sourceTree = "<group>"; };
 		6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock Filled-25.png"; sourceTree = "<group>"; };
 		6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock-25.png"; sourceTree = "<group>"; };
+		6D53CE541AFF6D8500CC341A /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		6D53CE551AFF6D8500CC341A /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		6D7B54A51AFBCDBD006729D1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
 		6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLAlertView.m; sourceTree = "<group>"; };
 		6D7B54A71AFBCDBD006729D1 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertViewResponder.h; sourceTree = "<group>"; };
@@ -135,6 +144,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D3B63DA1AFCFDA900615953 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				6D3B63DB1AFCFDC400615953 /* centerIcon@2x.png */,
+				6D3B63DC1AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.h */,
+				6D3B63DD1AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.m */,
+				6D3B63DE1AFCFDC400615953 /* UzysRadialProgressActivityIndicator.h */,
+				6D3B63DF1AFCFDC400615953 /* UzysRadialProgressActivityIndicator.m */,
+			);
+			name = PullToRefresh;
+			sourceTree = "<group>";
+		};
 		6D41095E1AFB8C0B007F402D = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +179,7 @@
 		6D4109691AFB8C0B007F402D /* EasyDoLists */ = {
 			isa = PBXGroup;
 			children = (
+				6D7B54C11AFCB6EF006729D1 /* Common */,
 				6D4109A41AFB9639007F402D /* Resource */,
 				6D4109961AFB9199007F402D /* View */,
 				6D4109951AFB9194007F402D /* Lib */,
@@ -166,7 +188,6 @@
 				6D41096E1AFB8C0B007F402D /* AppDelegate.h */,
 				6D41096F1AFB8C0B007F402D /* AppDelegate.m */,
 				6D41097A1AFB8C0B007F402D /* Images.xcassets */,
-				6D4109711AFB8C0B007F402D /* EasyDoLists.xcdatamodeld */,
 				6D41096A1AFB8C0B007F402D /* Supporting Files */,
 			);
 			path = EasyDoLists;
@@ -212,6 +233,8 @@
 		6D4109941AFB9190007F402D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6D53CE541AFF6D8500CC341A /* Task.h */,
+				6D53CE551AFF6D8500CC341A /* Task.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -219,6 +242,7 @@
 		6D4109951AFB9194007F402D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				6D3B63DA1AFCFDA900615953 /* PullToRefresh */,
 				6D41099A1AFB91D5007F402D /* ASWeekSelectorView */,
 			);
 			name = Lib;
@@ -298,6 +322,13 @@
 				6D7B54AF1AFBCDBD006729D1 /* UIImage+ImageEffects.m */,
 			);
 			path = SCLAlertView;
+			sourceTree = "<group>";
+		};
+		6D7B54C11AFCB6EF006729D1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		73007AC1D05AEBB69886F858 /* Pods */ = {
@@ -408,6 +439,7 @@
 				6D4109C81AFBB822007F402D /* Aileron-HeavyItalic.otf in Resources */,
 				6D4109C91AFBB822007F402D /* Aileron-Italic.otf in Resources */,
 				6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */,
+				6D3B63E01AFCFDC400615953 /* centerIcon@2x.png in Resources */,
 				6D4109CA1AFBB822007F402D /* Aileron-Light.otf in Resources */,
 				6D4109CB1AFBB822007F402D /* Aileron-LightItalic.otf in Resources */,
 				6D4109CC1AFBB822007F402D /* Aileron-Regular.otf in Resources */,
@@ -494,13 +526,15 @@
 				6D4109701AFB8C0B007F402D /* AppDelegate.m in Sources */,
 				6D4109A21AFB91EA007F402D /* ASSingleWeekView.m in Sources */,
 				6D7B54B31AFBCDBD006729D1 /* SCLButton.m in Sources */,
+				6D3B63E21AFCFDC400615953 /* UzysRadialProgressActivityIndicator.m in Sources */,
 				6D7B54B21AFBCDBD006729D1 /* SCLAlertViewStyleKit.m in Sources */,
+				6D3B63E11AFCFDC400615953 /* UIScrollView+UzysCircularProgressPullToRefresh.m in Sources */,
 				6D41096D1AFB8C0B007F402D /* main.m in Sources */,
+				6D53CE561AFF6D8500CC341A /* Task.m in Sources */,
 				6D7B54B01AFBCDBD006729D1 /* SCLAlertView.m in Sources */,
 				6D4109A11AFB91EA007F402D /* ASDaySelectionView.m in Sources */,
 				6D7B54B11AFBCDBD006729D1 /* SCLAlertViewResponder.m in Sources */,
 				6D4109AE1AFB989C007F402D /* ASWeekSelectorView.m in Sources */,
-				6D4109731AFB8C0B007F402D /* EasyDoLists.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,19 +745,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		6D4109711AFB8C0B007F402D /* EasyDoLists.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6D4109721AFB8C0B007F402D /* EasyDoLists.xcdatamodel */,
-			);
-			currentVersion = 6D4109721AFB8C0B007F402D /* EasyDoLists.xcdatamodel */;
-			path = EasyDoLists.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6D41095F1AFB8C0B007F402D /* Project object */;
 }

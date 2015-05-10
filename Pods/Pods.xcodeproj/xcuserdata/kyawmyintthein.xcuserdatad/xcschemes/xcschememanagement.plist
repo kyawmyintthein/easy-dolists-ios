@@ -4,12 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-EasyDoLists-ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-EasyDoLists-BFPaperButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-EasyDoLists-DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-EasyDoLists-JTCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EasyDoLists-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EasyDoLists-PullToRefreshCoreText.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-EasyDoLists-Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C89EE042CF2F8422FD6A2D1</key>
+		<key>3E5EE0AE32FB3CC275ED68EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20C9C81D91D525FBA0FFEF6D</key>
+		<key>3F753E5A587BC2721FCC5081</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>300EA505CE5653DB2E32D8FE</key>
+		<key>4648A625A74FB5FE863FA739</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53172BD3EEAF8A95307D06F4</key>
+		<key>83ED14EA82EEFD91C7F2C4C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD6FF5ECF7299F49DF2AE45D</key>
+		<key>AC7B734A7B01E94D42030F73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D624161A2E064160C5F7B878</key>
+		<key>B44C8306353E150A8F95237C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF7A8BFF87FDE96517C90B25</key>
+		<key>BF54646D9D93FD5BC70A1283</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F2D67C12BE86A87DB4346A00</key>
+		<key>C0BC5331386D780664584E02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C47B4FE3919F3EA1FF925AE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8B1E86C72ADFB3C93807C6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E79DF3B7190D433E3F5CB462</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB8864216B55DA6EB04D8E78</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7B1C5D91A96770F83DFDE61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
