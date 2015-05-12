@@ -14,6 +14,7 @@
 @property  NSString *shortDescription;
 @property  NSDate *createdAt;
 @property NSDate *createdFor;
+@property  NSString *sortId;
 @property BOOL isDone;
 @property BOOL isAlert;
 @end

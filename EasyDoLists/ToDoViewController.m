@@ -17,7 +17,6 @@
 #import "UIScrollView+UzysCircularProgressPullToRefresh.h"
 #import "DateTools.h"
 #import "ActionSheetDatePicker.h"
-#import "NZAlertView.h"
 static NSString * const kEDLHome = @"To Do List";
 
 @interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
@@ -118,6 +117,7 @@ static NSString * const kEDLHome = @"To Do List";
     self.tasksTableView.backgroundColor = [UIColor clearColor];
     self.tasksTableView.dataSource = self;
     self.tasksTableView.delegate = self;
+
     self.tasksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tasksTableView.allowsMultipleSelectionDuringEditing = NO;
 
@@ -127,10 +127,10 @@ static NSString * const kEDLHome = @"To Do List";
     self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
         [weakSelf loadTasks];
     }];
-    
-    [self.tasksTableView addPullToRefreshActionHandler:^{
-        [weakSelf loadTasks];
-    }];
+//    
+//    [self.tasksTableView addPullToRefreshActionHandler:^{
+//        [weakSelf loadTasks];
+//    }];
 
     [self.tasksTableView reloadData];
     
@@ -140,6 +140,7 @@ static NSString * const kEDLHome = @"To Do List";
 
 -(void)viewWillAppear:(BOOL)animated{
     [self loadTasks];
+    self.tasksTableView.rowHeight = UITableViewAutomaticDimension;
     [self.tasksTableView reloadData];
 }
 
@@ -157,7 +158,7 @@ static NSString * const kEDLHome = @"To Do List";
     NSDate *newDate1 = [curretDate dateByAddingDays:daysToAdd];
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, curretDate,newDate1];
-    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
 
 
 }
@@ -167,7 +168,7 @@ static NSString * const kEDLHome = @"To Do List";
     NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
-    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
     NSLog(@"order %@",self.tasks);
 }
 
@@ -188,17 +189,22 @@ static NSString * const kEDLHome = @"To Do List";
     Task *task = [[Task alloc] init];
     RLMArray *tasks = [[Task allObjects]  sortedResultsUsingProperty:@"id" ascending:YES] ;
     Task *lastTask = nil;
-    NSLog(@"task coutn %@",tasks);
     if (tasks.count  >= 1) {
-        lastTask = tasks[(tasks.count -1)];
-       
-        int *lastId = [lastTask.id intValue];
-        int *newId =(int)lastId + [@1 intValue];
-        task.id =  [NSString stringWithFormat:@"%i",(int)newId];
+        NSMutableArray *idArray = [[NSMutableArray alloc] init];
+        for (Task *task in tasks) {
+            NSNumber *anumber = [NSNumber numberWithInteger:[task.id integerValue]];
+            [idArray addObject:anumber];
+        }
+        NSArray* sortedNumbers = [idArray sortedArrayUsingSelector:@selector(integerValue)];
+        NSInteger *lastId =[[idArray lastObject] integerValue];
+        task.id =  [NSString stringWithFormat:@"%i",(int)lastId + 1];
+        task.sortId = [NSString stringWithFormat:@"%i",(int)lastId + 1];
+
     }else{
         task.id = @"1";
+        task.sortId = @"1";
     }
-
+    
     task.note = note;
     task.createdAt = [NSDate date];
     task.createdFor = createdFor;
@@ -265,15 +271,47 @@ static NSString * const kEDLHome = @"To Do List";
 
 
 
-
 - (IBAction)pressedaddNoteButton:(id)sender {
+    int daysToAdd = 1;
+    NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
+    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
+    NSArray *tasksInDay = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
+    if (tasksInDay.count != 0) {
+        if ((tasksInDay.count%5) == 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Productivity Alert!!!"
+                                                            message:@"You have many tasks to do. Is that important priority this day?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"NO"
+                                                  otherButtonTitles:@"YES",nil];
+            [alert show];
+        }else{
+            [self addTaskForm];
+        }
+    }else{
+        [self addTaskForm];
+    }
+   
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        NSLog(@"Cancel Tapped.");
+    }
+    else if (buttonIndex == 1) {
+      [self addTaskForm];
+    }
+}
+
+-(void) addTaskForm{
+    
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     
     alert.customViewColor =[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
     
     self.todoTextView =[alert addTextView:@"Add your task here"];
-   
-//    [self.todoTextView becomeFirstResponder];
+    
+    //    [self.todoTextView becomeFirstResponder];
     [alert addButton:@"Done" actionBlock:^(void) {
         if (self.calendar.currentDateSelected) {
             [self addTask:self.todoTextView.text createdFor:self.calendar.currentDateSelected];
@@ -290,19 +328,20 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)todayButtonPressed:(UIBarButtonItem *)sender
 {
 
-    [self.calendar setCurrentDate:[NSDate date]];
+//    [self.calendar setCurrentDate:[NSDate date]];
     [self.calendar setCurrentDateSelected:[NSDate date]];
-    [self reloadTasks];
+    self.tasks =nil;
+    [self loadTasks];
     [self.tasksTableView reloadData];
+    [self.calendar reloadData];
     
 }
 
 - (void)pressedDoneButton:(UIBarButtonItem *)sender
 {
     Task *task = [self.tasks objectAtIndex:sender.tag];
-    NSLog(@"task %@",task.id);
-   NSLog(task.isDone ? @"Yes" : @"No");
-   [self updateTask:task isDone:YES isAlert:task.isAlert];
+    bool flag = task.isDone ? false : true;
+    [self updateTask:task isDone:flag isAlert:task.isAlert];
     [self reloadTasks];
     [self.tasksTableView reloadData];
     
@@ -312,27 +351,30 @@ static NSString * const kEDLHome = @"To Do List";
 -(void)timeWasSelected:(NSDate *)selectedTime{
 
 
-    // create a local notification
-    UILocalNotification *notification = [[UILocalNotification alloc]init];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.selectedTask.createdFor];
+       if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge
+                                                                                                              categories:nil]];
+           // create a local notification
+           UILocalNotification *notification = [[UILocalNotification alloc]init];
+           NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+           NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.selectedTask.createdFor];
+           
+           [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+           [components setHour:[selectedTime hour]];
+           [components setMinute:[selectedTime minute]];
+           NSDate *notiDatetime = [calendar dateFromComponents:components];
+           notification.fireDate = notiDatetime;
+           notification.timeZone = [NSTimeZone systemTimeZone];
+           notification.soundName = UILocalNotificationDefaultSoundName;
+           notification.alertAction = @"Ok";
+           notification.alertBody =self.selectedTask.note;
+             [[UIApplication sharedApplication]scheduleLocalNotification:notification];
+           [self updateTask:self.selectedTask isDone:false isAlert:true];
+           [self reloadTasks];
+
+    }
     
-    [calendar setTimeZone:[NSTimeZone systemTimeZone]];
-    [components setHour:[selectedTime hour]];
-    [components setMinute:[selectedTime minute]];
-    NSDate *notiDatetime = [calendar dateFromComponents:components];
-    
-    notification.fireDate = notiDatetime;
-    notification.timeZone = [NSTimeZone systemTimeZone];
-    notification.repeatInterval = NSCalendarUnitMinute;
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    notification.alertAction = @"Ok";
-    notification.alertBody =self.selectedTask.note;
-    
-    [self updateTask:self.selectedTask isDone:false isAlert:true];
-    [self reloadTasks];
-    
-    [[UIApplication sharedApplication]scheduleLocalNotification:notification];
+  
 }
 
 - (void)pressedAlertButton:(UIButton *)sender
@@ -387,6 +429,7 @@ static NSString * const kEDLHome = @"To Do List";
     taskCell = (TaskCell *)[self.tasksTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     Task *task = [self.tasks objectAtIndex:indexPath.row];
     taskCell.taskName.text = task.note;
+    [taskCell.taskName sizeToFit];
     taskCell.backgroundColor = [UIColor clearColor];
     taskCell.taskName.numberOfLines = 0;
     taskCell.taskName.textColor = [UIColor whiteColor];
@@ -416,7 +459,8 @@ static NSString * const kEDLHome = @"To Do List";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 55;
+
+    return 70;
 }
 
 
@@ -436,7 +480,7 @@ static NSString * const kEDLHome = @"To Do List";
         //[self.tasks removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         Task *task = (Task*) [self.tasks objectAtIndex:indexPath.row];
-        NSLog(@"task %@",task.id);
+       
         [self deleteTask:task];
       //  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
@@ -452,8 +496,7 @@ static NSString * const kEDLHome = @"To Do List";
 {
 
     Task *task =(Task*) self.tasks[indexPath.row];
-    TaskCell *taskCell = (TaskCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [self updateTask:task isDone:taskCell.isDone isAlert:task.isAlert];
+    [self updateTask:task isDone:true isAlert:task.isAlert];
     [self reloadTasks];
     [self.tasksTableView reloadData];
 }
@@ -471,30 +514,16 @@ static NSString * const kEDLHome = @"To Do List";
 -(void)moveTask:(Task *)oldTask newTask:(Task*)newTask{
     
     RLMRealm *realm = [RLMRealm defaultRealm];
+    NSString *replaceSortId= newTask.sortId;
+    NSString *moveSortId= oldTask.sortId;
     [realm beginWriteTransaction];
 
-
-    Task *oldTemp = oldTask;
-    Task *newTemp = newTask;
-    
-    Task *updateOldTask = [self preparedTask:newTemp replaceTask:oldTask];
-    Task *updateNewTask  =  [self preparedTask:oldTemp replaceTask:newTask];;
-    
-    [realm addOrUpdateObject:updateOldTask];
-    [realm addOrUpdateObject:updateNewTask];
+    oldTask.sortId = replaceSortId;
+    newTask.sortId = moveSortId;
     [realm commitWriteTransaction];
-    
 }
 
--(Task*)preparedTask:(Task *)moveTask replaceTask:(Task*)replaceTask{
-    replaceTask.note = moveTask.note;
-    replaceTask.isDone = moveTask.isDone;
-    replaceTask.isAlert = moveTask.isAlert;
-    replaceTask.createdFor = moveTask.createdFor;
-    replaceTask.createdAt = moveTask.createdAt;
-    
-    return replaceTask;
-}
+
 
 
 
@@ -521,8 +550,11 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (IBAction)didGoTodayTouch
 {
+    [self.calendar setCurrentDateSelected:[NSDate date]];
     [self.calendar setCurrentDate:[NSDate date]];
-
+    self.tasks = nil;
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
 }
 
 - (IBAction)didChangeModeTouch
@@ -545,7 +577,6 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
-    NSLog(@"========select==========");
     if(!self.calendar.calendarAppearance.isWeekMode) {
         self.calendar.calendarAppearance.isWeekMode = true;
         [self transitionMode];
@@ -618,6 +649,7 @@ static NSString * const kEDLHome = @"To Do List";
     
     return dateFormatter;
 }
+
 
 
 

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E696F38AD68D1ED3C55741BC"
-               BuildableName = "pop.framework"
-               BlueprintName = "Pods-EasyDoLists-pop"
+               BlueprintIdentifier = "9E00BA063D8ACE64D2E08FAE"
+               BuildableName = "DZNEmptyDataSet.framework"
+               BlueprintName = "Pods-EasyDoLists-DZNEmptyDataSet"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -13,7 +13,7 @@ target 'EasyDoLists' do
  pod 'MBProgressHUD'
  pod 'DateTools'
  pod 'ActionSheetPicker-3.0'
- pod 'NZAlertView'
+ pod 'DZNEmptyDataSet'
 end
 
 target 'EasyDoListsTests' do

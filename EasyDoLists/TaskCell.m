@@ -32,7 +32,7 @@
                   forControlEvents:UIControlEventTouchUpInside];
                self.accessoryView = self.doneButton;
         
-        self.alertButton = [[UIButton alloc]initWithFrame:CGRectMake(15,14, 35, 35)];
+        self.alertButton = [[UIButton alloc]initWithFrame:CGRectMake(15,15, 35, 35)];
         [self.alertButton setImage: [UIImage imageNamed:@"Alarm Clock Filled-25"] forState:UIControlStateNormal];
         //[self.alertButton addTarget:self action:@selector(todayButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
