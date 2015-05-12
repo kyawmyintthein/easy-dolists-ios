@@ -17,6 +17,7 @@
 #import "UIScrollView+UzysCircularProgressPullToRefresh.h"
 #import "DateTools.h"
 #import "ActionSheetDatePicker.h"
+#import "NZAlertView.h"
 static NSString * const kEDLHome = @"To Do List";
 
 @interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
@@ -29,6 +30,7 @@ static NSString * const kEDLHome = @"To Do List";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
 @property (strong, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (strong, nonatomic) JTCalendar *calendar;
+@property (strong,nonatomic) Task *selectedTask;
 @property (nonatomic, strong) RLMNotificationToken *notification;
 
 @end
@@ -45,6 +47,13 @@ static NSString * const kEDLHome = @"To Do List";
     self.changeModeButton.tintColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
     self.changeModeButton.titleLabel.text = @"Chage Calendar View";
     self.calendar = [JTCalendar new];
+//    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
+//    [dateFormatters setDateFormat:@"dd-MMM-yyyy"];
+//    [dateFormatters setDateStyle:NSDateFormatterShortStyle];
+//    [dateFormatters setTimeStyle:NSDateFormatterShortStyle];
+//    [dateFormatters setDoesRelativeDateFormatting:YES];
+//    [dateFormatters setTimeZone:[NSTimeZone systemTimeZone]];
+    [self.calendar.calendarAppearance.calendar setTimeZone:[NSTimeZone systemTimeZone]];
     // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
     {
@@ -116,13 +125,13 @@ static NSString * const kEDLHome = @"To Do List";
     __weak typeof(self) weakSelf = self;
     
     self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
-        [weakSelf loadTasks];
+        [weakSelf reloadTasks];
     }];
     
     [self.tasksTableView addPullToRefreshActionHandler:^{
-        [weakSelf loadTasks];
+        [weakSelf reloadTasks];
     }];
-    [self loadTasks];
+    [self reloadTasks];
     [self.tasksTableView reloadData];
     
 
@@ -141,14 +150,11 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (void)loadTasks{
     int daysToAdd = 1;
-    NSDate *yesterday = [NSDate dateWithTimeIntervalSinceNow: -(60.0f*60.0f*24.0f)];
-    NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
-    DTTimePeriod *timePeriod = [[DTTimePeriod alloc] initWithStartDate:self.calendar.currentDateSelected endDate:newDate1];
-
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"createdAt BETWEEN  %@",
-                         @[yesterday,self.calendar.currentDateSelected]];
-    
-    self.tasks = [Task objectsWithPredicate:pred];
+    NSDate *newDate1 = [self.calendar.currentDate dateByAddingTimeInterval:60*60*24*daysToAdd];
+    NSString *stringForPredicate = @"createdFor BETWEEN  %@ ";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, @[self.calendar.currentDate,newDate1 ]];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
+    NSLog(@"order %@",self.tasks);
     [self.tasksTableView reloadData];
 
 }
@@ -158,7 +164,7 @@ static NSString * const kEDLHome = @"To Do List";
     NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
-    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"note" ascending:YES];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
     NSLog(@"order %@",self.tasks);
     [self.tasksTableView reloadData];
 }
@@ -189,33 +195,44 @@ static NSString * const kEDLHome = @"To Do List";
         task.id =  [NSString stringWithFormat:@"%i",(int)newId];
     }else{
         task.id = @"1";
-
     }
-    NSLog(@"value %@",task.id);
-   
+
     task.note = note;
     task.createdAt = [NSDate date];
     task.createdFor = createdFor;
     task.isDone = false;
     task.isAlert = false;
-    NSLog(@" assign task id %@",task.id);
     [realm addObject:task];
     [realm commitWriteTransaction];
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
 }
 
--(void)updateTask:(Task *)task isDone:(BOOL*)isDone{
+-(void)updateTask:(Task *)task isDone:(BOOL*)isDone isAlert:(BOOL*)isAlert{
 
-        RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
-
     Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
-
-        
-        [realm addOrUpdateObject:updateTask];
-        
-        [realm commitWriteTransaction];
+    [realm addOrUpdateObject:updateTask];
+    [realm commitWriteTransaction];
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
+//    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
+//                                                      title:@"Success!"
+//                                                    message:@"Task is updated."
+//                                                   delegate:nil];
+//    
+//    [alert setTextAlignment:NSTextAlignmentCenter];
+//    
+//    [alert show];
+//    
+//    [alert showWithCompletion:^{
+//        NSLog(@"Alert with completion handler");
+//    }];
+//
 
 }
+
 
 
 -(void)deleteTask:(Task *)task{
@@ -224,6 +241,21 @@ static NSString * const kEDLHome = @"To Do List";
     [realm beginWriteTransaction];
     [realm deleteObject:task];
     [realm commitWriteTransaction];
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
+//    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
+//                                                      title:@"Success!"
+//                                                    message:@"Task is deleted."
+//                                                   delegate:nil];
+//    
+//    [alert setTextAlignment:NSTextAlignmentCenter];
+//    
+//    [alert show];
+//    
+//    [alert showWithCompletion:^{
+//        NSLog(@"Alert with completion handler");
+//    }];
+
 }
 
 
@@ -248,7 +280,6 @@ static NSString * const kEDLHome = @"To Do List";
     [alert showEdit:self title:@"Add Task" subTitle:@"" closeButtonTitle:@"Close" duration:0.0f];
     [self reloadTasks];
     [self.tasksTableView reloadData];
-//    [self.todoTextView becomeFirstResponder];   
 }
 
 - (void)todayButtonPressed:(UIBarButtonItem *)sender
@@ -256,7 +287,7 @@ static NSString * const kEDLHome = @"To Do List";
 
     [self.calendar setCurrentDate:[NSDate date]];
     [self.calendar setCurrentDateSelected:[NSDate date]];
-    [self loadTasks];
+    [self reloadTasks];
     [self.tasksTableView reloadData];
     
 }
@@ -265,24 +296,57 @@ static NSString * const kEDLHome = @"To Do List";
 {
     Task *task = [self.tasks objectAtIndex:sender.tag];
    NSLog(task.isDone ? @"Yes" : @"No");
-   [self updateTask:task isDone:task.isDone];
-     [self reloadTasks];    
+   [self updateTask:task isDone:task.isDone isAlert:task.isAlert];
+    [self reloadTasks];
     
 }
 
-- (void)pressedAlertButton:(UIBarButtonItem *)sender
+
+-(void)timeWasSelected:(NSDate *)selectedTime{
+
+
+    // create a local notification
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.selectedTask.createdFor];
+    
+    [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+    [components setHour:[selectedTime hour]];
+    [components setMinute:[selectedTime minute]];
+    NSDate *notiDatetime = [calendar dateFromComponents:components];
+    
+    notification.fireDate = notiDatetime;
+    notification.timeZone = [NSTimeZone systemTimeZone];
+    notification.repeatInterval = NSCalendarUnitMinute;
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.alertAction = @"Ok";
+    notification.alertBody =self.selectedTask.note;
+    
+    [self updateTask:self.selectedTask isDone:false isAlert:true];
+    [self reloadTasks];
+    
+    [[UIApplication sharedApplication]scheduleLocalNotification:notification];
+}
+
+- (void)pressedAlertButton:(UIButton *)sender
 {
     Task *task = [self.tasks objectAtIndex:sender.tag];
-    ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Set Time for Reminder" datePickerMode:UIDatePickerModeTime selectedDate:[NSDate date] target:self action:@selector(pressedDoneButton:) origin:sender];
-    [datePicker setTimeZone:[NSTimeZone systemTimeZone]];
-    UIView *bgView = [[UIView alloc]init];
-    bgView.backgroundColor = [UIColor redColor];
-    
-    datePicker.minuteInterval = 5;
-    [datePicker setPickerView:bgView];
-    [datePicker showActionSheetPicker];
-    
-}
+    if (task.isAlert) {
+        [self updateTask:task isDone:task.isDone isAlert:false];
+    }else{
+        self.selectedTask = task;
+        ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Set Time for Reminder" datePickerMode:UIDatePickerModeTime selectedDate:[NSDate date] target:self action:@selector(timeWasSelected:) origin:sender];
+        [datePicker setTimeZone:[NSTimeZone systemTimeZone]];
+        UIView *bgView = [[UIView alloc]init];
+        bgView.backgroundColor = [UIColor redColor];
+        
+        datePicker.minuteInterval = 5;
+        [datePicker setPickerView:bgView];
+        [datePicker showActionSheetPicker];
+        
+
+    }
+   }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
@@ -374,7 +438,7 @@ static NSString * const kEDLHome = @"To Do List";
 
     Task *task =(Task*) self.tasks[indexPath.row];
     TaskCell *taskCell = (TaskCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [self updateTask:task isDone:taskCell.isDone];
+    [self updateTask:task isDone:taskCell.isDone isAlert:task.isAlert];
     [self reloadTasks];
 }
 

@@ -1,0 +1,6 @@
+framework module NZAlertView {
+  umbrella header "Pods-EasyDoLists-NZAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

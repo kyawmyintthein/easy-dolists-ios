@@ -5,6 +5,8 @@ PODS:
   - DateTools (1.5.0)
   - JTCalendar (1.2.3)
   - MBProgressHUD (0.9.1)
+  - NZAlertView (0.0.13):
+    - UIImage-Helpers
   - pop (1.0.7)
   - PullToRefreshCoreText (0.2)
   - Realm (0.92.1):
@@ -13,6 +15,7 @@ PODS:
   - SCLAlertView-Objective-C (0.7.1)
   - UIColor+BFPaperColors (1.7.1)
   - UIColor+FlatColors (0.0.2)
+  - UIImage-Helpers (0.0.3)
   - VBFPopFlatButton (0.0.6):
     - pop
 
@@ -22,6 +25,7 @@ DEPENDENCIES:
   - DateTools
   - JTCalendar (~> 1.1)
   - MBProgressHUD
+  - NZAlertView
   - pop (~> 1.0.6)
   - PullToRefreshCoreText (~> 0.2)
   - Realm
@@ -35,12 +39,14 @@ SPEC CHECKSUMS:
   DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
   JTCalendar: 246ea3e338fb97624846ec77cdcde448242c4d5c
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  NZAlertView: 3f08e809456b35f5cc64de2dcdc9f5fc3f8eb77f
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PullToRefreshCoreText: c843e71fc5ae5b033c0281067368905efd05c7b2
   Realm: 10c91667c5c65d6fe56b206c2c31e9b5eafb8718
   SCLAlertView-Objective-C: 19edce0d6f9de55316d8b9fe49a9953173a457f7
   UIColor+BFPaperColors: b1efa4320e2f56c4b14f73232faf967ba0e5b4a2
   UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
+  UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
   VBFPopFlatButton: 782344da63f104c279a857d806e065117a7e1196
 
 COCOAPODS: 0.36.3

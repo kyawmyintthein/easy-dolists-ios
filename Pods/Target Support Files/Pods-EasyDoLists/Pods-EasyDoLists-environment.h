@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
 
+// NZAlertView
+#define COCOAPODS_POD_AVAILABLE_NZAlertView
+#define COCOAPODS_VERSION_MAJOR_NZAlertView 0
+#define COCOAPODS_VERSION_MINOR_NZAlertView 0
+#define COCOAPODS_VERSION_PATCH_NZAlertView 13
+
 // PullToRefreshCoreText
 #define COCOAPODS_POD_AVAILABLE_PullToRefreshCoreText
 #define COCOAPODS_VERSION_MAJOR_PullToRefreshCoreText 0
@@ -71,6 +77,12 @@
 #define COCOAPODS_VERSION_MAJOR_UIColor_FlatColors 0
 #define COCOAPODS_VERSION_MINOR_UIColor_FlatColors 0
 #define COCOAPODS_VERSION_PATCH_UIColor_FlatColors 2
+
+// UIImage-Helpers
+#define COCOAPODS_POD_AVAILABLE_UIImage_Helpers
+#define COCOAPODS_VERSION_MAJOR_UIImage_Helpers 0
+#define COCOAPODS_VERSION_MINOR_UIImage_Helpers 0
+#define COCOAPODS_VERSION_PATCH_UIImage_Helpers 3
 
 // VBFPopFlatButton
 #define COCOAPODS_POD_AVAILABLE_VBFPopFlatButton
