@@ -121,41 +121,44 @@ static NSString * const kEDLHome = @"To Do List";
     self.tasksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tasksTableView.allowsMultipleSelectionDuringEditing = NO;
 
-    
+    [self loadTasks];
     __weak typeof(self) weakSelf = self;
     
     self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
-        [weakSelf reloadTasks];
+        [weakSelf loadTasks];
     }];
     
     [self.tasksTableView addPullToRefreshActionHandler:^{
-        [weakSelf reloadTasks];
+        [weakSelf loadTasks];
     }];
-    [self reloadTasks];
+
     [self.tasksTableView reloadData];
     
 
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [self transitionMode];
-    [self.tasksTableView becomeFirstResponder];
+-(void)viewWillAppear:(BOOL)animated{
     [self loadTasks];
     [self.tasksTableView reloadData];
-    
-    [super viewDidAppear:animated];
+}
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self transitionMode];
+//    [self reloadTasks];
+//    [self.tasksTableView reloadData];
+    [self.tasksTableView becomeFirstResponder];
 }
 
 - (void)loadTasks{
     int daysToAdd = 1;
-    NSDate *newDate1 = [self.calendar.currentDate dateByAddingTimeInterval:60*60*24*daysToAdd];
-    NSString *stringForPredicate = @"createdFor BETWEEN  %@ ";
-    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, @[self.calendar.currentDate,newDate1 ]];
+    NSDate *curretDate = [[NSDate new] dateBySubtractingDays:1];
+    NSDate *newDate1 = [curretDate dateByAddingDays:daysToAdd];
+    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, curretDate,newDate1];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
-    NSLog(@"order %@",self.tasks);
-    [self.tasksTableView reloadData];
+
 
 }
 
@@ -166,7 +169,6 @@ static NSString * const kEDLHome = @"To Do List";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
     NSLog(@"order %@",self.tasks);
-    [self.tasksTableView reloadData];
 }
 
 - (BOOL*)reloadTasksByDate:(NSDate*)selectedDate{
@@ -212,11 +214,13 @@ static NSString * const kEDLHome = @"To Do List";
 
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
+    task.isDone = isDone;
+    task.isAlert = isAlert;
     Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
     [realm addOrUpdateObject:updateTask];
     [realm commitWriteTransaction];
-    [self reloadTasks];
-    [self.tasksTableView reloadData];
+//    [self reloadTasks];
+//    [self.tasksTableView reloadData];
 //    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
 //                                                      title:@"Success!"
 //                                                    message:@"Task is updated."
@@ -243,6 +247,7 @@ static NSString * const kEDLHome = @"To Do List";
     [realm commitWriteTransaction];
     [self reloadTasks];
     [self.tasksTableView reloadData];
+//    [self.tasksTableView reloadData];
 //    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
 //                                                      title:@"Success!"
 //                                                    message:@"Task is deleted."
@@ -295,9 +300,11 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)pressedDoneButton:(UIBarButtonItem *)sender
 {
     Task *task = [self.tasks objectAtIndex:sender.tag];
+    NSLog(@"task %@",task.id);
    NSLog(task.isDone ? @"Yes" : @"No");
-   [self updateTask:task isDone:task.isDone isAlert:task.isAlert];
+   [self updateTask:task isDone:YES isAlert:task.isAlert];
     [self reloadTasks];
+    [self.tasksTableView reloadData];
     
 }
 
@@ -390,10 +397,16 @@ static NSString * const kEDLHome = @"To Do List";
     taskCell.showsReorderControl = YES;
     if (task.isDone) {
         [taskCell.doneButton animateToType:buttonOkType];
+    }else{
+        [taskCell.doneButton animateToType:buttonSquareType];
+
     }
     
     if (task.isAlert) {
         UIImage *image =[UIImage imageNamed:@"Alarm Clock Filled-25"];
+        [taskCell.alertButton setImage:image forState:UIControlStateNormal];
+    }else{
+        UIImage *image =[UIImage imageNamed:@"Alarm Clock-25"];
         [taskCell.alertButton setImage:image forState:UIControlStateNormal];
     }
     
@@ -426,8 +439,10 @@ static NSString * const kEDLHome = @"To Do List";
         NSLog(@"task %@",task.id);
         [self deleteTask:task];
       //  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [tableView reloadData];
+
     }
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
   
 }
 
@@ -440,6 +455,7 @@ static NSString * const kEDLHome = @"To Do List";
     TaskCell *taskCell = (TaskCell*)[tableView cellForRowAtIndexPath:indexPath];
     [self updateTask:task isDone:taskCell.isDone isAlert:task.isAlert];
     [self reloadTasks];
+    [self.tasksTableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
@@ -529,21 +545,25 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
- 
-    [self reloadTasks];
+    NSLog(@"========select==========");
     if(!self.calendar.calendarAppearance.isWeekMode) {
         self.calendar.calendarAppearance.isWeekMode = true;
         [self transitionMode];
     }
+    self.tasks = nil;
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
 }
 
 - (void)calendarDidLoadPreviousPage
 {
+    [self.tasksTableView reloadData];
     NSLog(@"Previous page loaded");
 }
 
 - (void)calendarDidLoadNextPage
 {
+        [self.tasksTableView reloadData];
     NSLog(@"Next page loaded");
 }
 
