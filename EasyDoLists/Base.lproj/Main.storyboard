@@ -49,8 +49,6 @@
                                         <connections>
                                             <outlet property="dataSource" destination="92c-ZT-ZDC" id="usm-V1-yTX"/>
                                             <outlet property="delegate" destination="92c-ZT-ZDC" id="pTa-Um-l7E"/>
-                                            <outlet property="emptyDataSetDelegate" destination="0iJ-D0-Evm" id="sRW-Gt-o7D"/>
-                                            <outlet property="emptyDataSetSource" destination="0iJ-D0-Evm" id="lc6-I4-hdf"/>
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh4-Ky-6Xo" customClass="JTCalendarMenuView">
@@ -89,7 +87,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KIc-ge-7ej"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="calendarContentView" destination="0iJ-D0-Evm" id="JhT-hr-9Ug"/>
                         <outlet property="changeModeButton" destination="wzH-bo-e9p" id="BSB-aI-AbU"/>

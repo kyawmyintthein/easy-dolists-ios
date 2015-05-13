@@ -380,6 +380,7 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)pressedAlertButton:(UIButton *)sender
 {
     Task *task = [self.tasks objectAtIndex:sender.tag];
+    
     if (task.isAlert) {
         [self updateTask:task isDone:task.isDone isAlert:false];
     }else{

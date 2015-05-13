@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AB00799E6E48BC07BEF92EAF"
+               BlueprintIdentifier = "CBD2D71BBBD6CEFABB1ECA76"
                BuildableName = "ActionSheetPicker_3_0.framework"
                BlueprintName = "Pods-EasyDoLists-ActionSheetPicker-3.0"
                ReferencedContainer = "container:Pods.xcodeproj">
