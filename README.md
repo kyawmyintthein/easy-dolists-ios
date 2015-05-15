@@ -21,8 +21,9 @@ pop
 
 
 
-Future eain
+Next Version
 =====
-Integrate with google calendar
+Categorize the tasks
+Bugs fix
 
 Welcome to contribute and feedbacks 

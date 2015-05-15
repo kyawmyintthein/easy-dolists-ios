@@ -21,6 +21,11 @@
 + (NSString *)primaryKey {
     return @"id";
 }
+
+- (NSComparisonResult)compare:(Task *)otherObject {
+    return [self.id compare:otherObject.id];
+}
+
 // Specify default values for properties
 
 //+ (NSDictionary *)defaultPropertyValues

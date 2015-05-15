@@ -14,6 +14,7 @@ target 'EasyDoLists' do
  pod 'DateTools'
  pod 'ActionSheetPicker-3.0'
  pod "RATreeView", "~> 1.0.2"
+ pod 'ObjectiveSugar'
 end
 
 target 'EasyDoListsTests' do

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5BD9761E6D687537FEDA0BFE"
+               BlueprintIdentifier = "13D40EAC9F9309180AD7F79E"
                BuildableName = "pop.framework"
                BlueprintName = "Pods-EasyDoLists-pop"
                ReferencedContainer = "container:Pods.xcodeproj">

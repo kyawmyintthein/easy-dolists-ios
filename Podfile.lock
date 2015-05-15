@@ -5,6 +5,7 @@ PODS:
   - DateTools (1.5.0)
   - JTCalendar (1.2.3)
   - MBProgressHUD (0.9.1)
+  - ObjectiveSugar (1.1.0)
   - pop (1.0.7)
   - PullToRefreshCoreText (0.2)
   - RATreeView (1.0.2)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - DateTools
   - JTCalendar (~> 1.1)
   - MBProgressHUD
+  - ObjectiveSugar
   - pop (~> 1.0.6)
   - PullToRefreshCoreText (~> 0.2)
   - RATreeView (~> 1.0.2)
@@ -37,6 +39,7 @@ SPEC CHECKSUMS:
   DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
   JTCalendar: 246ea3e338fb97624846ec77cdcde448242c4d5c
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PullToRefreshCoreText: c843e71fc5ae5b033c0281067368905efd05c7b2
   RATreeView: 453b8203163c415f4c43da1e20addcf1b2379e06

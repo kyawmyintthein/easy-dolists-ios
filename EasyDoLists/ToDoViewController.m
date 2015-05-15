@@ -17,6 +17,7 @@
 #import "UIScrollView+UzysCircularProgressPullToRefresh.h"
 #import "DateTools.h"
 #import "ActionSheetDatePicker.h"
+#import <ObjectiveSugar/ObjectiveSugar.h>
 static NSString * const kEDLHome = @"To Do List";
 
 @interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
@@ -195,15 +196,19 @@ static NSString * const kEDLHome = @"To Do List";
             NSNumber *anumber = [NSNumber numberWithInteger:[task.id integerValue]];
             [idArray addObject:anumber];
         }
-        NSArray* sortedNumbers = [idArray sortedArrayUsingSelector:@selector(integerValue)];
-        NSInteger *lastId =[[idArray lastObject] integerValue];
+        
+        NSSortDescriptor *highestToLowest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
+        [idArray sortUsingDescriptors:[NSArray arrayWithObject:highestToLowest]];
+
+        NSInteger *lastId =[[idArray firstObject] integerValue];
         task.id =  [NSString stringWithFormat:@"%i",(int)lastId + 1];
         task.sortId = [NSString stringWithFormat:@"%i",(int)lastId + 1];
-
+        
     }else{
         task.id = @"1";
         task.sortId = @"1";
     }
+
     
     task.note = note;
     task.createdAt = [NSDate date];
@@ -214,7 +219,9 @@ static NSString * const kEDLHome = @"To Do List";
     [realm commitWriteTransaction];
     [self reloadTasks];
     [self.tasksTableView reloadData];
+    [self.calendar reloadAppearance];
 }
+
 
 -(void)updateTask:(Task *)task isDone:(BOOL*)isDone isAlert:(BOOL*)isAlert{
 
@@ -371,6 +378,8 @@ static NSString * const kEDLHome = @"To Do List";
              [[UIApplication sharedApplication]scheduleLocalNotification:notification];
            [self updateTask:self.selectedTask isDone:false isAlert:true];
            [self reloadTasks];
+           [self.tasksTableView reloadData];
+           [self.calendar reloadAppearance];
 
     }
     

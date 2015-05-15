@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
 
+// ObjectiveSugar
+#define COCOAPODS_POD_AVAILABLE_ObjectiveSugar
+#define COCOAPODS_VERSION_MAJOR_ObjectiveSugar 1
+#define COCOAPODS_VERSION_MINOR_ObjectiveSugar 1
+#define COCOAPODS_VERSION_PATCH_ObjectiveSugar 0
+
 // PullToRefreshCoreText
 #define COCOAPODS_POD_AVAILABLE_PullToRefreshCoreText
 #define COCOAPODS_VERSION_MAJOR_PullToRefreshCoreText 0

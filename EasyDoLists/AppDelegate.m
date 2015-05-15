@@ -21,8 +21,6 @@
 
     [RLMRealm defaultRealm];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-
     return YES;
 }
 
