@@ -160,7 +160,7 @@ static NSString * const kEDLHome = @"To Do List";
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, curretDate,newDate1];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
-
+ NSLog(@"order %@",self.tasks);
 
 }
 
@@ -211,8 +211,8 @@ static NSString * const kEDLHome = @"To Do List";
 
     
     task.note = note;
-    task.createdAt = [NSDate date];
-    task.createdFor = createdFor;
+    task.createdAt =[self gmtDate:[NSDate date]];
+    task.createdFor = [self gmtDate:createdFor];
     task.isDone = false;
     task.isAlert = false;
     [realm addObject:task];
@@ -220,6 +220,22 @@ static NSString * const kEDLHome = @"To Do List";
     [self reloadTasks];
     [self.tasksTableView reloadData];
     [self.calendar reloadAppearance];
+    [self.calendar reloadData];
+}
+
+-(NSDate *)gmtDate:(NSDate*)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm"; // drops the seconds
+    
+    dateFormatter.timeZone = [NSTimeZone systemTimeZone]; // the local TZ
+    NSString *localTimeStamp = [dateFormatter stringFromDate:date];
+    // localTimeStamp is the current clock time in the current TZ
+    
+    // adjust date so it'll be the same clock time in GMT
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    NSDate *gmtDate = [dateFormatter dateFromString:localTimeStamp];
+    return gmtDate;
 }
 
 
@@ -260,19 +276,8 @@ static NSString * const kEDLHome = @"To Do List";
     [realm commitWriteTransaction];
     [self reloadTasks];
     [self.tasksTableView reloadData];
-//    [self.tasksTableView reloadData];
-//    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
-//                                                      title:@"Success!"
-//                                                    message:@"Task is deleted."
-//                                                   delegate:nil];
-//    
-//    [alert setTextAlignment:NSTextAlignmentCenter];
-//    
-//    [alert show];
-//    
-//    [alert showWithCompletion:^{
-//        NSLog(@"Alert with completion handler");
-//    }];
+    [self.calendar reloadAppearance];
+    [self.calendar reloadData];
 
 }
 
@@ -335,12 +340,13 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)todayButtonPressed:(UIBarButtonItem *)sender
 {
 
-//    [self.calendar setCurrentDate:[NSDate date]];
+    [self.calendar setCurrentDate:[NSDate date]];
     [self.calendar setCurrentDateSelected:[NSDate date]];
-    self.tasks =nil;
+//    self.tasks =nil;
     [self loadTasks];
     [self.tasksTableView reloadData];
     [self.calendar reloadData];
+    [self.calendar reloadAppearance];
     
 }
 
