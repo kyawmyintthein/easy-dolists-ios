@@ -95,13 +95,21 @@ static NSString * const kEDLHome = @"To Do List";
     [self.calendar setDataSource:self];
     [self.calendar reloadData];
     self.view.backgroundColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
+    
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
 
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(todayButtonPressed:)];
     todayButton.image= [UIImage imageNamed:@"Today Filled-25"];
     //self.navigationItem.rightBarButtonItem = editButton;
     self.navigationItem.leftBarButtonItem = todayButton;
     
-    BFPaperButton *addNoteButton = [[BFPaperButton alloc] initWithFrame:CGRectMake(116, 468, 70, 70) raised:YES];
+    //add Note Button position
+    CGFloat xposition= screenWidth/2;
+    CGFloat yposition= screenHeight-90;
+    
+    BFPaperButton *addNoteButton = [[BFPaperButton alloc] initWithFrame:CGRectMake(xposition-35, yposition, 70, 70) raised:YES];
     [addNoteButton setTitle:@"Add" forState:UIControlStateNormal];
     [addNoteButton setTitleColor:[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0] forState:UIControlStateNormal];
     [addNoteButton setTitleColor:[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0] forState:UIControlStateHighlighted];
@@ -135,7 +143,22 @@ static NSString * const kEDLHome = @"To Do List";
 
     [self.tasksTableView reloadData];
     
-
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.changeModeButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:screenWidth]];
+    
+    
+    
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:screenWidth]];
+    
+    
+    
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:screenWidth]];
+    
+    
+    
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.weeMenuView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1 constant:200]];
+    
+    
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:screenHeight]];
     
 }
 
