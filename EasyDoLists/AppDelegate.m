@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RLMRealm.h"
 #import "Task.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface AppDelegate ()
 
 @end
@@ -20,7 +21,6 @@
     // Override point for customization after application launch.
 
     [RLMRealm defaultRealm];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     return YES;
 }
 
