@@ -709,6 +709,7 @@ static NSString * const kEDLHome = @"To Do List";
                               constant:0.0]];
     
     [self.view layoutIfNeeded];
+    [self.calendar repositionViews];
     
     NSLog(@"Width %f",self.weeMenuView.frame.size.width);
     
