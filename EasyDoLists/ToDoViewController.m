@@ -32,6 +32,8 @@ static NSString * const kEDLHome = @"To Do List";
 @property (strong, nonatomic) JTCalendar *calendar;
 @property (strong,nonatomic) Task *selectedTask;
 @property (nonatomic, strong) RLMNotificationToken *notification;
+@property (assign) CGFloat screenWidth;
+@property (assign) CGFloat screenHeight;
 
 @end
 
@@ -96,8 +98,8 @@ static NSString * const kEDLHome = @"To Do List";
     [self.calendar reloadData];
     self.view.backgroundColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
     
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    self.screenWidth = [UIScreen mainScreen].bounds.size.width;
+    self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     
 
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(todayButtonPressed:)];
@@ -106,8 +108,8 @@ static NSString * const kEDLHome = @"To Do List";
     self.navigationItem.leftBarButtonItem = todayButton;
     
     //add Note Button position
-    CGFloat xposition= screenWidth/2;
-    CGFloat yposition= screenHeight-90;
+    CGFloat xposition= self.screenWidth/2;
+    CGFloat yposition= self.screenHeight-90;
     
     BFPaperButton *addNoteButton = [[BFPaperButton alloc] initWithFrame:CGRectMake(xposition-35, yposition, 70, 70) raised:YES];
     [addNoteButton setTitle:@"Add" forState:UIControlStateNormal];
@@ -142,24 +144,9 @@ static NSString * const kEDLHome = @"To Do List";
 //    }];
 
     [self.tasksTableView reloadData];
-    
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.changeModeButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:screenWidth]];
-    
-    
-    
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:screenWidth]];
-    
-    
-    
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:screenWidth]];
-    
-    
-    
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.weeMenuView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1 constant:200]];
-    
-    
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:screenHeight]];
-    
+    [self addingConstraints];
+    NSLog(@"weekmenu width%f",self.weeMenuView.frame.size.width);
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -600,6 +587,8 @@ static NSString * const kEDLHome = @"To Do List";
 {
     self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
     [self transitionMode];
+    
+
 }
 
 #pragma mark - JTCalendarDataSource
@@ -628,13 +617,19 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)calendarDidLoadPreviousPage
 {
     [self.tasksTableView reloadData];
+    
     NSLog(@"Previous page loaded");
+    [self addingConstraints];
+    
+    NSLog(@"weekmenu Previous constraints%@",self.weeMenuView.constraints);
 }
 
 - (void)calendarDidLoadNextPage
 {
-        [self.tasksTableView reloadData];
+    [self.tasksTableView reloadData];
     NSLog(@"Next page loaded");
+    [self addingConstraints];
+     NSLog(@"weekmenu  Next constraints%@",self.weeMenuView.constraints);
 }
 
 #pragma mark - Transition examples
@@ -690,6 +685,34 @@ static NSString * const kEDLHome = @"To Do List";
 }
 
 
-
+- (void) addingConstraints{
+    
+    //add Constraints
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.changeModeButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.weeMenuView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:self.screenHeight]];
+    
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:self.weeMenuView
+                              attribute:NSLayoutAttributeCenterX
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.view
+                              attribute:NSLayoutAttributeCenterX
+                              multiplier:1.0
+                              constant:0.0]];
+    
+    [self.view layoutIfNeeded];
+    
+    NSLog(@"Width %f",self.weeMenuView.frame.size.width);
+    
+    
+}
 
 @end
