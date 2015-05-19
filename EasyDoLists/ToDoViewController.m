@@ -49,6 +49,7 @@ static NSString * const kEDLHome = @"To Do List";
     self.changeModeButton.tintColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
     self.changeModeButton.titleLabel.text = @"Chage Calendar View";
     self.calendar = [JTCalendar new];
+   
 //    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
 //    [dateFormatters setDateFormat:@"dd-MMM-yyyy"];
 //    [dateFormatters setDateStyle:NSDateFormatterShortStyle];
@@ -138,15 +139,10 @@ static NSString * const kEDLHome = @"To Do List";
     self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
         [weakSelf loadTasks];
     }];
-//    
-//    [self.tasksTableView addPullToRefreshActionHandler:^{
-//        [weakSelf loadTasks];
-//    }];
 
     [self.tasksTableView reloadData];
     [self addingConstraints];
-    NSLog(@"weekmenu width%f",self.weeMenuView.frame.size.width);
-   
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -158,8 +154,6 @@ static NSString * const kEDLHome = @"To Do List";
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self transitionMode];
-//    [self reloadTasks];
-//    [self.tasksTableView reloadData];
     [self.tasksTableView becomeFirstResponder];
 }
 
@@ -258,21 +252,7 @@ static NSString * const kEDLHome = @"To Do List";
     Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
     [realm addOrUpdateObject:updateTask];
     [realm commitWriteTransaction];
-//    [self reloadTasks];
-//    [self.tasksTableView reloadData];
-//    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
-//                                                      title:@"Success!"
-//                                                    message:@"Task is updated."
-//                                                   delegate:nil];
-//    
-//    [alert setTextAlignment:NSTextAlignmentCenter];
-//    
-//    [alert show];
-//    
-//    [alert showWithCompletion:^{
-//        NSLog(@"Alert with completion handler");
-//    }];
-//
+
 
 }
 
@@ -280,7 +260,6 @@ static NSString * const kEDLHome = @"To Do List";
 
 -(void)deleteTask:(Task *)task{
     RLMRealm *realm = RLMRealm.defaultRealm;
-    // Updating book with id = 1
     [realm beginWriteTransaction];
     [realm deleteObject:task];
     [realm commitWriteTransaction];
@@ -388,7 +367,8 @@ static NSString * const kEDLHome = @"To Do List";
            NSDate *notiDatetime = [calendar dateFromComponents:components];
            notification.fireDate = notiDatetime;
            notification.timeZone = [NSTimeZone systemTimeZone];
-           notification.soundName = UILocalNotificationDefaultSoundName;
+           notification.soundName =UILocalNotificationDefaultSoundName;
+           notification.applicationIconBadgeNumber = 1;
            notification.alertAction = @"Ok";
            notification.alertBody =self.selectedTask.note;
              [[UIApplication sharedApplication]scheduleLocalNotification:notification];
@@ -710,9 +690,6 @@ static NSString * const kEDLHome = @"To Do List";
     
     [self.view layoutIfNeeded];
     [self.calendar repositionViews];
-    
-    NSLog(@"Width %f",self.weeMenuView.frame.size.width);
-    
     
 }
 
