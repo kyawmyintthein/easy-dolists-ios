@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VBFPopFlatButton.h"
 @interface TaskCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *taskName;
 @property (strong, nonatomic) VBFPopFlatButton *doneButton;
 @property (strong, nonatomic) UIButton *alertButton;
+@property (strong, nonatomic) UIButton *addButton;
 @property (nonatomic, assign) BOOL isDone;
 @property (nonatomic, assign) BOOL isAlert;
 -(void) flatRoundedButtonPressed;

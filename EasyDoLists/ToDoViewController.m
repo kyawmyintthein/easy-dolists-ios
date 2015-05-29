@@ -20,6 +20,24 @@
 #import <ObjectiveSugar/ObjectiveSugar.h>
 static NSString * const kEDLHome = @"To Do List";
 
+static NSString *inactiveTextFieldHint = @"Tap to add item";
+static NSString *activeTextFieldHint = @"";
+static NSString *returnTappedTextFieldHint = @"~"; // HACK to mark when return was tapped
+#pragma mark - Helper Categories
+
+@interface UITextField (ChangeReturnKey)
+- (void)changeReturnKey:(UIReturnKeyType)returnKeyType;
+@end
+
+@implementation UITextField (ChangeReturnKey)
+- (void)changeReturnKey:(UIReturnKeyType)returnKeyType
+{
+    self.returnKeyType = returnKeyType;
+    [self reloadInputViews];
+}
+
+@end
+
 @interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
 @property (strong, nonatomic) IBOutlet UIButton *changeModeButton;
 @property (strong, nonatomic) IBOutlet UITableView *tasksTableView;
@@ -39,7 +57,7 @@ static NSString * const kEDLHome = @"To Do List";
 
 
 @implementation ToDoViewController
-//@synthesize weekSelector;
+@synthesize tasksTableView;
  NSMutableDictionary *eventsByDate;
 - (void)viewDidLoad
 {
@@ -50,12 +68,6 @@ static NSString * const kEDLHome = @"To Do List";
     self.changeModeButton.titleLabel.text = @"Chage Calendar View";
     self.calendar = [JTCalendar new];
    
-//    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
-//    [dateFormatters setDateFormat:@"dd-MMM-yyyy"];
-//    [dateFormatters setDateStyle:NSDateFormatterShortStyle];
-//    [dateFormatters setTimeStyle:NSDateFormatterShortStyle];
-//    [dateFormatters setDoesRelativeDateFormatting:YES];
-//    [dateFormatters setTimeZone:[NSTimeZone systemTimeZone]];
     [self.calendar.calendarAppearance.calendar setTimeZone:[NSTimeZone systemTimeZone]];
     // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
@@ -105,25 +117,9 @@ static NSString * const kEDLHome = @"To Do List";
 
     UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(todayButtonPressed:)];
     todayButton.image= [UIImage imageNamed:@"Today Filled-25"];
-    //self.navigationItem.rightBarButtonItem = editButton;
     self.navigationItem.leftBarButtonItem = todayButton;
-    
-    //add Note Button position
-    CGFloat xposition= self.screenWidth/2;
-    CGFloat yposition= self.screenHeight-90;
-    
-    BFPaperButton *addNoteButton = [[BFPaperButton alloc] initWithFrame:CGRectMake(xposition-35, yposition, 70, 70) raised:YES];
-    [addNoteButton setTitle:@"Add" forState:UIControlStateNormal];
-    [addNoteButton setTitleColor:[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0] forState:UIControlStateNormal];
-    [addNoteButton setTitleColor:[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0] forState:UIControlStateHighlighted];
-    [addNoteButton addTarget:self action:@selector(pressedaddNoteButton:) forControlEvents:UIControlEventTouchUpInside];
-    addNoteButton.backgroundColor = [UIColor whiteColor];
-    addNoteButton.tapCircleColor = [UIColor colorWithRed:1 green:0 blue:1 alpha:0.6];  // Setting this color overrides "Smart Colo
-    addNoteButton.cornerRadius = addNoteButton.frame.size.width / 2;
-    addNoteButton.rippleFromTapLocation = NO;
-    addNoteButton.rippleBeyondBounds = YES;
-    addNoteButton.tapCircleDiameter = MAX(addNoteButton.frame.size.width, addNoteButton.frame.size.height) * 1.3;
-    [self.view addSubview:addNoteButton];
+
+
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tasksTableView.backgroundColor = [UIColor clearColor];
@@ -164,8 +160,6 @@ static NSString * const kEDLHome = @"To Do List";
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, curretDate,newDate1];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
- NSLog(@"order %@",self.tasks);
-
 }
 
 - (void)reloadTasks{
@@ -174,7 +168,7 @@ static NSString * const kEDLHome = @"To Do List";
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
-    NSLog(@"order %@",self.tasks);
+    NSLog(@"reload");
 }
 
 - (BOOL*)reloadTasksByDate:(NSDate*)selectedDate{
@@ -253,8 +247,19 @@ static NSString * const kEDLHome = @"To Do List";
     [realm addOrUpdateObject:updateTask];
     [realm commitWriteTransaction];
 
-
 }
+
+-(void)updateTask:(Task *)task note:(NSString*)note{
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    task.note = note;
+    Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
+    [realm addOrUpdateObject:updateTask];
+    [realm commitWriteTransaction];
+    
+}
+
 
 
 
@@ -344,9 +349,24 @@ static NSString * const kEDLHome = @"To Do List";
     Task *task = [self.tasks objectAtIndex:sender.tag];
     bool flag = task.isDone ? false : true;
     [self updateTask:task isDone:flag isAlert:task.isAlert];
+    self.tasks = nil;
     [self reloadTasks];
     [self.tasksTableView reloadData];
+    [self.calendar reloadData];
+    [self.calendar reloadAppearance];
+}
+
+
+- (void)pressedAddButton:(UIBarButtonItem *)sender
+{
     
+    if (self.calendar.currentDateSelected) {
+        [self addTask:@"test" createdFor:self.calendar.currentDateSelected];
+    }else{
+        [self addTask:@"test" createdFor:self.calendar.currentDate];
+    }
+    [self.tasksTableView reloadData];
+
 }
 
 
@@ -398,7 +418,6 @@ static NSString * const kEDLHome = @"To Do List";
         datePicker.minuteInterval = 5;
         [datePicker setPickerView:bgView];
         [datePicker showActionSheetPicker];
-        
 
     }
    }
@@ -406,18 +425,17 @@ static NSString * const kEDLHome = @"To Do List";
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.tasksTableView setEditing:editing animated:YES];
-    
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    
+//    textField.placeholder = @"Add New Text";
     [textField resignFirstResponder];
     return YES;
 }
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.tasks.count;
+    return self.tasks.count + 1;
     
 }
 
@@ -429,45 +447,111 @@ static NSString * const kEDLHome = @"To Do List";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TaskCell *taskCell;
-
     static NSString *cellIdentifier = @"TaskCell";
-
     taskCell = (TaskCell *)[self.tasksTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    Task *task = [self.tasks objectAtIndex:indexPath.row];
-    taskCell.taskName.text = task.note;
-    [taskCell.taskName sizeToFit];
+    UITextField *textField = (UITextField *)[taskCell viewWithTag:10000];
+
+    if ((self.tasks.count >= indexPath.row) && self.tasks.count > 0) {
+        Task *task = nil;
+        if (indexPath.row == 0) {
+            if (textField == nil) {
+                textField = [self createTextFieldForCell:taskCell];
+            }
+        }else{
+            if (textField == nil) {
+                textField = [self createTextFieldForCell:taskCell];
+            }
+            task = [self.tasks objectAtIndex:(indexPath.row-1)];
+            textField.text = task.note;
+            taskCell.doneButton = [[VBFPopFlatButton alloc]initWithFrame:CGRectMake(0,0, 35, 35)
+                                                              buttonType:buttonSquareType
+                                                             buttonStyle:buttonPlainStyle
+                                                   animateToInitialState:YES];
+            taskCell.doneButton.roundBackgroundColor = [UIColor whiteColor];
+            taskCell.doneButton.lineThickness = 2;
+            taskCell.doneButton.tintColor = [UIColor whiteColor];
+//            taskCell.accessoryView = taskCell.doneButton;
+            
+
+            UIButton *btnNotification=[UIButton buttonWithType:UIButtonTypeContactAdd];
+            [btnNotification setFrame:CGRectMake(50,0, 35, 35)];
+            [btnNotification setTintColor:[UIColor whiteColor]];
+            taskCell.addButton = btnNotification;
+//            taskCell.accessoryView = taskCell.addButton ;
+            UIView *buttonsView = [[UIView alloc]initWithFrame:CGRectMake(0,0, 90, 35)];
+            [buttonsView addSubview:taskCell.doneButton];
+            [buttonsView addSubview:taskCell.addButton];
+          
+
+            taskCell.accessoryView = buttonsView;
+            taskCell.alertButton =[UIButton buttonWithType:UIButtonTypeInfoLight];
+            [taskCell.alertButton setFrame:CGRectMake(10,15, 35, 35)];
+            [taskCell.alertButton setImage: [UIImage imageNamed:@"timer18"] forState:UIControlStateNormal];
+            taskCell.alertButton.tintColor = [UIColor whiteColor];
+            taskCell.alertButton.imageView.tintColor = [UIColor clearColor];
+            [taskCell.contentView addSubview:taskCell.alertButton];
+            taskCell.doneButton.tag = indexPath.row - 1;
+            taskCell.alertButton.tag = indexPath.row - 1;
+            taskCell.showsReorderControl = YES;
+            [taskCell.doneButton addTarget:self action:@selector(pressedDoneButton:) forControlEvents:UIControlEventTouchUpInside];
+            [taskCell.alertButton addTarget:self action:@selector(pressedAlertButton:) forControlEvents:UIControlEventTouchUpInside];
+            [taskCell.addButton setTag:indexPath.row-1];
+            [taskCell.addButton addTarget:self action:@selector(pressedAddButton:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (task.isDone) {
+                [taskCell.doneButton animateToType:buttonOkType];
+            }else{
+                [taskCell.doneButton animateToType:buttonSquareType];
+                
+            }
+            if (task.isAlert) {
+                UIImage *image =[UIImage imageNamed:@"timer18"];
+                [taskCell.alertButton setImage:image forState:UIControlStateNormal];
+            }else{
+                
+                UIImage *image =[UIImage imageNamed:@"timer18"];
+                [taskCell.alertButton setImage:image forState:UIControlStateNormal];
+            }
+            
+        }
+
+    }else{
+        textField.placeholder = @"Add New Task";
+    }
+
     taskCell.backgroundColor = [UIColor clearColor];
-    taskCell.taskName.numberOfLines = 0;
-    taskCell.taskName.textColor = [UIColor whiteColor];
     taskCell.textLabel.font=[UIFont fontWithName:@"Aileron-Bold" size:18.0];
     taskCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    taskCell.doneButton.tag = indexPath.row;
-    taskCell.alertButton.tag = indexPath.row;
-    taskCell.showsReorderControl = YES;
-    if (task.isDone) {
-        [taskCell.doneButton animateToType:buttonOkType];
-    }else{
-        [taskCell.doneButton animateToType:buttonSquareType];
+    
+    [taskCell.contentView addSubview:textField];
 
-    }
-    
-    if (task.isAlert) {
-        UIImage *image =[UIImage imageNamed:@"Alarm Clock Filled-25"];
-        [taskCell.alertButton setImage:image forState:UIControlStateNormal];
-    }else{
-        UIImage *image =[UIImage imageNamed:@"Alarm Clock-25"];
-        [taskCell.alertButton setImage:image forState:UIControlStateNormal];
-    }
-    
-    [taskCell.doneButton addTarget:self action:@selector(pressedDoneButton:) forControlEvents:UIControlEventTouchUpInside];
-    [taskCell.alertButton addTarget:self action:@selector(pressedAlertButton:) forControlEvents:UIControlEventTouchUpInside];
+    textField.delegate = self;
+   
     return taskCell;
+}
+- (UITextField *)createTextFieldForCell:(UITableViewCell *)cell
+{
+    CGFloat padding = 8.0f;
+    CGRect frame = CGRectInset(cell.contentView.bounds, padding, padding / 2);
+    UITextField *textField = [[UITextField alloc] initWithFrame:frame];
+    CGFloat spareHeight = cell.contentView.bounds.size.height - textField.font.pointSize;
+    frame.origin.y = 5.0f;
+    frame.origin.x = 50.0f;
+    textField.frame = frame;
+    textField.placeholder = @"Add New Task";
+    textField.tag = 10000;
+    textField.borderStyle = UITextBorderStyleNone;
+    textField.returnKeyType = UIReturnKeyDone;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    return textField;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return 70;
+    return 60;
 }
+
 
 
 
@@ -480,37 +564,59 @@ static NSString * const kEDLHome = @"To Do List";
     return YES;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section != 0) return UITableViewCellEditingStyleNone;
+//    if (tableView.isEditing) ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleInsert;
+    
+    return indexPath.row > 0 ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleInsert;
+//    return UITableViewCellEditingStyleDelete;
+}
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //[self.tasks removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source
-        Task *task = (Task*) [self.tasks objectAtIndex:indexPath.row];
-       
-        [self deleteTask:task];
-      //  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-
+    switch (editingStyle) {
+            
+        case UITableViewCellEditingStyleDelete: {
+            //[self.tasks removeObjectAtIndex:indexPath.row];
+            // Delete the row from the data source
+            Task *task = (Task*) [self.tasks objectAtIndex:indexPath.row - 1];
+            
+            [self deleteTask:task];
+            //  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        }
+            
+        case UITableViewCellEditingStyleInsert: {
+            UITableViewCell *sourceCell = [tableView cellForRowAtIndexPath:indexPath];
+            UIView *textField = [sourceCell viewWithTag:10000];
+            [textField becomeFirstResponder];
+            break;
+        }
+            
+        case UITableViewCellEditingStyleNone:
+            break;
     }
     [self reloadTasks];
     [self.tasksTableView reloadData];
-  
+
 }
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    Task *task =(Task*) self.tasks[indexPath.row];
-    [self updateTask:task isDone:true isAlert:task.isAlert];
-    [self reloadTasks];
-    [self.tasksTableView reloadData];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//
+//    Task *task =(Task*) self.tasks[indexPath.row];
+//    [self updateTask:task isDone:true isAlert:task.isAlert];
+//    [self reloadTasks];
+//    [self.tasksTableView reloadData];
+//}
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    NSString *stringToMove = [self.tasks objectAtIndex:sourceIndexPath.row];
-    Task *oldTask = (Task*)[self.tasks objectAtIndex:sourceIndexPath.row];
-    Task *newTask = (Task*)[self.tasks objectAtIndex:destinationIndexPath.row];
+    NSString *stringToMove = [self.tasks objectAtIndex:sourceIndexPath.row - 1];
+    Task *oldTask = (Task*)[self.tasks objectAtIndex:sourceIndexPath.row - 1];
+    Task *newTask = (Task*)[self.tasks objectAtIndex:destinationIndexPath.row - 1];
     [self moveTask:oldTask newTask:newTask];
     [self reloadTasks];
     [self.tasksTableView reloadData];
@@ -578,7 +684,6 @@ static NSString * const kEDLHome = @"To Do List";
     if ([self reloadTasksByDate:date]) {
         return YES;
     }
-    NSLog(@"have");
     
     return NO;
 }
@@ -613,6 +718,7 @@ static NSString * const kEDLHome = @"To Do List";
 }
 
 #pragma mark - Transition examples
+
 
 - (void)transitionMode
 {
@@ -691,6 +797,92 @@ static NSString * const kEDLHome = @"To Do List";
     [self.view layoutIfNeeded];
     [self.calendar repositionViews];
     
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField.text.length == 0) {
+        // if it's the last field, change the return key to "Next"
+        if ([self rowIndexForField:textField] == self.tasks.count) {
+            [textField changeReturnKey:UIReturnKeyNext];
+        }
+    }
+    else {
+        // if return button is "Next" and field is about to be empty, change to "Done"
+        if (textField.returnKeyType == UIReturnKeyNext && string.length == 0 && range.length == textField.text.length) {
+            [textField changeReturnKey:UIReturnKeyDone];
+        }
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    if (textField.returnKeyType == UIReturnKeyNext) {
+        [textField changeReturnKey:UIReturnKeyDone];
+    }
+    
+    return YES;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [textField setPlaceholder:@""];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSIndexPath *currRow = [self cellIndexPathForField:textField];
+    
+
+    if (currRow.row > 0) {
+        if (textField.text.length > 0) {
+            Task *editTask = [self.tasks objectAtIndex:currRow.row-1];
+            if (editTask) {
+                [self updateTask:editTask note:textField.text];
+            }else{
+                if (self.calendar.currentDateSelected) {
+                    [self addTask:textField.text createdFor:self.calendar.currentDateSelected];
+                }else{
+                    [self addTask:textField.text createdFor:self.calendar.currentDate];
+                }
+                 textField.text = @"";
+            }
+        }
+    }else{
+        if (textField.text.length > 0) {
+            if (self.calendar.currentDateSelected) {
+                [self addTask:textField.text createdFor:self.calendar.currentDateSelected];
+            }else{
+                [self addTask:textField.text createdFor:self.calendar.currentDate];
+            }
+        }
+         textField.text = @"";
+    }
+   
+    [self reloadTasks];
+    [self.tasksTableView reloadData];
+    [self.calendar reloadAppearance];
+    [self.calendar reloadData];
+
+    
+}
+
+- (NSIndexPath *)cellIndexPathForField:(UITextField *)textField
+{
+    UIView *view = textField;
+    while (![view isKindOfClass:[UITableViewCell class]]) {
+        view = [view superview];
+    }
+    
+   return [self.tasksTableView indexPathForCell:(UITableViewCell *)view];
+}
+
+
+
+- (NSUInteger)rowIndexForField:(UITextField *)textField
+{
+    return [self cellIndexPathForField:textField].row;
 }
 
 @end

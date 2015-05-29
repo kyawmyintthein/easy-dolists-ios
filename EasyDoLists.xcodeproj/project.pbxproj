@@ -44,6 +44,7 @@
 		6D4109D21AFBB822007F402D /* Aileron-UltraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */; };
 		6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */; };
 		6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */; };
+		6D482A421B185B370052CBCC /* timer18.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D482A411B185B370052CBCC /* timer18.png */; };
 		6D53CE561AFF6D8500CC341A /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CE551AFF6D8500CC341A /* Task.m */; };
 		6D7B54B01AFBCDBD006729D1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */; };
 		6D7B54B11AFBCDBD006729D1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A81AFBCDBD006729D1 /* SCLAlertViewResponder.m */; };
@@ -112,6 +113,7 @@
 		6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLightItalic.otf"; sourceTree = "<group>"; };
 		6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock Filled-25.png"; sourceTree = "<group>"; };
 		6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock-25.png"; sourceTree = "<group>"; };
+		6D482A411B185B370052CBCC /* timer18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timer18.png; sourceTree = "<group>"; };
 		6D53CE541AFF6D8500CC341A /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		6D53CE551AFF6D8500CC341A /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		6D7B54A51AFBCDBD006729D1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		6D4109A41AFB9639007F402D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6D482A411B185B370052CBCC /* timer18.png */,
 				6D31C9FA1B0503E200B1B0CC /* logo.png */,
 				6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */,
 				6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */,
@@ -458,6 +461,7 @@
 				6D4109D11AFBB822007F402D /* Aileron-UltraLight.otf in Resources */,
 				6D4109D21AFBB822007F402D /* Aileron-UltraLightItalic.otf in Resources */,
 				6D4109A81AFB964F007F402D /* Today Filled-25.png in Resources */,
+				6D482A421B185B370052CBCC /* timer18.png in Resources */,
 				6D4109791AFB8C0B007F402D /* Main.storyboard in Resources */,
 				6D41097E1AFB8C0B007F402D /* LaunchScreen.xib in Resources */,
 				6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */,
