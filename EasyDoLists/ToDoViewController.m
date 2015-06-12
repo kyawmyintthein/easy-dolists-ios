@@ -56,7 +56,7 @@ static NSString * const kEDLHome = @"To Do List";
 //    [dateFormatters setDoesRelativeDateFormatting:YES];
 //    [dateFormatters setTimeZone:[NSTimeZone systemTimeZone]];
     [self.calendar.calendarAppearance.calendar setTimeZone:[NSTimeZone systemTimeZone]];
-    // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
+    // All modifications on calendarAppearance to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
     {
         self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Sunday == 1, Saturday == 7
@@ -212,11 +212,11 @@ static NSString * const kEDLHome = @"To Do List";
 
         NSInteger *lastId =[[idArray firstObject] integerValue];
         task.id =  [NSString stringWithFormat:@"%i",(int)lastId + 1];
-        task.sortId = [NSString stringWithFormat:@"%i",(int)lastId + 1];
+        task.sortId = (int)lastId + 1;
         
     }else{
         task.id = @"1";
-        task.sortId = @"1";
+        task.sortId =1;
     }
 
     
@@ -231,6 +231,7 @@ static NSString * const kEDLHome = @"To Do List";
     [self.tasksTableView reloadData];
     [self.calendar reloadAppearance];
     [self.calendar reloadData];
+
 }
 
 -(NSDate *)gmtDate:(NSDate*)date
@@ -540,8 +541,8 @@ static NSString * const kEDLHome = @"To Do List";
 -(void)moveTask:(Task *)oldTask newTask:(Task*)newTask{
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    NSString *replaceSortId= newTask.sortId;
-    NSString *moveSortId= oldTask.sortId;
+    int  *replaceSortId= newTask.sortId;
+    int  *moveSortId= oldTask.sortId;
     [realm beginWriteTransaction];
 
     oldTask.sortId = replaceSortId;
@@ -697,7 +698,14 @@ static NSString * const kEDLHome = @"To Do List";
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.weeMenuView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
     
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:self.screenHeight]];
+  //  CGFloat tableheight = 70 * (self.tasks.count);
+  //  NSLog( @"Table height 3 %f",tableheight);
+ //   self.tasksTableView.frame = CGRectMake(0, 200, self.screenWidth, tableheight);
+    
+   [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:3 constant:self.screenHeight]];
+    
+    
+        NSLog( @"Table height %f",self.tasksTableView.frame.size.height);
     
     [self.view addConstraint:[NSLayoutConstraint
                               constraintWithItem:self.weeMenuView

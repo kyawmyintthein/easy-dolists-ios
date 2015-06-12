@@ -10,13 +10,13 @@
 
 @interface Task : RLMObject
 @property  NSString *id;
-@property NSString *note;
+@property  NSString *note;
 @property  NSString *shortDescription;
 @property  NSDate *createdAt;
-@property NSDate *createdFor;
-@property  NSString *sortId;
-@property BOOL isDone;
-@property BOOL isAlert;
+@property  NSDate *createdFor;
+@property  int sortId;
+@property  BOOL isDone;
+@property  BOOL isAlert;
 @end
 
 // This protocol enables typed collections. i.e.:
