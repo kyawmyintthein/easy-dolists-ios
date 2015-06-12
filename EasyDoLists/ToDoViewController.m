@@ -165,10 +165,10 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (void)loadTasks{
     int daysToAdd = 1;
-    NSDate *curretDate = [[NSDate new] dateBySubtractingDays:1];
-    NSDate *newDate1 = [curretDate dateByAddingDays:daysToAdd];
-    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
-    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, curretDate,newDate1];
+    NSDate *curretDate = [self gmtDate:[NSDate date]];
+   // NSDate *newDate1 = [curretDate dateByAddingDays:daysToAdd];
+    NSString *stringForPredicate = @"(createdFor ==  %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate,curretDate];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
  NSLog(@"order %@",self.tasks);
 
@@ -176,18 +176,18 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (void)reloadTasks{
     int daysToAdd = 1;
-    NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
-    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
-    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
+    NSDate *newDate1 = [self gmtDate:self.calendar.currentDateSelected];
+    NSString *stringForPredicate = @"(createdFor ==  %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate,newDate1];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
     NSLog(@"order %@",self.tasks);
 }
 
 - (BOOL*)reloadTasksByDate:(NSDate*)selectedDate{
     int daysToAdd = 1;
-    NSDate *newDate1 = [selectedDate dateByAddingTimeInterval:60*60*24*daysToAdd];
-    NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
-    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, selectedDate,newDate1];
+    NSDate *newDate1 = [self gmtDate:selectedDate];
+    NSString *stringForPredicate = @"(createdFor ==  %@)";
+    NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, newDate1];
     if ([Task objectsWithPredicate:filterPredicate].count > 0) {
         return true;
     }
@@ -236,8 +236,9 @@ static NSString * const kEDLHome = @"To Do List";
 
 -(NSDate *)gmtDate:(NSDate*)date
 {
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm"; // drops the seconds
+    dateFormatter.dateFormat = @"yyyy-MM-dd"; // drops the seconds
     
     dateFormatter.timeZone = [NSTimeZone systemTimeZone]; // the local TZ
     NSString *localTimeStamp = [dateFormatter stringFromDate:date];
@@ -387,17 +388,26 @@ static NSString * const kEDLHome = @"To Do List";
            [components setHour:[selectedTime hour]];
            [components setMinute:[selectedTime minute]];
            NSDate *notiDatetime = [calendar dateFromComponents:components];
-           notification.fireDate = notiDatetime;
-           notification.timeZone = [NSTimeZone systemTimeZone];
-           notification.soundName = UILocalNotificationDefaultSoundName;
-           notification.alertAction = @"Ok";
-           notification.alertBody =self.selectedTask.note;
-             [[UIApplication sharedApplication]scheduleLocalNotification:notification];
-           [self updateTask:self.selectedTask isDone:false isAlert:true];
-           [self reloadTasks];
-           [self.tasksTableView reloadData];
-           [self.calendar reloadAppearance];
+           if(notiDatetime.timeIntervalSinceNow <0){
+               SCLAlertView *alert = [[SCLAlertView alloc] init];
+               alert.customViewColor =[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
+               [alert showError:self title:@"Error" subTitle:@"Reminder Time is Ealier Than Current Time." closeButtonTitle:@"OK" duration:0.0f]; // Error
+           }
+           else{
+               
+               notification.fireDate = notiDatetime;
+               notification.timeZone = [NSTimeZone systemTimeZone];
+               notification.soundName = UILocalNotificationDefaultSoundName;
+               notification.alertAction = @"Ok";
+               notification.alertBody =self.selectedTask.note;
+               [[UIApplication sharedApplication]scheduleLocalNotification:notification];
+               [self updateTask:self.selectedTask isDone:false isAlert:true];
+               [self reloadTasks];
+               [self.tasksTableView reloadData];
+               [self.calendar reloadAppearance];
 
+           }
+          
     }
     
   
