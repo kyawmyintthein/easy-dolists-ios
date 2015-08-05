@@ -18,16 +18,17 @@
 #import "DateTools.h"
 #import "ActionSheetDatePicker.h"
 #import <ObjectiveSugar/ObjectiveSugar.h>
+
 static NSString * const kEDLHome = @"To Do List";
 
 @interface ToDoViewController()<UITableViewDataSource,UITableViewDelegate,JTCalendarDataSource>
+
 @property (strong, nonatomic) IBOutlet UIButton *changeModeButton;
 @property (strong, nonatomic) IBOutlet UITableView *tasksTableView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet JTCalendarMenuView *weeMenuView;
 @property (strong, nonatomic) RLMArray *tasks;
 @property (weak, nonatomic) UITextView *todoTextView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
 @property (strong, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (strong, nonatomic) JTCalendar *calendar;
 @property (strong,nonatomic) Task *selectedTask;
@@ -39,23 +40,71 @@ static NSString * const kEDLHome = @"To Do List";
 
 
 @implementation ToDoViewController
-//@synthesize weekSelector;
- NSMutableDictionary *eventsByDate;
+
+NSMutableDictionary *eventsByDate;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.navigationItem.title = kEDLHome;
-
+    
+    self.screenWidth = [UIScreen mainScreen].bounds.size.width;
+    self.screenHeight = [UIScreen mainScreen].bounds.size.height;
+    self.view.backgroundColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
+    
     self.changeModeButton.tintColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
     self.changeModeButton.titleLabel.text = @"Chage Calendar View";
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
+    __weak typeof(self) weakSelf = self;
+    self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
+        [weakSelf loadTasks];
+    }];
+
+    [self loadBFPaperbutton];
+    [self loadCalendarView];
+    [self loadToayButton];
+    [self loadTasks];
+    [self setTableViewSetting];
+    [self.tasksTableView reloadData];
+    [self addConstraints];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self loadTasks];
+    self.tasksTableView.rowHeight = UITableViewAutomaticDimension;
+    [self.tasksTableView reloadData];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+    [self transitionMode];
+    [self.tasksTableView becomeFirstResponder];
+    
+}
+
+-(void) setTableViewSetting{
+    
+    self.tasksTableView.backgroundColor = [UIColor clearColor];
+    self.tasksTableView.dataSource = self;
+    self.tasksTableView.delegate = self;
+    
+    self.tasksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tasksTableView.allowsMultipleSelectionDuringEditing = NO;
+
+}
+
+-(void) loadCalendarView{
+    
     self.calendar = [JTCalendar new];
-//    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
-//    [dateFormatters setDateFormat:@"dd-MMM-yyyy"];
-//    [dateFormatters setDateStyle:NSDateFormatterShortStyle];
-//    [dateFormatters setTimeStyle:NSDateFormatterShortStyle];
-//    [dateFormatters setDoesRelativeDateFormatting:YES];
-//    [dateFormatters setTimeZone:[NSTimeZone systemTimeZone]];
     [self.calendar.calendarAppearance.calendar setTimeZone:[NSTimeZone systemTimeZone]];
+    
     // All modifications on calendarAppearance to be done before setMenuMonthsView and setContentView
     // Or you will have to call reloadAppearance
     {
@@ -66,12 +115,12 @@ static NSString * const kEDLHome = @"To Do List";
         self.calendar.calendarAppearance.isWeekMode = YES;
         self.calendar.currentDateSelected = [NSDate date];
         self.calendar.calendarAppearance.menuMonthTextColor =[UIColor whiteColor];
-    
+        
         
         // Customize the text for each month
         self.calendar.calendarAppearance.monthBlock = ^NSString *(NSDate *date, JTCalendar *jt_calendar){
+            
             NSCalendar *calendar = jt_calendar.calendarAppearance.calendar;
-//            [jt_calendar.calendarAppearance.calendar setTimeZone:[NSTimeZone systemTimeZone]];
             NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:date];
             NSInteger currentMonthIndex = comps.month;
             
@@ -91,26 +140,20 @@ static NSString * const kEDLHome = @"To Do List";
         };
     }
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width, self.scrollView.bounds.size.height*1.5)];
-
+    
     [self.calendar setMenuMonthsView:self.weeMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
     [self.calendar reloadData];
-    self.view.backgroundColor = [UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0];
     
-    self.screenWidth = [UIScreen mainScreen].bounds.size.width;
-    self.screenHeight = [UIScreen mainScreen].bounds.size.height;
-    
+}
 
-    UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(todayButtonPressed:)];
-    todayButton.image= [UIImage imageNamed:@"Today Filled-25"];
-    //self.navigationItem.rightBarButtonItem = editButton;
-    self.navigationItem.leftBarButtonItem = todayButton;
+-(void) loadBFPaperbutton{
     
     //add Note Button position
     CGFloat xposition= self.screenWidth/2;
     CGFloat yposition= self.screenHeight-90;
-    
+
     BFPaperButton *addNoteButton = [[BFPaperButton alloc] initWithFrame:CGRectMake(xposition-35, yposition, 70, 70) raised:YES];
     [addNoteButton setTitle:@"Add" forState:UIControlStateNormal];
     [addNoteButton setTitleColor:[UIColor colorWithRed: 52.0/255.0f green:152.0/255.0f blue:220.0/255.0f alpha:1.0] forState:UIControlStateNormal];
@@ -123,54 +166,26 @@ static NSString * const kEDLHome = @"To Do List";
     addNoteButton.rippleBeyondBounds = YES;
     addNoteButton.tapCircleDiameter = MAX(addNoteButton.frame.size.width, addNoteButton.frame.size.height) * 1.3;
     [self.view addSubview:addNoteButton];
-
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.tasksTableView.backgroundColor = [UIColor clearColor];
-    self.tasksTableView.dataSource = self;
-    self.tasksTableView.delegate = self;
-
-    self.tasksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tasksTableView.allowsMultipleSelectionDuringEditing = NO;
-
-    [self loadTasks];
-    __weak typeof(self) weakSelf = self;
     
-    self.notification = [RLMRealm.defaultRealm addNotificationBlock:^(NSString *note, RLMRealm *realm) {
-        [weakSelf loadTasks];
-    }];
-//    
-//    [self.tasksTableView addPullToRefreshActionHandler:^{
-//        [weakSelf loadTasks];
-//    }];
-
-    [self.tasksTableView reloadData];
-    [self addingConstraints];
-    NSLog(@"weekmenu width%f",self.weeMenuView.frame.size.width);
-   
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self loadTasks];
-    self.tasksTableView.rowHeight = UITableViewAutomaticDimension;
-    [self.tasksTableView reloadData];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self transitionMode];
-//    [self reloadTasks];
-//    [self.tasksTableView reloadData];
-    [self.tasksTableView becomeFirstResponder];
+-(void) loadToayButton{
+    
+    UIBarButtonItem *todayButton = [[UIBarButtonItem alloc] initWithTitle:nil style:UIBarButtonItemStylePlain target:self action:@selector(todayButtonPressed:)];
+    todayButton.image= [UIImage imageNamed:@"Today Filled-25"];
+    self.navigationItem.leftBarButtonItem = todayButton;
 }
 
 - (void)loadTasks{
+    
     int daysToAdd = 1;
     NSDate *curretDate = [self gmtDate:[NSDate date]];
    // NSDate *newDate1 = [curretDate dateByAddingDays:daysToAdd];
     NSString *stringForPredicate = @"(createdFor ==  %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate,curretDate];
     self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
- NSLog(@"order %@",self.tasks);
+    
+    NSLog(@"order %lu",(unsigned long)self.tasks.count);
 
 }
 
@@ -253,6 +268,7 @@ static NSString * const kEDLHome = @"To Do List";
 
 -(void)updateTask:(Task *)task isDone:(BOOL*)isDone isAlert:(BOOL*)isAlert{
 
+    
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     task.isDone = isDone;
@@ -260,21 +276,6 @@ static NSString * const kEDLHome = @"To Do List";
     Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
     [realm addOrUpdateObject:updateTask];
     [realm commitWriteTransaction];
-//    [self reloadTasks];
-//    [self.tasksTableView reloadData];
-//    NZAlertView *alert = [[NZAlertView alloc] initWithStyle:NZAlertStyleSuccess
-//                                                      title:@"Success!"
-//                                                    message:@"Task is updated."
-//                                                   delegate:nil];
-//    
-//    [alert setTextAlignment:NSTextAlignmentCenter];
-//    
-//    [alert show];
-//    
-//    [alert showWithCompletion:^{
-//        NSLog(@"Alert with completion handler");
-//    }];
-//
 
 }
 
@@ -370,6 +371,7 @@ static NSString * const kEDLHome = @"To Do List";
     [self reloadTasks];
     [self.tasksTableView reloadData];
     
+    
 }
 
 
@@ -449,7 +451,6 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tasks.count;
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -465,7 +466,23 @@ static NSString * const kEDLHome = @"To Do List";
 
     taskCell = (TaskCell *)[self.tasksTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     Task *task = [self.tasks objectAtIndex:indexPath.row];
-    taskCell.taskName.text = task.note;
+    
+    if (task.isDone == TRUE) {
+        NSDictionary* attributes = @{
+                                     
+                                     NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]
+                                     
+                                     };
+        
+        
+        
+        NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:task.note attributes:attributes];
+        taskCell.taskName.attributedText = attrText;
+    }
+    else{
+         taskCell.taskName.text = task.note;
+    }
+   
     [taskCell.taskName sizeToFit];
     taskCell.backgroundColor = [UIColor clearColor];
     taskCell.taskName.numberOfLines = 0;
@@ -496,12 +513,9 @@ static NSString * const kEDLHome = @"To Do List";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     return 70;
 }
-
-
-
 
 // Override to support conditional editing of the table view.
 // This only needs to be implemented if you are going to be returning NO
@@ -551,8 +565,8 @@ static NSString * const kEDLHome = @"To Do List";
 -(void)moveTask:(Task *)oldTask newTask:(Task*)newTask{
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    int  *replaceSortId= newTask.sortId;
-    int  *moveSortId= oldTask.sortId;
+    int  replaceSortId= newTask.sortId;
+    int  moveSortId= oldTask.sortId;
     [realm beginWriteTransaction];
 
     oldTask.sortId = replaceSortId;
@@ -560,30 +574,9 @@ static NSString * const kEDLHome = @"To Do List";
     [realm commitWriteTransaction];
 }
 
-
-
-
-
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-
-//- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-//       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
-//    NSDictionary *section = [self.tasks objectAtIndex:sourceIndexPath.section];
-//    NSUInteger sectionCount = [[section valueForKey:@"content"] count];
-//    if (sourceIndexPath.section != proposedDestinationIndexPath.section) {
-//        NSUInteger rowInSourceSection =
-//        (sourceIndexPath.section > proposedDestinationIndexPath.section) ?
-//        0 : sectionCount - 1;
-//        return [NSIndexPath indexPathForRow:rowInSourceSection inSection:sourceIndexPath.section];
-//    } else if (proposedDestinationIndexPath.row >= sectionCount) {
-//        return [NSIndexPath indexPathForRow:sectionCount - 1 inSection:sourceIndexPath.section];
-//    }
-//    // Allow the proposed destination.
-//    return proposedDestinationIndexPath;
-//}
-
 
 - (IBAction)didGoTodayTouch
 {
@@ -627,20 +620,15 @@ static NSString * const kEDLHome = @"To Do List";
 
 - (void)calendarDidLoadPreviousPage
 {
+    
     [self.tasksTableView reloadData];
-    
-    NSLog(@"Previous page loaded");
-    [self addingConstraints];
-    
-    NSLog(@"weekmenu Previous constraints%@",self.weeMenuView.constraints);
+
 }
 
 - (void)calendarDidLoadNextPage
 {
     [self.tasksTableView reloadData];
-    NSLog(@"Next page loaded");
-    [self addingConstraints];
-     NSLog(@"weekmenu  Next constraints%@",self.weeMenuView.constraints);
+
 }
 
 #pragma mark - Transition examples
@@ -655,7 +643,6 @@ static NSString * const kEDLHome = @"To Do List";
     
     [UIView animateWithDuration:.5
                      animations:^{
-//                         self.calendarContentViewHeight.constant = newHeight;
                          [self.calendarContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.calendarContentView
                                                                                               attribute:NSLayoutAttributeHeight
                                                                                               relatedBy:NSLayoutRelationEqual
@@ -696,9 +683,7 @@ static NSString * const kEDLHome = @"To Do List";
 }
 
 
-- (void) addingConstraints{
-    
-    //add Constraints
+- (void) addConstraints{
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.changeModeButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
     
@@ -708,14 +693,13 @@ static NSString * const kEDLHome = @"To Do List";
     
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.weeMenuView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:0 constant:self.screenWidth]];
     
-  //  CGFloat tableheight = 70 * (self.tasks.count);
-  //  NSLog( @"Table height 3 %f",tableheight);
- //   self.tasksTableView.frame = CGRectMake(0, 200, self.screenWidth, tableheight);
-    
-   [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:3 constant:self.screenHeight]];
-    
-    
-        NSLog( @"Table height %f",self.tasksTableView.frame.size.height);
+    if(self.screenHeight > 600){
+        
+        NSLog(@"self.view.height %f",self.screenHeight);
+        CGFloat screenheight = self.screenHeight-250;
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.tasksTableView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:screenheight]];
+    }
     
     [self.view addConstraint:[NSLayoutConstraint
                               constraintWithItem:self.weeMenuView
@@ -728,9 +712,6 @@ static NSString * const kEDLHome = @"To Do List";
     
     [self.view layoutIfNeeded];
     [self.calendar repositionViews];
-    
-    NSLog(@"Width %f",self.weeMenuView.frame.size.width);
-    
     
 }
 

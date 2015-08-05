@@ -184,7 +184,6 @@
 		6D4109691AFB8C0B007F402D /* EasyDoLists */ = {
 			isa = PBXGroup;
 			children = (
-				6D7B54C11AFCB6EF006729D1 /* Common */,
 				6D4109A41AFB9639007F402D /* Resource */,
 				6D4109961AFB9199007F402D /* View */,
 				6D4109951AFB9194007F402D /* Lib */,
@@ -330,13 +329,6 @@
 			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
-		6D7B54C11AFCB6EF006729D1 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
 		73007AC1D05AEBB69886F858 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +399,7 @@
 				TargetAttributes = {
 					6D4109661AFB8C0B007F402D = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4TKA37245F;
 					};
 					6D4109821AFB8C0B007F402D = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -676,6 +669,7 @@
 				INFOPLIST_FILE = EasyDoLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -689,6 +683,7 @@
 				INFOPLIST_FILE = EasyDoLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

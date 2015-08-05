@@ -54,6 +54,7 @@
 
 - (void) doneButtonPressed {
     NSLog(@"Button pressed");
+    NSLog(@"Task Name %@",self.taskName.text);
     if (self.isDone) {
         [self.doneButton animateToType:buttonOkType];
         self.isDone = false;
@@ -61,7 +62,6 @@
         [self.doneButton animateToType:buttonSquareType];
         self.isDone = true;
     }
-    
 }
 
 - (void) alertButtonPressed {
