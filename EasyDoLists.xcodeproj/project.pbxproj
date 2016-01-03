@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62CF9F99F4DA379C6A1504A6 /* Pods_EasyDoLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC99186D88F9179C403C8B47 /* Pods_EasyDoLists.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		62CF9F99F4DA379C6A1504A6 /* Pods_EasyDoLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC99186D88F9179C403C8B47 /* Pods_EasyDoLists.framework */; };
 		6D1EB0491B07A306009F01C2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1EB0461B07A144009F01C2 /* AudioToolbox.framework */; };
 		6D31C9FB1B0503E200B1B0CC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D31C9FA1B0503E200B1B0CC /* logo.png */; };
 		6D3B63E01AFCFDC400615953 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B63DB1AFCFDC400615953 /* centerIcon@2x.png */; };

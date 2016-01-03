@@ -38,7 +38,8 @@ namespace util {
 ///
 /// \tparam Traits16 Must define to_int_type() and to_char_type() for
 /// \a Char16.
-template<class Char16, class Traits16 = std::char_traits<Char16>> struct Utf8x16 {
+template<class Char16, class Traits16 = std::char_traits<Char16>>
+struct Utf8x16 {
     /// Transcode as much as possible of the specified UTF-8 input, to
     /// UTF-16. Returns true if all input characters were transcoded, or
     /// transcoding stopped because the next character did not fit into the
@@ -65,7 +66,7 @@ template<class Char16, class Traits16 = std::char_traits<Char16>> struct Utf8x16
     /// the result of transcoding the part of the input that was examined. This
     /// function will only detect a few UTF-8 validity issues, and can therefore
     /// not be used for general UTF-8 validation.
-    static std::size_t find_utf16_buf_size(const char*& in_begin, const char* in_end);
+    static size_t find_utf16_buf_size(const char*& in_begin, const char* in_end);
 
     /// Summarize the number of UTF-8 bytes needed to hold the result of
     /// transcoding the specified UTF-16 string. Upon return, if \a in_begin !=
@@ -75,7 +76,7 @@ template<class Char16, class Traits16 = std::char_traits<Char16>> struct Utf8x16
     /// transcoding the part of the input that was examined. This function will
     /// only detect a few UTF-16 validity issues, and can therefore not be used
     /// for general UTF-16 validation.
-    static std::size_t find_utf8_buf_size(const Char16*& in_begin, const Char16* in_end);
+    static size_t find_utf8_buf_size(const Char16*& in_begin, const Char16* in_end);
 };
 
 
@@ -91,8 +92,7 @@ template<class Char16, class Traits16>
 inline bool Utf8x16<Char16, Traits16>::to_utf16(const char*& in_begin, const char* const in_end,
                                                 Char16*& out_begin, Char16* const out_end)
 {
-    using namespace std;
-    typedef char_traits<char> traits8;
+        typedef std::char_traits<char> traits8;
     bool invalid = false;
     const char* in = in_begin;
     Char16* out = out_begin;
@@ -214,11 +214,10 @@ inline bool Utf8x16<Char16, Traits16>::to_utf16(const char*& in_begin, const cha
 
 
 template<class Char16, class Traits16>
-inline std::size_t Utf8x16<Char16, Traits16>::find_utf16_buf_size(const char*& in_begin,
+inline size_t Utf8x16<Char16, Traits16>::find_utf16_buf_size(const char*& in_begin,
                                                                   const char* const in_end)
 {
-    using namespace std;
-    typedef char_traits<char> traits8;
+        typedef std::char_traits<char> traits8;
     size_t num_out = 0;
     const char* in = in_begin;
     while (in != in_end) {
@@ -274,8 +273,7 @@ template<class Char16, class Traits16>
 inline bool Utf8x16<Char16, Traits16>::to_utf8(const Char16*& in_begin, const Char16* const in_end,
                                                char*& out_begin, char* const out_end)
 {
-    using namespace std;
-    typedef char_traits<char> traits8;
+        typedef std::char_traits<char> traits8;
     typedef typename traits8::int_type traits8_int_type;
     bool invalid = false;
     const Char16* in = in_begin;
@@ -354,11 +352,10 @@ inline bool Utf8x16<Char16, Traits16>::to_utf8(const Char16*& in_begin, const Ch
 
 
 template<class Char16, class Traits16>
-inline std::size_t Utf8x16<Char16, Traits16>::find_utf8_buf_size(const Char16*& in_begin,
+inline size_t Utf8x16<Char16, Traits16>::find_utf8_buf_size(const Char16*& in_begin,
                                                                  const Char16* const in_end)
 {
-    using namespace std;
-    size_t num_out = 0;
+        size_t num_out = 0;
     const Char16* in = in_begin;
     while (in != in_end) {
         REALM_ASSERT(&in[0] >= in_begin && &in[0] < in_end);

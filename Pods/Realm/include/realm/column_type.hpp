@@ -54,13 +54,15 @@ enum ColumnAttr {
     /// `col_attr_Indexed`.
     col_attr_Unique = 2,
 
-    /// Specifies that this column forms the primary key. It implies a non-null
-    /// constraint on the column, and it requires `col_attr_Unique`.
-    col_attr_PrimaryKey = 4,
+    /// Reserved for future use.
+    col_attr_Reserved = 4,
 
     /// Specifies that the links of this column are strong, not weak. Applies
     /// only to link columns (`type_Link` and `type_LinkList`).
-    col_attr_StrongLinks = 8
+    col_attr_StrongLinks = 8,
+
+    /// Specifies that elements in the column can be null.
+    col_attr_Nullable = 16
 };
 
 

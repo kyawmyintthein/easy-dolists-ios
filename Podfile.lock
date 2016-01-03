@@ -9,9 +9,9 @@ PODS:
   - pop (1.0.7)
   - PullToRefreshCoreText (0.2)
   - RATreeView (1.0.2)
-  - Realm (0.92.1):
-    - Realm/Headers (= 0.92.1)
-  - Realm/Headers (0.92.1)
+  - Realm (0.97.0):
+    - Realm/Headers (= 0.97.0)
+  - Realm/Headers (0.97.0)
   - SCLAlertView-Objective-C (0.7.1)
   - UIColor+BFPaperColors (1.7.1)
   - UIColor+FlatColors (0.0.2)
@@ -43,10 +43,10 @@ SPEC CHECKSUMS:
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PullToRefreshCoreText: c843e71fc5ae5b033c0281067368905efd05c7b2
   RATreeView: 453b8203163c415f4c43da1e20addcf1b2379e06
-  Realm: 10c91667c5c65d6fe56b206c2c31e9b5eafb8718
+  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   SCLAlertView-Objective-C: 19edce0d6f9de55316d8b9fe49a9953173a457f7
   UIColor+BFPaperColors: b1efa4320e2f56c4b14f73232faf967ba0e5b4a2
   UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
   VBFPopFlatButton: 782344da63f104c279a857d806e065117a7e1196
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.39.0

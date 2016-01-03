@@ -273,7 +273,7 @@ NSMutableDictionary *eventsByDate;
     [realm beginWriteTransaction];
     task.isDone = isDone;
     task.isAlert = isAlert;
-    Task *updateTask = [Task createOrUpdateInDefaultRealmWithObject:task];
+    Task *updateTask = [Task createOrUpdateInDefaultRealmWithValue:task];
     [realm addOrUpdateObject:updateTask];
     [realm commitWriteTransaction];
 
@@ -602,7 +602,6 @@ NSMutableDictionary *eventsByDate;
     if ([self reloadTasksByDate:date]) {
         return YES;
     }
-    NSLog(@"have");
     
     return NO;
 }

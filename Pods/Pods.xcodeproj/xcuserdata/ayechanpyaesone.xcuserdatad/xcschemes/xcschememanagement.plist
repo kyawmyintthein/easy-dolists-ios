@@ -4,155 +4,155 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-EasyDoLists-ActionSheetPicker-3.0.xcscheme</key>
+		<key>ActionSheetPicker-3.0.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-EasyDoLists-BFPaperButton.xcscheme</key>
+		<key>BFPaperButton.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-EasyDoLists-DateTools.xcscheme</key>
+		<key>DateTools.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-EasyDoLists-JTCalendar.xcscheme</key>
+		<key>JTCalendar.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-EasyDoLists-MBProgressHUD.xcscheme</key>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-EasyDoLists-ObjectiveSugar.xcscheme</key>
+		<key>ObjectiveSugar.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-		<key>Pods-EasyDoLists-PullToRefreshCoreText.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>Pods-EasyDoLists-RATreeView.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
-		</dict>
-		<key>Pods-EasyDoLists-Realm.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
-		</dict>
-		<key>Pods-EasyDoLists-SCLAlertView-Objective-C.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
-		</dict>
-		<key>Pods-EasyDoLists-UIColor+BFPaperColors.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
-		</dict>
-		<key>Pods-EasyDoLists-UIColor+FlatColors.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
-		</dict>
-		<key>Pods-EasyDoLists-VBFPopFlatButton.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
-		</dict>
-		<key>Pods-EasyDoLists-pop.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-EasyDoLists.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PullToRefreshCoreText.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RATreeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SCLAlertView-Objective-C.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIColor+BFPaperColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIColor+FlatColors.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>VBFPopFlatButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>009FFDC032207C93475E3F02</key>
+		<key>03B15615889710FDACFA6CB29AFBBDF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0856369FF5887A8EA4BBB38F</key>
+		<key>4972CB1A0AAB809227C6D0461AF1FC56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0948603BD57C35293B8C8F2E</key>
+		<key>75C950744F4E341D07628A1445F99FC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>13D40EAC9F9309180AD7F79E</key>
+		<key>8DF2F0894DA5E2692EF1DC078F0A0FC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>168B008EA3AF320490F9CBE2</key>
+		<key>96852BBE3F3219273896B140CC93C7E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>264C3640D414179A3BA43111</key>
+		<key>9732FF49B8B62A3F546D14419802AF43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>26CDAE3BD68FD1F6B9FE7656</key>
+		<key>99CADFE69A7E494B256A79CC7E9026C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E0FE91ADB0AFF976F1E28A4</key>
+		<key>AB88E4C423134093D3463711105301EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>570BD5F03F46DD9972266F22</key>
+		<key>ADD431E85069EA50A174252410B5D264</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D0AD1CA2089FA15F6359FCF</key>
+		<key>C125E499E0B8149C36F0FC4DC162AEC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F2F6764BFBAC09BDC3A25CA</key>
+		<key>C4E62D0FC0CC6087EC9C9D89CB9DD1D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B62E250E514A158560AE113</key>
+		<key>C58C7421DAD296EE054EEEDAE49151AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9902D8009582DB6CC7AF87D4</key>
+		<key>D3AEFA3DDEF433FE158AEB022366C53E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE3F3F3DEA711EFE403C05BE</key>
+		<key>D72ABFABBCBA2B6EA25B6EF2A80115AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D41DB27DAE200EA796FFD8ED</key>
+		<key>E61CE3B6DFA1FE6B3E296965C76C0E10</key>
 		<dict>
 			<key>primary</key>
 			<true/>

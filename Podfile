@@ -8,10 +8,10 @@ target 'EasyDoLists' do
  pod 'pop','~>1.0.6'
  pod 'SCLAlertView-Objective-C'
  pod 'JTCalendar', '~> 1.1'
- pod 'Realm'
  pod 'PullToRefreshCoreText', '~> 0.2'
  pod 'MBProgressHUD'
  pod 'DateTools'
+ pod 'Realm'
  pod 'ActionSheetPicker-3.0'
  pod "RATreeView", "~> 1.0.2"
  pod 'ObjectiveSugar'

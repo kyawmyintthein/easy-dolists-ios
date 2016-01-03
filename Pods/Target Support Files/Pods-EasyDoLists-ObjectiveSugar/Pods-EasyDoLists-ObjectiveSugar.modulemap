@@ -1,6 +1,0 @@
-framework module ObjectiveSugar {
-  umbrella header "Pods-EasyDoLists-ObjectiveSugar-umbrella.h"
-
-  export *
-  module * { export * }
-}
