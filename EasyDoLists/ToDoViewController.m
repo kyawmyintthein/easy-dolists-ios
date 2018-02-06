@@ -183,7 +183,7 @@ NSMutableDictionary *eventsByDate;
    // NSDate *newDate1 = [curretDate dateByAddingDays:daysToAdd];
     NSString *stringForPredicate = @"(createdFor ==  %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate,curretDate];
-    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingKeyPath:@"sortId" ascending:YES];
     
     NSLog(@"order %lu",(unsigned long)self.tasks.count);
 
@@ -194,7 +194,7 @@ NSMutableDictionary *eventsByDate;
     NSDate *newDate1 = [self gmtDate:self.calendar.currentDateSelected];
     NSString *stringForPredicate = @"(createdFor ==  %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate,newDate1];
-    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"sortId" ascending:YES];
+    self.tasks = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingKeyPath:@"sortId" ascending:YES];
     NSLog(@"order %@",self.tasks);
 }
 
@@ -213,7 +213,7 @@ NSMutableDictionary *eventsByDate;
     RLMRealm *realm = RLMRealm.defaultRealm;
     [realm beginWriteTransaction];
     Task *task = [[Task alloc] init];
-    RLMArray *tasks = [[Task allObjects]  sortedResultsUsingProperty:@"id" ascending:YES] ;
+    RLMArray *tasks = [[Task allObjects]  sortedResultsUsingKeyPath:@"id" ascending:YES] ;
     Task *lastTask = nil;
     if (tasks.count  >= 1) {
         NSMutableArray *idArray = [[NSMutableArray alloc] init];
@@ -301,7 +301,7 @@ NSMutableDictionary *eventsByDate;
     NSDate *newDate1 = [self.calendar.currentDateSelected dateByAddingTimeInterval:60*60*24*daysToAdd];
     NSString *stringForPredicate = @"(createdFor >=  %@) and (createdFor < %@)";
     NSPredicate* filterPredicate = [NSPredicate predicateWithFormat:stringForPredicate, self.calendar.currentDateSelected,newDate1];
-    NSArray *tasksInDay = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingProperty:@"id" ascending:YES];
+    NSArray *tasksInDay = [[Task objectsWithPredicate:filterPredicate] sortedResultsUsingKeyPath:@"id" ascending:YES];
     if (tasksInDay.count != 0) {
         if ((tasksInDay.count%5) == 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Productivity Alert!!!"
@@ -500,10 +500,10 @@ NSMutableDictionary *eventsByDate;
     }
     
     if (task.isAlert) {
-        UIImage *image =[UIImage imageNamed:@"Alarm Clock Filled-25"];
+        UIImage *image =[UIImage imageNamed:@"i_timer_pressed"];
         [taskCell.alertButton setImage:image forState:UIControlStateNormal];
     }else{
-        UIImage *image =[UIImage imageNamed:@"Alarm Clock-25"];
+        UIImage *image =[UIImage imageNamed:@"i_timer"];
         [taskCell.alertButton setImage:image forState:UIControlStateNormal];
     }
     

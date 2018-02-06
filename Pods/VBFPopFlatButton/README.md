@@ -1,6 +1,8 @@
 VBFPopFlatButton
 ================
 
+[![Build Status](https://travis-ci.org/victorBaro/VBFPopFlatButton.png)](https://travis-ci.org/victorBaro/VBFPopFlatButton)
+
 Flat button with 21 different states and 2 types animated using [pop](https://github.com/facebook/pop).
 
 These are some examples of both types in different states:
@@ -31,8 +33,8 @@ Here there is some example code on how to use the button:
     //Example
     self.flatRoundedButton = [[VBFPopFlatButton alloc]initWithFrame:CGRectMake(100, 150, 30, 30)
                                                   buttonType:buttonMenuType
-                                                 buttonStyle:buttonRoundedStyle]
-                                                 animateToInitialState:YES;
+                                                 buttonStyle:buttonRoundedStyle
+                                                 animateToInitialState:YES];
     self.flatRoundedButton.roundBackgroundColor = [UIColor whiteColor];
     self.flatRoundedButton.lineThickness = 2;
     self.flatRoundedButton.tintColor = [UIColor flatPeterRiverColor];
@@ -101,3 +103,7 @@ This are the 20 types avaiable for the button:
 More types are welcomed :D
 
 For more info, visit my blog [victorbaro.com](http://victorbaro.com/)
+
+
+## Apps using this control
+I would love to know which apps in the App Store are using this control. Please, feel free to add your app :)

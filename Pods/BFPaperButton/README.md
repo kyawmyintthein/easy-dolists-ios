@@ -142,7 +142,7 @@ circle2.tapCircleDiameter = MAX(circle2.frame.size.width, circle2.frame.size.hei
 [self.view addSubview:circle2];
 ```
 
-Cocoapods
+CocoaPods
 -------
 
 CocoaPods are the best way to manage library dependencies in Objective-C projects.
@@ -151,7 +151,7 @@ Learn more at http://cocoapods.org
 Add this to your podfile to add BFPaperButton to your project.
 ```ruby
 platform :ios, '7.0'
-pod 'BFPaperButton', '~> 2.0.17'
+pod 'BFPaperButton'
 ```
 
 

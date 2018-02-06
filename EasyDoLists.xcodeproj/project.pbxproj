@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62CF9F99F4DA379C6A1504A6 /* Pods_EasyDoLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC99186D88F9179C403C8B47 /* Pods_EasyDoLists.framework */; };
+		1C5AB94AE00844DDE22E1280 /* Pods_EasyDoListsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0F8862CEF4EC0E4DB9E15 /* Pods_EasyDoListsTests.framework */; };
 		6D1EB0491B07A306009F01C2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1EB0461B07A144009F01C2 /* AudioToolbox.framework */; };
 		6D31C9FB1B0503E200B1B0CC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D31C9FA1B0503E200B1B0CC /* logo.png */; };
 		6D3B63E01AFCFDC400615953 /* centerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B63DB1AFCFDC400615953 /* centerIcon@2x.png */; };
@@ -42,14 +42,13 @@
 		6D4109D01AFBB822007F402D /* Aileron-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C01AFBB6DB007F402D /* Aileron-ThinItalic.otf */; };
 		6D4109D11AFBB822007F402D /* Aileron-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C11AFBB6DB007F402D /* Aileron-UltraLight.otf */; };
 		6D4109D21AFBB822007F402D /* Aileron-UltraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */; };
-		6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */; };
-		6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */; };
 		6D53CE561AFF6D8500CC341A /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53CE551AFF6D8500CC341A /* Task.m */; };
 		6D7B54B01AFBCDBD006729D1 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A61AFBCDBD006729D1 /* SCLAlertView.m */; };
 		6D7B54B11AFBCDBD006729D1 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54A81AFBCDBD006729D1 /* SCLAlertViewResponder.m */; };
 		6D7B54B21AFBCDBD006729D1 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AA1AFBCDBD006729D1 /* SCLAlertViewStyleKit.m */; };
 		6D7B54B31AFBCDBD006729D1 /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AC1AFBCDBD006729D1 /* SCLButton.m */; };
 		6D7B54B41AFBCDBD006729D1 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D7B54AF1AFBCDBD006729D1 /* UIImage+ImageEffects.m */; };
+		E5417DA488E126FFB1BE365E /* Pods_EasyDoLists.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59FB20560BDC308AF8D7A9B /* Pods_EasyDoLists.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.debug.xcconfig"; sourceTree = "<group>"; };
+		0BC75E7D2A0BBF1D92CFD284 /* Pods-EasyDoLists.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.release.xcconfig"; sourceTree = "<group>"; };
 		6D1EB0461B07A144009F01C2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6D31C9FA1B0503E200B1B0CC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		6D3B63DB1AFCFDC400615953 /* centerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "centerIcon@2x.png"; sourceTree = "<group>"; };
@@ -110,8 +109,6 @@
 		6D4109C01AFBB6DB007F402D /* Aileron-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-ThinItalic.otf"; sourceTree = "<group>"; };
 		6D4109C11AFBB6DB007F402D /* Aileron-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.otf"; sourceTree = "<group>"; };
 		6D4109C21AFBB6DB007F402D /* Aileron-UltraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLightItalic.otf"; sourceTree = "<group>"; };
-		6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock Filled-25.png"; sourceTree = "<group>"; };
-		6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm Clock-25.png"; sourceTree = "<group>"; };
 		6D53CE541AFF6D8500CC341A /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		6D53CE551AFF6D8500CC341A /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		6D7B54A51AFBCDBD006729D1 /* SCLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLAlertView.h; sourceTree = "<group>"; };
@@ -125,8 +122,11 @@
 		6D7B54AD1AFBCDBD006729D1 /* SCLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLMacros.h; sourceTree = "<group>"; };
 		6D7B54AE1AFBCDBD006729D1 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		6D7B54AF1AFBCDBD006729D1 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		BAC040FAEF24ACB0CBCF0229 /* Pods-EasyDoLists.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.release.xcconfig"; sourceTree = "<group>"; };
-		BC99186D88F9179C403C8B47 /* Pods_EasyDoLists.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDoLists.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF3F73FC6F1158CB3B83990 /* Pods-EasyDoLists.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoLists.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists.debug.xcconfig"; sourceTree = "<group>"; };
+		A59FB20560BDC308AF8D7A9B /* Pods_EasyDoLists.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDoLists.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9054D93FABAC355F3CE43A /* Pods-EasyDoListsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoListsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoListsTests/Pods-EasyDoListsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DCF0F8862CEF4EC0E4DB9E15 /* Pods_EasyDoListsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDoListsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFEEEBF659F6096CE9EA51F6 /* Pods-EasyDoListsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDoListsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyDoListsTests/Pods-EasyDoListsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D1EB0491B07A306009F01C2 /* AudioToolbox.framework in Frameworks */,
-				62CF9F99F4DA379C6A1504A6 /* Pods_EasyDoLists.framework in Frameworks */,
+				E5417DA488E126FFB1BE365E /* Pods_EasyDoLists.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5AB94AE00844DDE22E1280 /* Pods_EasyDoListsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +168,8 @@
 				6D4109691AFB8C0B007F402D /* EasyDoLists */,
 				6D4109861AFB8C0B007F402D /* EasyDoListsTests */,
 				6D4109681AFB8C0B007F402D /* Products */,
-				73007AC1D05AEBB69886F858 /* Pods */,
 				FADE6873982DD952593B3FB3 /* Frameworks */,
+				8B3C8F82C133578E2790F0D3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,8 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				6D31C9FA1B0503E200B1B0CC /* logo.png */,
-				6D4109D31AFBC5D7007F402D /* Alarm Clock Filled-25.png */,
-				6D4109D41AFBC5D7007F402D /* Alarm Clock-25.png */,
 				6D4109B31AFBB6DB007F402D /* Aileron-Black.otf */,
 				6D4109B41AFBB6DB007F402D /* Aileron-BlackItalic.otf */,
 				6D4109B51AFBB6DB007F402D /* Aileron-Bold.otf */,
@@ -329,11 +328,13 @@
 			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
-		73007AC1D05AEBB69886F858 /* Pods */ = {
+		8B3C8F82C133578E2790F0D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */,
-				BAC040FAEF24ACB0CBCF0229 /* Pods-EasyDoLists.release.xcconfig */,
+				7BF3F73FC6F1158CB3B83990 /* Pods-EasyDoLists.debug.xcconfig */,
+				0BC75E7D2A0BBF1D92CFD284 /* Pods-EasyDoLists.release.xcconfig */,
+				AA9054D93FABAC355F3CE43A /* Pods-EasyDoListsTests.debug.xcconfig */,
+				FFEEEBF659F6096CE9EA51F6 /* Pods-EasyDoListsTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -342,7 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				6D1EB0461B07A144009F01C2 /* AudioToolbox.framework */,
-				BC99186D88F9179C403C8B47 /* Pods_EasyDoLists.framework */,
+				A59FB20560BDC308AF8D7A9B /* Pods_EasyDoLists.framework */,
+				DCF0F8862CEF4EC0E4DB9E15 /* Pods_EasyDoListsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -354,12 +356,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D41098D1AFB8C0B007F402D /* Build configuration list for PBXNativeTarget "EasyDoLists" */;
 			buildPhases = (
-				47F1EC0F36D229E89974AC30 /* Check Pods Manifest.lock */,
+				FDCFA5B5FFDF63058E91A682 /* [CP] Check Pods Manifest.lock */,
 				6D4109631AFB8C0B007F402D /* Sources */,
 				6D4109641AFB8C0B007F402D /* Frameworks */,
 				6D4109651AFB8C0B007F402D /* Resources */,
-				C95C4C0DBFC821A23B8199D9 /* Copy Pods Resources */,
-				D781C44770F8DE39630C0828 /* Embed Pods Frameworks */,
+				C374699D017D66D4B33B599B /* [CP] Embed Pods Frameworks */,
+				B42B3EE36887B21EB9440248 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,9 +376,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D4109901AFB8C0B007F402D /* Build configuration list for PBXNativeTarget "EasyDoListsTests" */;
 			buildPhases = (
+				20E671259CDD919B9931654F /* [CP] Check Pods Manifest.lock */,
 				6D41097F1AFB8C0B007F402D /* Sources */,
 				6D4109801AFB8C0B007F402D /* Frameworks */,
 				6D4109811AFB8C0B007F402D /* Resources */,
+				868B999DA5200ADF067FBA20 /* [CP] Embed Pods Frameworks */,
+				496F11DC5439682D50353345 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -399,10 +404,11 @@
 				TargetAttributes = {
 					6D4109661AFB8C0B007F402D = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 4TKA37245F;
+						DevelopmentTeam = 4MW3P5FPC9;
 					};
 					6D4109821AFB8C0B007F402D = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 4MW3P5FPC9;
 						TestTargetID = 6D4109661AFB8C0B007F402D;
 					};
 				};
@@ -438,7 +444,6 @@
 				6D4109C71AFBB822007F402D /* Aileron-Heavy.otf in Resources */,
 				6D4109C81AFBB822007F402D /* Aileron-HeavyItalic.otf in Resources */,
 				6D4109C91AFBB822007F402D /* Aileron-Italic.otf in Resources */,
-				6D4109D51AFBC5D7007F402D /* Alarm Clock Filled-25.png in Resources */,
 				6D3B63E01AFCFDC400615953 /* centerIcon@2x.png in Resources */,
 				6D4109CA1AFBB822007F402D /* Aileron-Light.otf in Resources */,
 				6D4109CB1AFBB822007F402D /* Aileron-LightItalic.otf in Resources */,
@@ -453,7 +458,6 @@
 				6D4109A81AFB964F007F402D /* Today Filled-25.png in Resources */,
 				6D4109791AFB8C0B007F402D /* Main.storyboard in Resources */,
 				6D41097E1AFB8C0B007F402D /* LaunchScreen.xib in Resources */,
-				6D4109D61AFBC5D7007F402D /* Alarm Clock-25.png in Resources */,
 				6D41097B1AFB8C0B007F402D /* Images.xcassets in Resources */,
 				6D4109A61AFB9649007F402D /* Delete Column Filled-25.png in Resources */,
 			);
@@ -469,29 +473,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47F1EC0F36D229E89974AC30 /* Check Pods Manifest.lock */ = {
+		20E671259CDD919B9931654F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDoListsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		496F11DC5439682D50353345 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoListsTests/Pods-EasyDoListsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C95C4C0DBFC821A23B8199D9 /* Copy Pods Resources */ = {
+		868B999DA5200ADF067FBA20 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoListsTests/Pods-EasyDoListsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B42B3EE36887B21EB9440248 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,19 +536,66 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D781C44770F8DE39630C0828 /* Embed Pods Frameworks */ = {
+		C374699D017D66D4B33B599B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/BFPaperButton/BFPaperButton.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/JTCalendar/JTCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectiveSugar/ObjectiveSugar.framework",
+				"${BUILT_PRODUCTS_DIR}/PullToRefreshCoreText/PullToRefreshCoreText.framework",
+				"${BUILT_PRODUCTS_DIR}/RATreeView/RATreeView.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView-Objective-C/SCLAlertView_Objective_C.framework",
+				"${BUILT_PRODUCTS_DIR}/UIColor+BFPaperColors/UIColor_BFPaperColors.framework",
+				"${BUILT_PRODUCTS_DIR}/UIColor+FlatColors/UIColor_FlatColors.framework",
+				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BFPaperButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectiveSugar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshCoreText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RATreeView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView_Objective_C.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_BFPaperColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_FlatColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyDoLists/Pods-EasyDoLists-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDCFA5B5FFDF63058E91A682 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDoLists-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -661,13 +745,15 @@
 		};
 		6D41098E1AFB8C0B007F402D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40BF538A4B221DE0C65A3144 /* Pods-EasyDoLists.debug.xcconfig */;
+			baseConfigurationReference = 7BF3F73FC6F1158CB3B83990 /* Pods-EasyDoLists.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4MW3P5FPC9;
 				INFOPLIST_FILE = EasyDoLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.acps.EasyDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -675,13 +761,15 @@
 		};
 		6D41098F1AFB8C0B007F402D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAC040FAEF24ACB0CBCF0229 /* Pods-EasyDoLists.release.xcconfig */;
+			baseConfigurationReference = 0BC75E7D2A0BBF1D92CFD284 /* Pods-EasyDoLists.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4MW3P5FPC9;
 				INFOPLIST_FILE = EasyDoLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.acps.EasyDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -689,8 +777,10 @@
 		};
 		6D4109911AFB8C0B007F402D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA9054D93FABAC355F3CE43A /* Pods-EasyDoListsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4MW3P5FPC9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -708,8 +798,10 @@
 		};
 		6D4109921AFB8C0B007F402D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFEEEBF659F6096CE9EA51F6 /* Pods-EasyDoListsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4MW3P5FPC9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

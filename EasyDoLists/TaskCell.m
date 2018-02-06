@@ -33,7 +33,7 @@
                self.accessoryView = self.doneButton;
         
         self.alertButton = [[UIButton alloc]initWithFrame:CGRectMake(15,15, 35, 35)];
-        [self.alertButton setImage: [UIImage imageNamed:@"Alarm Clock Filled-25"] forState:UIControlStateNormal];
+        [self.alertButton setImage: [UIImage imageNamed:@"i_timer_pressed"] forState:UIControlStateNormal];
         //[self.alertButton addTarget:self action:@selector(todayButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
        // self.alertButton.roundBackgroundColor = [UIColor whiteColor];
@@ -67,11 +67,11 @@
 - (void) alertButtonPressed {
     NSLog(@"Alert pressed");
     if (self.isAlert) {
-        UIImage *image =[UIImage imageNamed:@"Alarm Clock Filled-25"];
+        UIImage *image =[UIImage imageNamed:@"i_timer_pressed"];
         [self.alertButton setImage:image forState:UIControlStateNormal];
         self.isAlert = false;
     }else{
-        [self.alertButton setImage:[UIImage imageNamed:@"Alarm Clock-25"] forState:UIControlStateNormal];
+        [self.alertButton setImage:[UIImage imageNamed:@"i_timer"] forState:UIControlStateNormal];
          self.alertButton.imageView.tintColor =[UIColor whiteColor];
         self.isAlert = true;
     }

@@ -6,6 +6,7 @@
 //
 
 #import "JTCalendarWeekView.h"
+
 #import "JTCalendarDayView.h"
 
 @interface JTCalendarWeekView (){
@@ -64,7 +65,6 @@
         for(UIView *view in [[self.subviews reverseObjectEnumerator] allObjects]){
             view.frame = CGRectMake(x, 0, width, height);
             x = CGRectGetMaxX(view.frame);
-    
         }
     }
     else{
@@ -92,7 +92,6 @@
         }
         else{
             [view setIsOtherMonth:NO];
-            
         }
         
         [view setDate:currentDate];

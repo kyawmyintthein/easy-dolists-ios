@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EasyDoLists/ToDoViewController.m"
-            timestampString = "473528410.050901"
+            timestampString = "539601997.59113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "709"
             endingLineNumber = "709"
             landmarkName = "-addConstraints"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

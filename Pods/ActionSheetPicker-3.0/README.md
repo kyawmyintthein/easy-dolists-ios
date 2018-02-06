@@ -22,11 +22,7 @@ ActionSheetPicker-3.0
 
 Please welcome: **ActionSheetPicker-3.0**!
 
-`pod 'ActionSheetPicker-3.0', '~> 1.5.1'` (**iOS 5.1.1-8.x** compatible!)
-
-Improvements more than welcome - they are kindly requested :)
-
-_Regards, Petr Korolev_
+`pod 'ActionSheetPicker-3.0', '~> 2.3.0'` (**iOS 5.1.1-9.x** compatible!)
 
 ##ActionSheetPicker = UIPickerView + UIActionSheet ##
 
@@ -55,6 +51,34 @@ There are 4 distinct picker view options: `ActionSheetStringPicker`, `ActionShee
 
 ### Basic Usage ##
 
+**For detailed info about customisations, please look  [BASIC USAGE](https://github.com/skywinder/ActionSheetPicker-3.0/blob/master/BASIC-USAGE.md)**
+
+- Custom buttons view
+- Custom buttons callbacks
+- Action by clicking outside of the picker
+- Background color and blur effect
+- Other customisations
+
+**For detailed examples, please check [Example Projects](#example-projects) in this repo.**
+
+#### `Swift:`
+
+```swift
+ ActionSheetMultipleStringPicker.show(withTitle: "Multiple String Picker", rows: [
+            ["One", "Two", "A lot"],
+            ["Many", "Many more", "Infinite"]
+            ], initialSelection: [2, 2], doneBlock: {
+                picker, indexes, values in
+                
+                print("values = \(values)")
+                print("indexes = \(indexes)")
+                print("picker = \(picker)")
+                return
+        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
+```
+
+#### `Objective-C:`
+
 ```obj-c
 // Inside a IBAction method:
 
@@ -65,9 +89,8 @@ NSArray *colors = [NSArray arrayWithObjects:@"Red", @"Green", @"Blue", @"Orange"
                                         rows:colors
                             initialSelection:0
                                    doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-                                      NSLog(@"Picker: %@", picker);
-                                      NSLog(@"Selected Index: %@", selectedIndex);
-                                      NSLog(@"Selected Value: %@", selectedValue);
+                                      NSLog(@"Picker: %@, Index: %@, value: %@", 
+                                      picker, selectedIndex, selectedValue);
                                     }
                                  cancelBlock:^(ActionSheetStringPicker *picker) {
                                       NSLog(@"Block Picker Canceled");
@@ -75,14 +98,8 @@ NSArray *colors = [NSArray arrayWithObjects:@"Red", @"Green", @"Blue", @"Orange"
                                       origin:sender];
 // You can also use self.view if you don't have a sender
 ```
-For detailed examples, please check [Example Projects](#example-projects) in this repo.
 
-About other customisations, please look  [Wiki-page](https://github.com/skywinder/ActionSheetPicker-3.0/wiki/Basic-Usage):
-
-- custom buttons view
-- custom buttons callbacks
-- Action by clicking outside of the picker
-- Other customisations
+ 
  
 ##Installation##
 
@@ -99,6 +116,9 @@ $ gem install cocoapods
 To integrate ActionSheetPicker-3.0 into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
 pod 'ActionSheetPicker-3.0'
 ```
 
@@ -108,6 +128,20 @@ Then, run the following command:
 $ pod install
 ```
 
+### Import to project
+
+To import pod you should add string:
+
+- For `Obj-c` projects:
+
+```obj-c
+   #import "ActionSheetPicker.h"
+```
+- For `Swift` projects:
+
+```swift
+  import ActionSheetPicker_3_0
+```
 ### Carthage
 
 Carthage is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
@@ -194,7 +228,3 @@ If you've used this project in a live app, please let me know! Nothing makes me 
 **Bug reports, feature requests, patches, well-wishes, and rap demo tapes are always welcome.**
 
 [![Analytics](https://ga-beacon.appspot.com/UA-52127948-3/ActionSheetPicker-3.0/readme)](https://ga-beacon.appspot.com/UA-52127948-3/ActionSheetPicker-3.0/readme)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/skywinder/actionsheetpicker-3.0/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

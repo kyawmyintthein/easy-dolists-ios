@@ -18,8 +18,9 @@
 
 #import "RLMRealmUtil.hpp"
 
+#import "RLMObjectSchema_Private.hpp"
 #import "RLMObservation.hpp"
-#import "RLMRealm_Private.h"
+#import "RLMRealm_Private.hpp"
 #import "RLMUtil.hpp"
 
 #import <Realm/RLMConstants.h>
@@ -35,17 +36,17 @@
 #import <unistd.h>
 
 // Global realm state
-static std::mutex s_realmCacheMutex;
-static std::map<std::string, NSMapTable *> s_realmsPerPath;
+static std::mutex& s_realmCacheMutex = *new std::mutex();
+static std::map<std::string, NSMapTable *>& s_realmsPerPath = *new std::map<std::string, NSMapTable *>();
 
-void RLMCacheRealm(std::string const& path, RLMRealm *realm) {
+void RLMCacheRealm(std::string const& path, __unsafe_unretained RLMRealm *const realm) {
     std::lock_guard<std::mutex> lock(s_realmCacheMutex);
     NSMapTable *realms = s_realmsPerPath[path];
     if (!realms) {
-        s_realmsPerPath[path] = realms = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsObjectPersonality
+        s_realmsPerPath[path] = realms = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsOpaquePersonality|NSPointerFunctionsOpaqueMemory
                                                                valueOptions:NSPointerFunctionsWeakMemory];
     }
-    [realms setObject:realm forKey:@(pthread_mach_thread_np(pthread_self()))];
+    [realms setObject:realm forKey:(__bridge id)pthread_self()];
 }
 
 RLMRealm *RLMGetAnyCachedRealmForPath(std::string const& path) {
@@ -54,9 +55,8 @@ RLMRealm *RLMGetAnyCachedRealmForPath(std::string const& path) {
 }
 
 RLMRealm *RLMGetThreadLocalCachedRealmForPath(std::string const& path) {
-    mach_port_t threadID = pthread_mach_thread_np(pthread_self());
     std::lock_guard<std::mutex> lock(s_realmCacheMutex);
-    return [s_realmsPerPath[path] objectForKey:@(threadID)];
+    return [s_realmsPerPath[path] objectForKey:(__bridge id)pthread_self()];
 }
 
 void RLMClearRealmCache() {
@@ -64,25 +64,20 @@ void RLMClearRealmCache() {
     s_realmsPerPath.clear();
 }
 
-void RLMInstallUncaughtExceptionHandler() {
-    static auto previousHandler = NSGetUncaughtExceptionHandler();
-
-    NSSetUncaughtExceptionHandler([](NSException *exception) {
-        NSNumber *threadID = @(pthread_mach_thread_np(pthread_self()));
-        {
-            std::lock_guard<std::mutex> lock(s_realmCacheMutex);
-            for (auto const& realmsPerThread : s_realmsPerPath) {
-                if (RLMRealm *realm = [realmsPerThread.second objectForKey:threadID]) {
-                    if (realm.inWriteTransaction) {
-                        [realm cancelWriteTransaction];
-                    }
-                }
-            }
-        }
-        if (previousHandler) {
-            previousHandler(exception);
-        }
-    });
+bool RLMIsInRunLoop() {
+    // The main thread may not be in a run loop yet if we're called from
+    // something like `applicationDidFinishLaunching:`, but it presumably will
+    // be in the future
+    if ([NSThread isMainThread]) {
+        return true;
+    }
+    // Current mode indicates why the current callout from the runloop was made,
+    // and is null if a runloop callout isn't currently being processed
+    if (auto mode = CFRunLoopCopyCurrentMode(CFRunLoopGetCurrent())) {
+        CFRelease(mode);
+        return true;
+    }
+    return false;
 }
 
 namespace {
@@ -90,33 +85,63 @@ class RLMNotificationHelper : public realm::BindingContext {
 public:
     RLMNotificationHelper(RLMRealm *realm) : _realm(realm) { }
 
+    bool can_deliver_notifications() const noexcept override {
+        return RLMIsInRunLoop();
+    }
+
     void changes_available() override {
-        if (!_realm.autorefresh) {
-            [_realm sendNotifications:RLMRealmRefreshRequiredNotification];
+        @autoreleasepool {
+            auto realm = _realm;
+            if (realm && !realm.autorefresh) {
+                [realm sendNotifications:RLMRealmRefreshRequiredNotification];
+            }
         }
     }
 
     std::vector<ObserverState> get_observed_rows() override {
-        [_realm detachAllEnumerators];
-        return RLMGetObservedRows(_realm.schema.objectSchema);
+        @autoreleasepool {
+            if (auto realm = _realm) {
+                [realm detachAllEnumerators];
+                return RLMGetObservedRows(realm->_info);
+            }
+            return {};
+        }
     }
 
     void will_change(std::vector<ObserverState> const& observed, std::vector<void*> const& invalidated) override {
-        RLMWillChange(observed, invalidated);
+        @autoreleasepool {
+            RLMWillChange(observed, invalidated);
+        }
     }
 
-    void did_change(std::vector<ObserverState> const& observed, std::vector<void*> const& invalidated) override {
-        RLMDidChange(observed, invalidated);
-        [_realm sendNotifications:RLMRealmDidChangeNotification];
+    void did_change(std::vector<ObserverState> const& observed, std::vector<void*> const& invalidated, bool version_changed) override {
+        try {
+            @autoreleasepool {
+                RLMDidChange(observed, invalidated);
+                if (version_changed) {
+                    [_realm sendNotifications:RLMRealmDidChangeNotification];
+                }
+            }
+        }
+        catch (...) {
+            // This can only be called during a write transaction if it was
+            // called due to the transaction beginning, so cancel it to ensure
+            // exceptions thrown here behave the same as exceptions thrown when
+            // actually beginning the write
+            if (_realm.inWriteTransaction) {
+                [_realm cancelWriteTransaction];
+            }
+            throw;
+        }
     }
 
 private:
     // This is owned by the realm, so it needs to not retain the realm
-    __unsafe_unretained RLMRealm *const _realm;
+    __weak RLMRealm *const _realm;
 };
 } // anonymous namespace
 
 
-std::unique_ptr<realm::BindingContext> RLMCreateBindingContext(RLMRealm *realm) {
+std::unique_ptr<realm::BindingContext> RLMCreateBindingContext(__unsafe_unretained RLMRealm *const realm) {
     return std::unique_ptr<realm::BindingContext>(new RLMNotificationHelper(realm));
 }

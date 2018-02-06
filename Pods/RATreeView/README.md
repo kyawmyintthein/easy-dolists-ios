@@ -1,9 +1,10 @@
 RATreeView (iOS 5.0+) 
 ==============
 [![Twitter: @raaugustyniak](https://img.shields.io/badge/contact-@raaugustyniak-blue.svg?style=flat)](https://twitter.com/raaugustyniak)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Augustyniak/RATreeView/blob/master/LICENCE.md)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RATreeView.svg?style=flat)](https://github.com/Augustyniak/RATreeView)
-[![Build Status](https://img.shields.io/travis/Augustyniak/RATreeView.svg?style=flat)](https://travis-ci.org/Augustyniak/RATreeView)
+[![Build Status](https://img.shields.io/travis/Augustyniak/RATreeView/master.svg?style=flat)](https://travis-ci.org/Augustyniak/RATreeView)
 
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
 
@@ -27,7 +28,7 @@ Installation
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "RATreeView", "~> 1.0.2"
+  pod "RATreeView", "~> 1.0.4"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -54,7 +55,7 @@ Usage
 -----------------
 
 
-Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/1.0.1).
+Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/1.0.4).
 
 
 ### Basics
@@ -109,7 +110,7 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
 Documentation
 -----------------
 
-Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.2).
+Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.3).
 
 TODO
 -----------------
@@ -127,6 +128,8 @@ RATreeView was created by Rafał Augustyniak. You can find me on twitter ([@RaAu
 
 Release Notes 
 -----------------
+
+Information about newer versions of the library can be found in the [releases section](https://github.com/Augustyniak/RATreeView/releases) of the repository.
 
 Version 1.0.2
 - Fixed bug in select and deselect operations.

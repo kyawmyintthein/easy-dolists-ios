@@ -3,10 +3,16 @@
 //  SCLAlertView
 //
 //  Created by Diogo Autilio on 9/26/14.
-//  Copyright (c) 2014 AnyKey Entertainment. All rights reserved.
+//  Copyright (c) 2014-2017 AnyKey Entertainment. All rights reserved.
 //
 
+#if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+#else
+#import <UIKit/UIKit.h>
+#endif
+
+@class SCLTimerDisplay;
 
 @interface SCLButton : UIButton
 
@@ -18,9 +24,9 @@ typedef NSDictionary* (^ButtonFormatBlock)(void);
 // Action Types
 typedef NS_ENUM(NSInteger, SCLActionType)
 {
-    None,
-    Selector,
-    Block
+    SCLNone,
+    SCLSelector,
+    SCLBlock
 };
 
 /** Set button action type.
@@ -33,33 +39,33 @@ typedef NS_ENUM(NSInteger, SCLActionType)
  *
  * TODO
  */
-@property (nonatomic, copy) SCLActionBlock actionBlock;
+@property (copy, nonatomic) SCLActionBlock actionBlock;
 
 /** Set Validation button block.
  *
  * Set one kind of validation and keeps the alert visible until the validation is successful
  */
-@property (nonatomic, copy) SCLValidationBlock validationBlock;
+@property (copy, nonatomic) SCLValidationBlock validationBlock;
 
 /** Set Complete button format block.
  *
  * Holds the complete button format block.
  * Support keys : backgroundColor, borderWidth, borderColor, textColor
  */
-@property (nonatomic, copy) CompleteButtonFormatBlock completeButtonFormatBlock;
+@property (copy, nonatomic) CompleteButtonFormatBlock completeButtonFormatBlock;
 
 /** Set button format block.
  *
  * Holds the button format block.
  * Support keys : backgroundColor, borderWidth, borderColor, textColor
  */
-@property (nonatomic, copy) ButtonFormatBlock buttonFormatBlock;
+@property (copy, nonatomic) ButtonFormatBlock buttonFormatBlock;
 
 /** Set SCLButton color.
  *
  * Set SCLButton color.
  */
-@property (nonatomic, strong) UIColor *defaultBackgroundColor;
+@property (strong, nonatomic) UIColor *defaultBackgroundColor UI_APPEARANCE_SELECTOR;
 
 /** Set Target object.
  *
@@ -80,5 +86,24 @@ typedef NS_ENUM(NSInteger, SCLActionType)
  * Set keys : backgroundColor, borderWidth, borderColor, textColor
  */
 - (void)parseConfig:(NSDictionary *)buttonConfig;
+
+/** Set button timer.
+ *
+ * Holds the button timer, if present.
+ */
+@property (strong, nonatomic) SCLTimerDisplay *timer;
+
+/** Init method
+ *
+ */
+- (instancetype)initWithWindowWidth:(CGFloat)windowWidth;
+
+/** Adjust width of the button according to the width of the alert and
+ * the number of buttons. Only used when buttons are horizontally aligned.
+ *
+ * @param windowWidth The width of the alert.
+ * @param numberOfButtons The number of buttons in the alert.
+ */
+- (void)adjustWidthWithWindowWidth:(CGFloat)windowWidth numberOfButtons:(NSUInteger)numberOfButtons;
 
 @end
